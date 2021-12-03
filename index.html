@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>黑白棋</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="loading.css">
+  <link rel="shortcut icon" href="icon2.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="temp.js"></script>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+  <audio id="Test_Audio" muted="muted" loop> 
+    
+    <source src="gameBackGroundMusic.mp3" type="audio/mpeg"> 
+  </audio>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="titlebar">
+    <a class="navbar-brand" href="" id="game" style="color: yellow;">決戰黑白棋</a>
+
+    <ul class="navbar-nav">
+      <li class="nav-item" id="rank">
+        <a class="nav-link" href="#">排行榜</a>
+      </li>
+      <li class="nav-item" id="aboutGame">
+        <a class="nav-link" href="#">關於遊戲</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <div class="container-fluid" style="margin-top:30px">
+
+    <div class="row">
+      <div class="col-sm-3">
+        <div id="accordion">
+          <div class="card" style="background-color: darkgreen;z-index: 10;">
+            <div class="card-header">
+              <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                <span class="introuduceTitle" id = "collapse1">遊戲介紹<span>
+              </a>
+            </div>
+            <div id="collapseOne" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                <p style="float:left"><strong>在</strong></p>
+                <p style="float:left">本遊戲為十九世紀末英國人的發明，百年後世人借用莎士比亞名劇奧賽羅為這個遊戲重新命名。奧賽羅是一個黑人，妻子是白人，奧賽羅懷疑妻子不忠，最終親手把妻子殺死。後來真相大白，奧賽羅懊悔不已，自殺而死。黑白棋就是借用這個黑人白人鬥爭的故事。</p>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="background-color: yellow;">
+            <div class="card-header">
+              <a class="card-link" data-toggle="collapse" href="#collapseTwo">
+                <span class="introuduceTitle" id = "collapse2">遊玩方式<span>
+              </a>
+            </div>
+            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                <ul>
+                  <li>選擇困難度</li>
+                  <li>棋子必須依靠在其他棋子周圍</li>
+                  <li>當與棋子連線另一端有相同顏色棋子，則中間不同顏色棋子則轉成相同顏色</li>
+                  <li>下完整盤棋最多顏色者則獲勝</li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="background-color: red;">
+            <div class="card-header">
+              <a class="card-link" data-toggle="collapse" href="#collapseThree">
+                <span class="introuduceTitle" id = "collapse3">我不知道<span>
+              </a>
+            </div>
+            <div id="collapseThree" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="col-sm-9" style="position:static;">
+        <div class="container" id="container">
+          <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <h2 id="loading" style="text-align: left;left:100px;">Loading</h2>
+          </div>
+        </div>
+
+
+        <iframe src="https://www.aigei.com/music/class/tool_kit/" title="Game" id="iframe"
+          style="width:72vw;height:40.5vw;opacity :0;display: none;border-radius: 3px;"></iframe>
+        <div class="rightBoardBackground2" id="rankboard" style="display: none;">
+			<div id='accordion1' style='float:left;width:33%;'>
+				<div class='card' style='background-color: darkgreen;z-index: 10;'>
+					<div class='card-header'>
+						<a class='card-link' data-toggle='collapse' href='#colBoard1'>
+							<span class='introuduceTitle' id = 'collapsebo1'>遊戲介紹<span>
+						</a>
+					</div>
+					<div id='colBoard1' class='collapse' data-parent='#accordion1'>
+						<div class='card-body' id = 'rankEasy'>"
+    
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id='accordion2' style='float:left;width:33%;'>
+				<div class='card' style='background-color: darkgreen;z-index: 10;'>
+					<div class='card-header'>
+						<a class='card-link' data-toggle='collapse' href='#colBoard2'>
+							<span class='introuduceTitle' id = 'collapsebo2'>遊戲介紹<span>
+						</a>
+					</div>
+					<div id='colBoard2' class='collapse' data-parent='#accordion2'>
+						<div class='card-body' id='rankMiddle'>
+    
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id='accordion3' style='float:left;width:33%;'>
+				<div class='card' style='background-color: darkgreen;z-index: 10;'>
+					<div class='card-header'>
+						<a class='card-link' data-toggle='collapse' href='#colBoard3'>
+							<span class='introuduceTitle' id = 'collapsebo3'>遊戲介紹<span>
+						</a>
+					</div>
+					<div id='colBoard3' class='collapse' data-parent='#accordion3'>
+						<div class='card-body' id=rankHard>
+   
+						</div>
+					</div>
+				</div>
+			</div>
+		
+        </div>
+        <div class="aboutGame" id="aboutGameBoard" style="display: none;">
+            
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+<!-- https://www.runoob.com/try/try.php?filename=tryjquery_animation1 -->
