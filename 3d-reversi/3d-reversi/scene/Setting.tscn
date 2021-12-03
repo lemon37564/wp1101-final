@@ -1,0 +1,513 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://script/setting_panel.gd" type="Script" id=3]
+[ext_resource path="res://theme/default_theme.tres" type="Theme" id=4]
+
+[sub_resource type="Animation" id=21]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 640, 0 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "fold"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 640, 360 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "unfold"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1.5, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 360 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="ButtonGroup" id=19]
+
+[sub_resource type="ButtonGroup" id=13]
+
+[sub_resource type="ButtonGroup" id=14]
+
+[sub_resource type="ButtonGroup" id=20]
+
+[sub_resource type="ButtonGroup" id=15]
+
+[sub_resource type="ButtonGroup" id=16]
+
+[sub_resource type="ButtonGroup" id=17]
+
+[node name="Setting" type="Control"]
+margin_left = 640.0
+margin_right = 1920.0
+margin_bottom = 720.0
+theme = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fold" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 21 )
+anims/fold = SubResource( 22 )
+anims/unfold = SubResource( 23 )
+
+[node name="BackGround" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -270.0
+margin_right = 400.0
+margin_bottom = 270.0
+color = Color( 1, 0, 0, 0.705882 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -388.0
+margin_top = -250.0
+margin_right = -184.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 4 )
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Language" type="Label" parent="Labels"]
+margin_right = 204.0
+margin_bottom = 43.0
+size_flags_vertical = 2
+text = "Language"
+
+[node name="Texture" type="Label" parent="Labels"]
+margin_top = 62.0
+margin_right = 204.0
+margin_bottom = 105.0
+size_flags_vertical = 2
+text = "Texture"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animation" type="Label" parent="Labels"]
+margin_top = 124.0
+margin_right = 204.0
+margin_bottom = 167.0
+size_flags_vertical = 2
+text = "Animation"
+
+[node name="Hint" type="Label" parent="Labels"]
+margin_top = 187.0
+margin_right = 204.0
+margin_bottom = 230.0
+size_flags_vertical = 2
+text = "Hint"
+
+[node name="Shadow" type="Label" parent="Labels"]
+margin_top = 249.0
+margin_right = 204.0
+margin_bottom = 292.0
+size_flags_vertical = 2
+text = "Shadow"
+
+[node name="AA" type="Label" parent="Labels"]
+margin_top = 312.0
+margin_right = 204.0
+margin_bottom = 355.0
+size_flags_vertical = 2
+text = "AntiAliasing"
+
+[node name="Quality" type="Label" parent="Labels"]
+margin_top = 374.0
+margin_right = 204.0
+margin_bottom = 417.0
+size_flags_vertical = 2
+text = "Quality"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -164.0
+margin_top = -250.0
+margin_right = 386.0
+margin_bottom = 169.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Language" type="HBoxContainer" parent="Buttons"]
+margin_right = 550.0
+margin_bottom = 47.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="En" type="Button" parent="Buttons/Language"]
+margin_right = 270.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 19 )
+text = "English"
+
+[node name="ZhTW" type="Button" parent="Buttons/Language"]
+margin_left = 280.0
+margin_right = 550.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 19 )
+text = "ZhTW"
+
+[node name="Texture" type="HBoxContainer" parent="Buttons"]
+margin_top = 62.0
+margin_right = 550.0
+margin_bottom = 109.0
+rect_pivot_offset = Vector2( 5, 0 )
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fabric" type="Button" parent="Buttons/Texture"]
+margin_right = 270.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 13 )
+text = "Fabric"
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Metal" type="Button" parent="Buttons/Texture"]
+margin_left = 280.0
+margin_right = 550.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 13 )
+text = "Metal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animation" type="HBoxContainer" parent="Buttons"]
+margin_top = 124.0
+margin_right = 550.0
+margin_bottom = 171.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fast" type="Button" parent="Buttons/Animation"]
+margin_right = 176.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 14 )
+text = "Fast"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Normal" type="Button" parent="Buttons/Animation"]
+margin_left = 186.0
+margin_right = 363.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 14 )
+text = "Normal"
+
+[node name="Disable" type="Button" parent="Buttons/Animation"]
+margin_left = 373.0
+margin_right = 550.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 14 )
+text = "Disable"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hint" type="HBoxContainer" parent="Buttons"]
+margin_top = 186.0
+margin_right = 550.0
+margin_bottom = 233.0
+size_flags_horizontal = 3
+custom_constants/separation = 10
+
+[node name="On" type="Button" parent="Buttons/Hint"]
+margin_right = 270.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 20 )
+text = "On"
+
+[node name="Off" type="Button" parent="Buttons/Hint"]
+margin_left = 280.0
+margin_right = 550.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 20 )
+text = "Off"
+
+[node name="Shadow" type="HBoxContainer" parent="Buttons"]
+margin_top = 248.0
+margin_right = 550.0
+margin_bottom = 295.0
+size_flags_vertical = 2
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="On" type="Button" parent="Buttons/Shadow"]
+margin_right = 270.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 15 )
+text = "On"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Off" type="Button" parent="Buttons/Shadow"]
+margin_left = 280.0
+margin_right = 550.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 15 )
+text = "Off"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AA" type="HBoxContainer" parent="Buttons"]
+margin_top = 310.0
+margin_right = 550.0
+margin_bottom = 357.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="High" type="Button" parent="Buttons/AA"]
+margin_right = 130.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 16 )
+text = "High"
+
+[node name="Medium" type="Button" parent="Buttons/AA"]
+margin_left = 140.0
+margin_right = 270.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 16 )
+text = "Medium"
+
+[node name="Low" type="Button" parent="Buttons/AA"]
+margin_left = 280.0
+margin_right = 410.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 16 )
+text = "Low"
+
+[node name="Disable" type="Button" parent="Buttons/AA"]
+margin_left = 420.0
+margin_right = 550.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 16 )
+text = "Disable"
+
+[node name="Quality" type="HBoxContainer" parent="Buttons"]
+margin_top = 372.0
+margin_right = 550.0
+margin_bottom = 419.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="High" type="Button" parent="Buttons/Quality"]
+margin_right = 176.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 17 )
+text = "High"
+
+[node name="Medium" type="Button" parent="Buttons/Quality"]
+margin_left = 186.0
+margin_right = 363.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 17 )
+text = "Medium"
+
+[node name="Low" type="Button" parent="Buttons/Quality"]
+margin_left = 373.0
+margin_right = 550.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 17 )
+text = "Low"
+
+[node name="Ok" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 205.0
+margin_right = 100.0
+margin_bottom = 252.0
+focus_neighbour_right = NodePath("../Default")
+text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Default" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 251.0
+margin_top = 205.0
+margin_right = 385.0
+margin_bottom = 252.0
+focus_neighbour_left = NodePath("../Ok")
+text = "Default"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="animation_finished" from="Fold" to="." method="_on_Fold_animation_finished"]
+[connection signal="animation_started" from="Fold" to="." method="_on_Fold_animation_started"]
+[connection signal="pressed" from="Buttons/Language/En" to="." method="_on_En_pressed"]
+[connection signal="pressed" from="Buttons/Language/ZhTW" to="." method="_on_ZhTW_pressed"]
+[connection signal="pressed" from="Buttons/Texture/Fabric" to="." method="_on_Fabric_pressed"]
+[connection signal="pressed" from="Buttons/Texture/Metal" to="." method="_on_Metal_pressed"]
+[connection signal="pressed" from="Buttons/Animation/Fast" to="." method="_on_Animation_Fast_pressed"]
+[connection signal="pressed" from="Buttons/Animation/Normal" to="." method="_on_Animation_Normal_pressed"]
+[connection signal="pressed" from="Buttons/Animation/Disable" to="." method="_on_Animation_Disable_pressed"]
+[connection signal="toggled" from="Buttons/Hint/On" to="." method="_on_hint_On_toggled"]
+[connection signal="toggled" from="Buttons/Shadow/On" to="." method="_on_Shadow_toggled"]
+[connection signal="pressed" from="Buttons/AA/High" to="." method="_on_anti_aliasing_high"]
+[connection signal="pressed" from="Buttons/AA/Medium" to="." method="_on_anti_aliasing_medium"]
+[connection signal="pressed" from="Buttons/AA/Low" to="." method="_on_anti_aliasing_low"]
+[connection signal="pressed" from="Buttons/AA/Disable" to="." method="_on_anti_aliasing_disable"]
+[connection signal="pressed" from="Buttons/Quality/High" to="." method="_on_quality_high"]
+[connection signal="pressed" from="Buttons/Quality/Medium" to="." method="_on_quality_medium"]
+[connection signal="pressed" from="Buttons/Quality/Low" to="." method="_on_quality_low"]
+[connection signal="pressed" from="Ok" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="Default" to="." method="_on_Default_pressed"]

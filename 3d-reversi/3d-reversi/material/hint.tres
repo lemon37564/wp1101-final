@@ -1,0 +1,9 @@
+[gd_resource type="CylinderMesh" load_steps=2 format=2]
+
+[ext_resource path="res://material/fabric_black.material" type="Material" id=1]
+
+[resource]
+material = ExtResource( 1 )
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.001

@@ -1,0 +1,189 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://script/set_board_panel.gd" type="Script" id=1]
+[ext_resource path="res://picture/square.png" type="Texture" id=2]
+[ext_resource path="res://script/set_board_panel_button.gd" type="Script" id=3]
+[ext_resource path="res://theme/default_theme.tres" type="Theme" id=4]
+[ext_resource path="res://picture/square_focus.png" type="Texture" id=5]
+[ext_resource path="res://picture/black.png" type="Texture" id=6]
+[ext_resource path="res://script/set_board_decide_color_button.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 640, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fold"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 640, 360 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "unfold"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1.5, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 360 ), Vector2( 0, 0 ) ]
+}
+
+[node name="SetBoard" type="Control"]
+margin_right = 1280.0
+margin_bottom = 720.0
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fold" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/fold = SubResource( 2 )
+anims/unfold = SubResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -310.0
+margin_top = -310.0
+margin_right = 310.0
+margin_bottom = 310.0
+color = Color( 0.113725, 0.831373, 0.647059, 0.705882 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -296.0
+margin_right = 245.0
+margin_bottom = 204.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="TextureButton" parent="Grid"]
+margin_right = 62.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 2 )
+texture_focused = ExtResource( 5 )
+script = ExtResource( 3 )
+
+[node name="HBox" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -204.0
+margin_top = 233.0
+margin_right = 213.0
+margin_bottom = 293.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBox"]
+margin_top = 8.0
+margin_right = 158.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+text = "Next"
+align = 2
+
+[node name="Button" type="TextureButton" parent="HBox"]
+margin_left = 178.0
+margin_right = 238.0
+margin_bottom = 60.0
+texture_normal = ExtResource( 6 )
+texture_focused = ExtResource( 5 )
+script = ExtResource( 7 )
+
+[node name="OK" type="Button" parent="HBox"]
+margin_left = 258.0
+margin_right = 417.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="animation_finished" from="Fold" to="." method="_on_Fold_animation_finished"]
+[connection signal="animation_started" from="Fold" to="." method="_on_Fold_animation_started"]
+[connection signal="pressed" from="HBox/OK" to="." method="_on_OK_pressed"]
