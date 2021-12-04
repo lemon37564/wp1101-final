@@ -1,34 +1,35 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 body {
-	background-image: url('background.png');
-
+  background-image: url("https://i.imgur.com/Ds7FY23.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
 
 #titlebar {
-	margin-left:1vw;
-	width:23vw;
-	border-radius: 10px;
+  margin-left: 1vw;
+  width: 23vw;
+  border-radius: 10px;
 }
 
 .rightBoardBackground2 {
-	background-image: url("board2.jpg");
-	width:72vw;
-	height:40.5vw;
-	
-	background-size:72vw 40.5vw;
-	
-	/*position:absolute;*/
-	top:150px;
-	background-repeat:no-repeat;
-	z-index:3;
-	/* padding-left:60px;
+  background-image: url("board2.jpg");
+  width: 72vw;
+  height: 40.5vw;
+
+  background-size: 72vw 40.5vw;
+
+  /*position:absolute;*/
+  top: 150px;
+  background-repeat: no-repeat;
+  z-index: 3;
+  /* padding-left:60px;
 	padding-right:60px;
 	padding-top:50px; */
-	
-	/*animation-duration: 3s;
+
+  /*animation-duration: 3s;
   animation-name: slidein;*/
-	
-}/*
+} /*
 h1 {
   animation-duration: 3s;
   animation-name: slidein;
@@ -45,64 +46,62 @@ h1 {
     width: 100%;
   }
 }*/
-.introuduceTitle{
-	font-weight:bold;
-	font-family: 'Noto Sans TC', sans-serif;
-	color:white;
-	font-size:25px;
+.introuduceTitle {
+  font-weight: bold;
+  font-family: "Noto Sans TC", sans-serif;
+  color: white;
+  font-size: 25px;
 }
-.loadingBackground{
-	background-color : gray;
-	width:100px;
-	height:100px;
-	font-size:50px;
+.loadingBackground {
+  background-color: gray;
+  width: 100px;
+  height: 100px;
+  font-size: 50px;
 }
-.ll{
-    color:red;
+.ll {
+  color: red;
 }
-.aboutGame{
-	background-color: gray;
-	width:72vw;
-	height:40.5vw;
-	border: none;
-	box-sizing: border-box;
-	border-radius: 7px;
+.aboutGame {
+  background-color: gray;
+  width: 72vw;
+  height: 40.5vw;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 7px;
 }
-.tableShow{
-	/*background-color:white;*/
-	background-size:100px 200px;
-	width:300px;
-	height:100px;
-	color:red;
-	font-size:25px;
-	padding:20px;
-	overflow: hidden;
-	border: yellowgreen;
-	border-radius: 10px;
+.tableShow {
+  /*background-color:white;*/
+  background-size: 100px 200px;
+  width: 300px;
+  height: 100px;
+  color: red;
+  font-size: 25px;
+  padding: 20px;
+  overflow: hidden;
+  border: yellowgreen;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 600px) {
-	#titlebar {
-		margin-left:1vw;
-		width:100vw;
-		border-radius: 10px;
-	}
-	
-	.rightBoardBackground2 {
-	background-image: url("board2.jpg");
-		width:100vw;
-		height:50vw;
-		
-		background-size:100vw 50vw;
-		
-		/*position:absolute;*/
-		top:150px;
-		background-repeat:no-repeat;
-		z-index:3;
-		padding-left:60px;
-		padding-right:60px;
-		padding-top:50px;
-		
-		
-	}
+  #titlebar {
+    margin-left: 1vw;
+    width: 100vw;
+    border-radius: 10px;
+  }
+
+  .rightBoardBackground2 {
+    background-image: url("board2.jpg");
+    width: 100vw;
+    height: 50vw;
+
+    background-size: 100vw 50vw;
+
+    /*position:absolute;*/
+    top: 150px;
+    background-repeat: no-repeat;
+    z-index: 3;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 50px;
+  }
 }
