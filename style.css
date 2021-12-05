@@ -13,6 +13,10 @@ body {
   border-radius: 10px;
 }
 
+#game:hover {
+  color: lightyellow;
+}
+
 .rightBoardBackground2 {
   background-image: url("board2.jpg");
   width: 72vw;
@@ -32,23 +36,27 @@ body {
   animation-name: slidein;*/
 }
 
-/*
-h1 {
-  animation-duration: 3s;
-  animation-name: slidein;
-}*/
+h3 {
+  display: inline;
+  margin-top: 100px;
+}
 
-/*@keyframes slidein {
-  from {
-    padding-left: 100%;
-    width: 300%;
-  }
+div.avatar {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 120px;
+}
 
-  to {
-    padding-left: 60px;
-    width: 100%;
-  }
-}*/
+img.avatar {
+  width: 80px;
+  height: 80px;
+  background-color: grey;
+}
+
+.caption {
+  display: block;
+}
 
 .introuduceTitle {
   font-weight: bold;

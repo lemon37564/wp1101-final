@@ -22,7 +22,7 @@ function start() {
   collapse2 = document.getElementById("collapse2");
   collapse3 = document.getElementById("collapse3");
   aboutPage = document.getElementById("aboutPage");
-  loader = document.getElementById("container");
+  loader = document.getElementById("loading-container");
 
   let rankMusic = new Audio("rankMusic.mp3");
   let clickMusic = new Audio("clickMusic.mp3");
