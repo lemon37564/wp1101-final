@@ -1,10 +1,10 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 body {
-  background-image: url("https://i.imgur.com/Ds7FY23.jpg");
+  background-image: url("futureprototype.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100% 100%;
+  background-size: cover;
 }
 
 #titlebar {
