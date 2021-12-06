@@ -36,28 +36,6 @@ body {
   animation-name: slidein;*/
 }
 
-h3 {
-  display: inline;
-  margin-top: 100px;
-}
-
-div.avatar {
-  vertical-align: top;
-  display: inline-block;
-  text-align: center;
-  width: 120px;
-}
-
-img.avatar {
-  width: 80px;
-  height: 80px;
-  background-color: grey;
-}
-
-.caption {
-  display: block;
-}
-
 .introuduceTitle {
   font-weight: bold;
   font-family: "Noto Sans TC", sans-serif;
