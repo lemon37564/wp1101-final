@@ -60,50 +60,51 @@ function start() {
 }
 
 async function getRank() {
-  setTimeout(function(){
-    console.log("I am the third log after 5 seconds");
-},5000);
-
-  let rankEasyShow = document.getElementById("rankEasyContent");
-  let rankMiddleShow = document.getElementById("rankMiddleContent");
-  let rankHardShow = document.getElementById("rankHardContent");
-  let ranks = [rankEasyShow, rankMiddleShow, rankHardShow];
-
   let request = new XMLHttpRequest();
-  let datastr;
-  let len = 0;
+
   request.open(
     "get",
-    "https://ntou-sell.herokuapp.com/backend/leaderboard/get",
-    false
-  );
-  request.onreadystatechange = function () {
+    "https://ntou-sell.herokuapp.com/backend/leaderboard/get"  );
+  request.onload = function () {
     if (request.readyState === 4 && request.status === 200) {
       let type = request.getResponseHeader("Content-Type");
+      let datastr;
+      let len = 0;
+
       if (type.match(/^text/)) {
         datastr = JSON.parse(request.responseText);
         len = datastr.length;
         console.log(datastr);
       }
+
+      let rankEasyShow = document.getElementById("rankEasyContent");
+      let rankMiddleShow = document.getElementById("rankMiddleContent");
+      let rankHardShow = document.getElementById("rankHardContent");
+      let ranks = [rankEasyShow, rankMiddleShow, rankHardShow];
+      
+      let tmp = ["", "", ""];
+
+      for (let i = 0; i < len; i++) {
+        let stren = parseInt(datastr[i].strength);
+        tmp[stren] += "<tr class='success'>";
+        tmp[stren] += "<th>" + String(i + 1) + "</th>";
+        tmp[stren] += "<th>" + datastr[i].player_name + "</th>";
+        tmp[stren] +=
+          "<th>" +
+          datastr[i].self_point +
+          ":" +
+          datastr[i].enemy_point +
+          "</th>";
+        tmp[stren] += "</tr>";
+      }
+
+      for (let i = 0; i < 3; i++) {
+        ranks[i].innerHTML = tmp[i];
+      }
     }
   };
   request.send(null);
   //datastr.sort();
-
-  let tmp = ["", "", ""];
-
-  for (let i = 0; i < len; i++) {
-    let stren = parseInt(datastr[i].strength);
-    tmp[stren] += "<tr class='success'>";
-    tmp[stren] += "<th>" + String(i + 1) + "</th>";
-    tmp[stren] += "<th>" + datastr[i].player_name + "</th>";
-    tmp[stren] += "<th>" + datastr[i].self_point + ":" + datastr[i].enemy_point + "</th>";
-    tmp[stren] += "</tr>";
-  }
-
-  for (let i = 0; i < 3; i++) {
-    ranks[i].innerHTML = tmp[i];
-  }
 }
 
 function showAboutPage() {
@@ -131,8 +132,6 @@ function showRank() {
   showBoard.setAttribute("style", "display:block;");
   aboutPage.setAttribute("style", "display:none;");
   loader.setAttribute("style", "display:none;");
-  console.log("ggg")
-  
 }
 
 function fadeIn(el, duration) {
@@ -159,13 +158,11 @@ let prepare = 0;
 function load(loadId, duration) {
   function next2() {
     if (prepare++ > 25) {
-      console.log("loading finish");
       loadingFinished = true;
       loader.setAttribute("style", "display:none");
 
       fadeIn(iframe, 1000);
 
-      console.log(iframe.style.height);
       showGame();
 
       return;
