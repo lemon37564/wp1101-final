@@ -1,12 +1,8 @@
-let rankButton;
-let gameButton;
-let aboutGameButton;
+let rankButton, gameButton, aboutGameButton;
 let showBoard;
 let iframe;
 let loadId;
-let collapse1;
-let collapse2;
-let collapse3;
+let collapse1, collapse2, collapse3;
 let aboutPage;
 let loader;
 let loadingFinished = false;
@@ -30,8 +26,6 @@ function start() {
   rankButton.addEventListener("click", showRank, false);
   gameButton.addEventListener("click", showGame, false);
   aboutGameButton.addEventListener("click", showAboutPage, false);
-
-  getRank();
   let gameBackGroundMusic = document.getElementById("Test_Audio");
 
   //background music;
@@ -65,64 +59,17 @@ function start() {
   load(loadId, 500);
 }
 
-arrRankEasy = [
-  { rank: 1, name: "Dino", score: 64 },
-  { rank: 2, name: "Jim", score: 54 },
-  { rank: 3, name: "Dino", score: 64 },
-  { rank: 4, name: "Jim", score: 54 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-];
-arrRankMiddle = [
-  { rank: 1, name: "Dino", score: 64 },
-  { rank: 2, name: "Jim", score: 54 },
-  { rank: 3, name: "Dino", score: 64 },
-  { rank: 4, name: "Jim", score: 54 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-];
-arrRankHard = [
-  { rank: 1, name: "Dino", score: 64 },
-  { rank: 2, name: "Jim", score: 54 },
-  { rank: 3, name: "Dino", score: 64 },
-  { rank: 4, name: "Jim", score: 54 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-  { rank: 5, name: "Dino", score: 64 },
-];
+async function getRank() {
+  setTimeout(function(){
+    console.log("I am the third log after 5 seconds");
+},5000);
 
-function getRank() {
-  console.log("getting info");
+  let rankEasyShow = document.getElementById("rankEasyContent");
+  let rankMiddleShow = document.getElementById("rankMiddleContent");
+  let rankHardShow = document.getElementById("rankHardContent");
+  let ranks = [rankEasyShow, rankMiddleShow, rankHardShow];
+
   let request = new XMLHttpRequest();
-
-  let rankEasyShow = document.getElementById("rankEasy");
-  let rankMiddleShow = document.getElementById("rankMiddle");
-  let rankHardShow = document.getElementById("rankHard");
-
-  rankEasyShow.innerHTML =
-    "<table class='tableShow'><thead><tr><th>Rank</th><th>Name</th><th>Score</th></tr></thead><tbody>";
-  rankMiddleShow.innerHTML =
-    "<table class='tableShow'><thead><tr><th>Rank</th><th>Name</th><th>Score</th></thead><tbody>";
-  rankHardShow.innerHTML =
-    "<table class='tableShow'><thead><tr><th>Rank</th><th>Name</th><th>Score</th></thead><tbody>";
-
   let datastr;
   let len = 0;
   request.open(
@@ -143,46 +90,20 @@ function getRank() {
   request.send(null);
   //datastr.sort();
 
-  let easyTmp = "";
-  let middlTmp = "";
-  let hardTmp = "";
+  let tmp = ["", "", ""];
 
   for (let i = 0; i < len; i++) {
     let stren = parseInt(datastr[i].strength);
-    if (stren == 0) {
-      easyTmp += "<tr class='success'>";
-      easyTmp += "<td>" + "#" + "</td>";
-      easyTmp += "<td>" + datastr[i].player_name + "</td>";
-      easyTmp +=
-        "<td>" + datastr[i].self_point + ":" + datastr[i].enemy_point + "</td>";
-      easyTmp += "</tr>";
-    } else if (stren == 1) {
-      middlTmp += "<tr class='success'>";
-      middlTmp += "<td>" + "#" + "</td>";
-      middlTmp += "<td>" + datastr[i].player_name + "ssssssss</td>";
-      middlTmp +=
-        "<td>" + datastr[i].self_point + ":" + datastr[i].enemy_point + "</td>";
-      middlTmp += "</tr>";
-    } else if (stren == 2) {
-      hardTmp += "<tr class='success'>";
-      hardTmp += "<td>" + "#" + "</td>";
-      hardTmp += "<td>" + datastr[i].player_name + "sssssss</td>";
-      hardTmp +=
-        "<td>" + datastr[i].self_point + ":" + datastr[i].enemy_point + "</td>";
-      hardTmp += "</tr>";
-    }
+    tmp[stren] += "<tr class='success'>";
+    tmp[stren] += "<th>" + String(i + 1) + "</th>";
+    tmp[stren] += "<th>" + datastr[i].player_name + "</th>";
+    tmp[stren] += "<th>" + datastr[i].self_point + ":" + datastr[i].enemy_point + "</th>";
+    tmp[stren] += "</tr>";
   }
-  easyTmp += "</tbody>";
-  middlTmp += "</tbody>";
-  hardTmp += "</tbody>";
 
-  rankEasyShow.innerHTML += easyTmp;
-  rankMiddleShow.innerHTML += middlTmp;
-  rankHardShow.innerHTML += hardTmp;
-
-  console.log("e" + rankEasyShow.innerHTML);
-  console.log("m" + rankMiddleShow.innerHTML);
-  console.log("h" + rankHardShow.innerHTML);
+  for (let i = 0; i < 3; i++) {
+    ranks[i].innerHTML = tmp[i];
+  }
 }
 
 function showAboutPage() {
@@ -205,10 +126,13 @@ function showGame() {
 }
 
 function showRank() {
+  getRank();
   iframe.setAttribute("style", "display:none;");
   showBoard.setAttribute("style", "display:block;");
   aboutPage.setAttribute("style", "display:none;");
   loader.setAttribute("style", "display:none;");
+  console.log("ggg")
+  
 }
 
 function fadeIn(el, duration) {
