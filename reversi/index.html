@@ -121,6 +121,14 @@
 		Please try updating or use a different browser.
 	</canvas>
 	<div id='status'>
+		<div class="loading-container" id="loading-container">
+			<div class="loader">
+			  <span></span>
+			  <span></span>
+			  <span></span>
+			  <h2 id="loading" style="text-align: left;left:100px;">Loading</h2>
+			</div>
+		</div>
 		<div id='status-progress' style='display: none;' oncontextmenu='event.preventDefault();'><div id ='status-progress-inner'></div></div>
 		<div id='status-indeterminate' style='display: none;' oncontextmenu='event.preventDefault();'>
 			<div></div>
@@ -170,9 +178,13 @@
 				});
 				switch (mode) {
 					case 'progress':
-						statusProgress.style.display = 'block';
+						//statusProgress.style.display = 'block';
+
 						break;
 					case 'indeterminate':
+						loader = document.getElementById("loading-container");
+      					loader.setAttribute("style", "display:none");
+						
 						statusIndeterminate.style.display = 'block';
 						animationCallbacks.push(animateStatusIndeterminate);
 						break;
