@@ -103,27 +103,24 @@
       </div>
       <div class="col-sm-9" style="position:static;">
 
-        <iframe src="test/" title="Game" id="iframe"
-          style="width:72vw;height:40.5vw;display: block; border: none;border-radius: 3px; overflow:hidden"></iframe>
+        <iframe src="test/" title="Game" id="iframe" class="game"></iframe>
 
-        <div class="wp-block-group is-style-box container" id="rankboard"
-          style="display: none;background-color: rgb(224, 226, 209);">
-          <div class="wp-block-group__inner-container">
-            <div class="container">
-
+        <div id="rankboard" style="display: none;">
+          <div class="wp-block-group is-style-box container" style="background-color: rgb(224, 226, 209);">
+            <div class="wp-block-group__inner-container">
               <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="titlebar2">
                 <ul class="navbar-nav nav rankBar">
-                  <li class="nav-item rankLi" style="float:left;"><a data-toggle="tab" class="nav-link" href="#menu1"
-                      style="font-size: large; color: white; text-decoration: none;"
-                      onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI:弱</a>
+                  <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link" href="#menu1"
+                      style="font-size: x-large; color: white; text-decoration: none; width: 100%; text-align: center;"
+                      onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI 弱</a>
                   </li>
-                  <li class="nav-item rankLi" style="float:left;"><a data-toggle="tab" class="nav-link" href="#menu2"
-                      style="font-size: large; color: white; text-decoration: none;"
-                      onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI:中
+                  <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link" href="#menu2"
+                      style="font-size: x-large; color: white; text-decoration: none; width: 100%; text-align: center;"
+                      onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI 中
                     </a></li>
-                  <li class="nav-item rankLi" style="float:left;"><a data-toggle="tab" class="nav-link" href="#menu3"
-                      style="font-size: large; color: white; text-decoration: none;"
-                      onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI:強
+                  <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link" href="#menu3"
+                      style="font-size: x-large; color: white; text-decoration: none; width: 100%; text-align: center;"
+                      onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI 強
                     </a></li>
                 </ul>
               </nav>
@@ -131,7 +128,12 @@
               <div class="tab-content">
                 <div id="menu1" class="tab-pane fade in active">
                   <div class='card-body'>
-                    <table class='tableShow' style="white-space: nowrap; color: #4C4D52;">
+                    <table class='tableShow'
+                      style="white-space: nowrap; color: #4C4D52; table-layout: fixed; text-align: center;">
+                      <col width="120px" />
+                      <col width="600px" />
+                      <col width="150px" />
+                      <col width="200px" />
                       <thead>
                         <tr>
                           <th>排行</th>
@@ -147,7 +149,12 @@
                 </div>
                 <div id="menu2" class="tab-pane fade">
                   <div class='card-body'>
-                    <table class='tableShow' style="white-space: nowrap; color: #4C4D52;">
+                    <table class='tableShow'
+                      style="white-space: nowrap; color: #4C4D52; table-layout: fixed; text-align: center;">
+                      <col width="120px" />
+                      <col width="600px" />
+                      <col width="150px" />
+                      <col width="200px" />
                       <thead>
                         <tr>
                           <th>排行</th>
@@ -162,8 +169,13 @@
                   </div>
                 </div>
                 <div id="menu3" class="tab-pane fade">
-                  <div class='card-body' style='width:200px;height:200px;'>
-                    <table class='tableShow' style="white-space: nowrap; color: #4C4D52;">
+                  <div class='card-body'>
+                    <table class='tableShow'
+                      style="white-space: nowrap; color: #4C4D52; table-layout: fixed; text-align: center;">
+                      <col width="120px" />
+                      <col width="600px" />
+                      <col width="150px" />
+                      <col width="200px" />
                       <thead>
                         <tr>
                           <th>排行</th>
@@ -182,76 +194,78 @@
           </div>
         </div>
 
-        <div class="wp-block-group is-style-box container" id="aboutPage" style="display: none;">
-          <div class="wp-block-group__inner-container">
-            <h1 style="text-align: center; font-size: 54px;">特色</h1>
+        <div id="aboutPage" style="display: none;">
+          <div class="wp-block-group is-style-box container">
+            <div class="wp-block-group__inner-container">
+              <h1 style="text-align: center; font-size: 54px;">特色</h1>
 
-            <div>
-              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+              <div>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+              </div>
+              <img src="imgs/screenshot_fabric.png" style="width: 200px; width: 200px; float: left;">
+              <img src="imgs/screenshot_metal.png" style="width: 200px; width: 200px; float: left;">
+
             </div>
-            <img src="imgs/screenshot_fabric.png" style="width: 200px; width: 200px; float: left;">
-            <img src="imgs/screenshot_metal.png" style="width: 200px; width: 200px; float: left;">
-
           </div>
-        </div>
 
-        <br><br>
+          <br><br>
 
-        <div class="wp-block-group is-style-box container">
-          <div class="wp-block-group__inner-container">
-            <h1 style="text-align: center; font-size: 54px;">後端</h1>
-            <p>本網站後端使用Go語言編寫，並部屬在heroku上，資料庫使用postgreSQL(heroku postgres)</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-            <p>5</p>
-            <p>6</p>
-            <p>7</p>
-            <p>8</p>
-            <p>若網站出現問題歡迎回報
-              <a target="_blank"
-                href="https://github.com/lemon37564/wp1101-final/issues">https://github.com/lemon37564/wp1101-final/issues</a>
-            </p>
+          <div class="wp-block-group is-style-box container">
+            <div class="wp-block-group__inner-container">
+              <h1 style="text-align: center; font-size: 54px;">後端</h1>
+              <p>本網站後端使用Go語言編寫，並部屬在heroku上，資料庫使用postgreSQL(heroku postgres)</p>
+              <p>2</p>
+              <p>3</p>
+              <p>4</p>
+              <p>5</p>
+              <p>6</p>
+              <p>7</p>
+              <p>8</p>
+              <p>若網站出現問題歡迎回報
+                <a target="_blank"
+                  href="https://github.com/lemon37564/wp1101-final/issues">https://github.com/lemon37564/wp1101-final/issues</a>
+              </p>
 
+            </div>
           </div>
-        </div>
 
-        <br><br>
+          <br><br>
 
-        <div class="wp-block-columns">
-          <div class="wp-block-column is-style-box">
-            <h1 style="text-align: center; font-size: 54px;">作者</h1>
+          <div class="wp-block-columns">
+            <div class="wp-block-column is-style-box">
+              <h1 style="text-align: center; font-size: 54px;">作者</h1>
 
-            <div>
-              <div style="float: left;">
-                <a target="_blank" href="https://github.com/lemon37564" style="text-decoration: none;">
-                  <img src="https://avatars.githubusercontent.com/u/65079334?v=4" class="zoom-on-hover"
-                    style="width: 120px; height: 120px; border-radius: 10px; border: 1px solid grey;" />
-                  <figcaption style="text-align: center;"> lemon37564 </figcaption>
-                </a>
+              <div>
+                <div style="float: left;">
+                  <a target="_blank" href="https://github.com/lemon37564" style="text-decoration: none;">
+                    <img src="https://avatars.githubusercontent.com/u/65079334?v=4" class="zoom-on-hover"
+                      style="width: 120px; height: 120px; border-radius: 10px; border: 1px solid grey;" />
+                    <figcaption style="text-align: center;"> lemon37564 </figcaption>
+                  </a>
+                </div>
+
+                <div style="float: left; visibility: hidden;"><span>place</span></div>
+
+                <div style="float: left;">
+                  <a target="_blank" href="https://github.com/Dino-0625" style="text-decoration: none;">
+                    <img src="https://avatars.githubusercontent.com/u/65156720?v=4" class="zoom-on-hover"
+                      style="width: 120px; height: 120px; border-radius: 10px; border: 1px solid grey;" />
+                    <figcaption style="text-align: center;"> Dino-0625 </figcaption>
+                  </a>
+                </div>
               </div>
 
-              <div style="float: left; visibility: hidden;"><span>place</span></div>
-
-              <div style="float: left;">
-                <a target="_blank" href="https://github.com/Dino-0625" style="text-decoration: none;">
-                  <img src="https://avatars.githubusercontent.com/u/65156720?v=4" class="zoom-on-hover"
-                    style="width: 120px; height: 120px; border-radius: 10px; border: 1px solid grey;" />
-                  <figcaption style="text-align: center;"> Dino-0625 </figcaption>
-                </a>
-              </div>
             </div>
 
+            <p class="version" style="position: absolute; right: 15px;">wp1101-final v0.1</p>
+
           </div>
-
-          <p class="version" style="position: absolute; right: 15px;">wp1101-final v0.1</p>
-
         </div>
       </div>
     </div>

@@ -28,7 +28,7 @@ p.sidebar {
 
 #titlebar2 {
   margin-left: 1vw;
-  width: 20em;
+  width: 95.5%;
   border-radius: 10px;
 }
 
@@ -102,11 +102,25 @@ p.sidebar {
   border-radius: 10px;
 }
 
+iframe.game {
+  width: 72vw;
+  height: 40.5vw;
+  display: block;
+  border: none;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
 @media screen and (max-width: 600px) {
   #titlebar {
     margin-left: 1vw;
     margin-right: 1vw;
     width: 98vw;
+    border-radius: 10px;
+  }
+
+  #titlebar2 {
+    width: 98%;
     border-radius: 10px;
   }
 
@@ -124,5 +138,19 @@ p.sidebar {
     padding-left: 60px;
     padding-right: 60px;
     padding-top: 50px;
+  }
+
+  iframe.game {
+    width: 100%;
+    height: 56.25vw;
+    display: block;
+    border: none;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .tableShow {
+    white-space: normal !important;
+    table-layout: auto !important;
   }
 }

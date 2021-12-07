@@ -54,7 +54,7 @@ function start() {
     false
   );
 
-  load(loadId, 500);
+  // load(loadId, 500);
 }
 
 async function getRank() {
