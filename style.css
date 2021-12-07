@@ -43,30 +43,15 @@ p.sidebar {
   width: 100%;
 }
 
-.rightBoardBackground2 {
-  background-image: url("board2.jpg");
-  width: 72vw;
-  height: 40.5vw;
-
-  background-size: 72vw 40.5vw;
-
-  /*position:absolute;*/
-  top: 150px;
-  background-repeat: no-repeat;
-  z-index: 3;
-  /* padding-left:60px;
-	padding-right:60px;
-	padding-top:50px; */
-
-  /*animation-duration: 3s;
-  animation-name: slidein;*/
-}
-
 .introuduceTitle {
   font-weight: bold;
   font-family: "Noto Sans TC", sans-serif;
   color: white;
   font-size: 25px;
+}
+
+.tab-content {
+  min-height: 600px;
 }
 
 .loadingBackground {
