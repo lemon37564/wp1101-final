@@ -1,5 +1,6 @@
 let rankButton, gameButton, aboutGameButton;
-let showBoard;
+let showBoard, history;
+let historyPage;
 let iframe;
 let loadId;
 let collapse1, collapse2, collapse3;
@@ -11,12 +12,14 @@ function start() {
   gameButton = document.getElementById("game");
   aboutGameButton = document.getElementById("about");
   showBoard = document.getElementById("rankboard");
+  history = document.getElementById("history");
   iframe = document.getElementById("iframe");
   loadId = document.getElementById("loading");
   collapse1 = document.getElementById("collapse1");
   collapse2 = document.getElementById("collapse2");
   collapse3 = document.getElementById("collapse3");
   aboutPage = document.getElementById("aboutPage");
+  historyPage = document.getElementById("historyPage");
 
   let rankMusic = new Audio("rankMusic.mp3");
   let clickMusic = new Audio("clickMusic.mp3");
@@ -24,6 +27,7 @@ function start() {
   rankButton.addEventListener("click", showRank, false);
   gameButton.addEventListener("click", showGame, false);
   aboutGameButton.addEventListener("click", showAboutPage, false);
+  history.addEventListener("click", showHistoryPage, false);
   let gameBackGroundMusic = document.getElementById("Test_Audio");
 
   //background music;
@@ -89,10 +93,17 @@ async function getRank() {
         tmp[stren] += "<th>" + data[i].player_name + "</th>";
         tmp[stren] +=
           "<th>" + data[i].self_point + ":" + data[i].enemy_point + "</th>";
-        
+
         let date = new Date(data[i].game_date);
-        
-        tmp[stren] += "<th>" + date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate() + "</th>";
+
+        tmp[stren] +=
+          "<th>" +
+          date.getFullYear() +
+          "/" +
+          date.getMonth() +
+          "/" +
+          date.getDate() +
+          "</th>";
         tmp[stren] += "</tr>";
         currentRank[i]++;
       }
@@ -105,23 +116,32 @@ async function getRank() {
   request.send(null);
 }
 
-function showAboutPage() {
+function hideAll() {
   showBoard.style.display = "none";
-  aboutPage.style.display = "block";
+  aboutPage.style.display = "none";
   iframe.style.display = "none";
+  historyPage.style.display = "none";
+}
+
+function showAboutPage() {
+  hideAll();
+  aboutPage.style.display = "block";
 }
 
 function showGame() {
+  hideAll();
   iframe.style.display = "block";
-  showBoard.style.display = "none";
-  aboutPage.style.display = "none";
 }
 
 function showRank() {
   getRank();
-  iframe.style.display = "none";
+  hideAll();
   showBoard.style.display = "block";
-  aboutPage.style.display = "none";
+}
+
+function showHistoryPage() {
+  hideAll();
+  historyPage.style.display = "block";
 }
 
 function fadeIn(el, duration) {
