@@ -83,11 +83,12 @@ async function getRank() {
       let ranks = [rankEasyShow, rankMiddleShow, rankHardShow];
       
       let tmp = ["", "", ""];
+      let currentRank = [1, 1, 1];
 
       for (let i = 0; i < len; i++) {
         let stren = parseInt(datastr[i].strength);
         tmp[stren] += "<tr class='success'>";
-        tmp[stren] += "<th>" + String(i + 1) + "</th>";
+        tmp[stren] += "<th>" + String(currentRank[i]) + "</th>";
         tmp[stren] += "<th>" + datastr[i].player_name + "</th>";
         tmp[stren] +=
           "<th>" +
@@ -96,6 +97,7 @@ async function getRank() {
           datastr[i].enemy_point +
           "</th>";
         tmp[stren] += "</tr>";
+        currentRank[i]++;
       }
 
       for (let i = 0; i < 3; i++) {
