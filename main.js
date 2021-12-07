@@ -129,7 +129,7 @@ function showGame() {
 function showRank() {
   getRank();
   iframe.setAttribute("style", "display:none;");
-  showBoard.setAttribute("style", "display:block;");
+  showBoard.style.display = "block";
   aboutPage.setAttribute("style", "display:none;");
   loader.setAttribute("style", "display:none;");
 }
