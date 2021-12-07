@@ -64,38 +64,38 @@ async function getRank() {
 
   request.open(
     "get",
-    "https://ntou-sell.herokuapp.com/backend/leaderboard/get"  );
+    "https://ntou-sell.herokuapp.com/backend/leaderboard/get"
+  );
   request.onload = function () {
     if (request.readyState === 4 && request.status === 200) {
       let type = request.getResponseHeader("Content-Type");
-      let datastr;
-      let len = 0;
+      let data;
 
       if (type.match(/^text/)) {
-        datastr = JSON.parse(request.responseText);
-        len = datastr.length;
-        console.log(datastr);
+        data = JSON.parse(request.responseText);
+        console.log(data);
       }
 
       let rankEasyShow = document.getElementById("rankEasyContent");
       let rankMiddleShow = document.getElementById("rankMiddleContent");
       let rankHardShow = document.getElementById("rankHardContent");
       let ranks = [rankEasyShow, rankMiddleShow, rankHardShow];
-      
+
       let tmp = ["", "", ""];
       let currentRank = [1, 1, 1];
 
-      for (let i = 0; i < len; i++) {
-        let stren = parseInt(datastr[i].strength);
+      for (let i = 0; i < data.length; i++) {
+        let stren = parseInt(data[i].strength);
         tmp[stren] += "<tr class='success'>";
         tmp[stren] += "<th>" + String(currentRank[i]) + "</th>";
-        tmp[stren] += "<th>" + datastr[i].player_name + "</th>";
+        tmp[stren] += "<th>" + data[i].player_name + "</th>";
         tmp[stren] +=
-          "<th>" +
-          datastr[i].self_point +
-          ":" +
-          datastr[i].enemy_point +
-          "</th>";
+          "<th>" + data[i].self_point + ":" + data[i].enemy_point + "</th>";
+        
+        let date = data[i].game_date;
+        let dateS = date.split("T");
+        
+        tmp[stren] += "<th>" + dateS[0] + "</th>";
         tmp[stren] += "</tr>";
         currentRank[i]++;
       }
@@ -106,7 +106,6 @@ async function getRank() {
     }
   };
   request.send(null);
-  //datastr.sort();
 }
 
 function showAboutPage() {
