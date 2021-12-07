@@ -5,7 +5,6 @@ let loadId;
 let collapse1, collapse2, collapse3;
 let aboutPage;
 let loader;
-let loadingFinished = false;
 
 function start() {
   rankButton = document.getElementById("rank");
@@ -18,7 +17,6 @@ function start() {
   collapse2 = document.getElementById("collapse2");
   collapse3 = document.getElementById("collapse3");
   aboutPage = document.getElementById("aboutPage");
-  loader = document.getElementById("loading-container");
 
   let rankMusic = new Audio("rankMusic.mp3");
   let clickMusic = new Audio("clickMusic.mp3");
@@ -108,30 +106,22 @@ async function getRank() {
 }
 
 function showAboutPage() {
-  showBoard.setAttribute("style", "display:none;");
-  aboutPage.setAttribute("style", "display:block;");
-  iframe.setAttribute("style", "display:none;");
-  loader.setAttribute("style", "display:none;");
+  showBoard.style.display = "none";
+  aboutPage.style.display = "block";
+  iframe.style.display = "none";
 }
 
 function showGame() {
-  if (!loadingFinished) {
-    return;
-  }
-  iframe.setAttribute(
-    "style",
-    "display:block;width:72vw;height:40.5vw; border: none;box-sizing: border-box;border-radius: 7px;"
-  );
-  showBoard.setAttribute("style", "display:none;");
-  aboutPage.setAttribute("style", "display:none;");
+  iframe.style.display = "block";
+  showBoard.style.display = "none";
+  aboutPage.style.display = "none";
 }
 
 function showRank() {
   getRank();
-  iframe.setAttribute("style", "display:none;");
+  iframe.style.display = "none";
   showBoard.style.display = "block";
-  aboutPage.setAttribute("style", "display:none;");
-  loader.setAttribute("style", "display:none;");
+  aboutPage.style.display = "none";
 }
 
 function fadeIn(el, duration) {
