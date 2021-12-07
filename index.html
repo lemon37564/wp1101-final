@@ -56,8 +56,8 @@
             </a>
             <div id="collapseOne" class="collapse" data-parent="#accordion">
               <div class="card-body">
-                <p style="font-size: large; color: whitesmoke;">黑白棋（Reversi），又稱翻轉棋、蘋果棋或奧賽羅棋（Othello），是一種雙人對弈的棋類遊戲。</p>
-                <p style="font-size: large; color: whitesmoke;">
+                <p style="float:left"><strong>在</strong></p>
+                <p style="float:left">
                   本遊戲為十九世紀末英國人的發明，百年後世人借用莎士比亞名劇奧賽羅為這個遊戲重新命名。奧賽羅是一個黑人，妻子是白人，奧賽羅懷疑妻子不忠，最終親手把妻子殺死。後來真相大白，奧賽羅懊悔不已，自殺而死。黑白棋就是借用這個黑人白人鬥爭的故事。
                 </p>
               </div>
@@ -71,7 +71,7 @@
             </a>
             <div id="collapseTwo" class="collapse" data-parent="#accordion">
               <div class="card-body">
-                <ul style="font-size: large; color: whitesmoke; list-style-type: '※';">
+                <ul>
                   <li>選擇困難度</li>
                   <li>棋子必須依靠在其他棋子周圍</li>
                   <li>當與棋子連線另一端有相同顏色棋子，則中間不同顏色棋子則轉成相同顏色</li>
@@ -89,7 +89,7 @@
             </a>
             <div id="collapseThree" class="collapse" data-parent="#accordion">
               <div class="card-body">
-                <p style="font-size: large; color: whitesmoke;">unknown</p>
+
               </div>
             </div>
           </div>
@@ -98,12 +98,85 @@
 
       </div>
       <div class="col-sm-9" style="position:static;">
-        
+
 
         <iframe src="test/index.html" title="Game" id="iframe"
           style="width:72vw;height:40.5vw;opacity :0;display: none;border-radius: 3px;"></iframe>
 
-        <div class="rightBoardBackground2" id="rankboard" style="display: none;">
+
+
+        <div class="wp-block-group is-style-box container" id="rankboard" style="display: none;background-color: #edede4;">
+          <div class="wp-block-group__inner-container">
+            <div class="container">
+              <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="titlebar2">
+              <ul class="navbar-nav">
+
+                <li class="nav-item" style="float:left;"><a data-toggle="tab" href="#menu1">AI:弱</a></li>
+                <li class="nav-item" style="float:left;"><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+                <li class="nav-item" style="float:left;"><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+              </ul>
+
+              <div class="tab-content">
+                <div id="menu1" class="tab-pane fade in active">
+                  <h3>AI:弱</h3>
+
+
+                  <div class='card-body'>
+                    <table class='tableShow' style="white-space: nowrap; color: #4C4D52;">
+                      <thead>
+                        <tr>
+                          <th>排行</th>
+                          <th>名稱</th>
+                          <th>分數</th>
+                          <th>遊玩日期</th>
+                        </tr>
+                      </thead>
+                      <tbody id="rankEasyContent">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="menu2" class="tab-pane fade">
+                  <h3>AI:中</h3>
+                  <div class='card-body'>
+                    <table class='tableShow' style="white-space: nowrap; color: #4C4D52;">
+                      <thead>
+                        <tr>
+                          <th>排行</th>
+                          <th>名稱</th>
+                          <th>分數</th>
+                          <th>遊玩日期</th>
+                        </tr>
+                      </thead>
+                      <tbody id="rankMiddleContent">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="menu3" class="tab-pane fade">
+                  <h3>AI:強</h3>
+                  <div class='card-body' style='width:200px;height:200px;'>
+                    <table class='tableShow' style="white-space: nowrap; color: #4C4D52;">
+                      <thead>
+                        <tr>
+                          <th>排行</th>
+                          <th>名稱</th>
+                          <th>分數</th>
+                          <th>遊玩日期</th>
+                        </tr>
+                      </thead>
+                      <tbody id="rankHardContent">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            </div>
+          </div>
+        </div>
+      
+      <!-- <div class="rightBoardBackground2" id="rankboard" style="display: none;">
           <div id='accordion1' style='float:left;width:33%;'>
             <div class='card' style='background-color: darkgreen;z-index: 10;'>
               <div class='card-header'>
@@ -162,7 +235,7 @@
                 </a>
               </div>
               <div id='colBoard3' class='collapse' data-parent='#accordion3'>
-                <div class='card-body'>
+                <div class='card-body' style='width:200px;height:200px;'>
                   <table class='tableShow' style="white-space: nowrap; color: #4C4D52;">
                     <thead>
                       <tr>
@@ -180,84 +253,84 @@
             </div>
           </div>
 
+        </div> -->
+
+      <div id="aboutPage" class="container" style="display: none;">
+
+        <div class="wp-block-group is-style-box container">
+          <div class="wp-block-group__inner-container">
+            <h1 style="text-align: center; font-size: 54px;">特色</h1>
+
+            <div>
+              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+              <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+            </div>
+            <img src="imgs/screenshot_fabric.png" style="width: 200px; width: 200px; float: left;">
+            <img src="imgs/screenshot_metal.png" style="width: 200px; width: 200px; float: left;">
+
+          </div>
         </div>
 
-        <div id="aboutPage" class="container" style="display: none;">
+        <br><br>
 
-          <div class="wp-block-group is-style-box container">
-            <div class="wp-block-group__inner-container">
-              <h1 style="text-align: center; font-size: 54px;">特色</h1>
+        <div class="wp-block-group is-style-box container">
+          <div class="wp-block-group__inner-container">
+            <h1 style="text-align: center; font-size: 54px;">後端</h1>
+            <p>本網站後端使用Go語言編寫，並部屬在heroku上，資料庫使用postgreSQL(heroku postgres)</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+            <p>6</p>
+            <p>7</p>
+            <p>8</p>
+            <p>若網站出現問題歡迎回報
+              <a target="_blank"
+                href="https://github.com/lemon37564/wp1101-final/issues">https://github.com/lemon37564/wp1101-final/issues</a>
+            </p>
 
-              <div>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-              </div>
-              <img src="imgs/screenshot_fabric.png" style="width: 200px; width: 200px; float: left;">
-              <img src="imgs/screenshot_metal.png" style="width: 200px; width: 200px; float: left;">
-
-            </div>
           </div>
+        </div>
 
-          <br><br>
+        <br><br>
 
-          <div class="wp-block-group is-style-box container">
-            <div class="wp-block-group__inner-container">
-              <h1 style="text-align: center; font-size: 54px;">後端</h1>
-              <p>本網站後端使用Go語言編寫，並部屬在heroku上，資料庫使用postgreSQL(heroku postgres)</p>
-              <p>2</p>
-              <p>3</p>
-              <p>4</p>
-              <p>5</p>
-              <p>6</p>
-              <p>7</p>
-              <p>8</p>
-              <p>若網站出現問題歡迎回報
-                <a target="_blank"
-                  href="https://github.com/lemon37564/wp1101-final/issues">https://github.com/lemon37564/wp1101-final/issues</a>
-              </p>
+        <div class="wp-block-columns">
+          <div class="wp-block-column is-style-box">
+            <h1 style="text-align: center; font-size: 54px;">作者</h1>
 
-            </div>
-          </div>
-
-          <br><br>
-
-          <div class="wp-block-columns">
-            <div class="wp-block-column is-style-box">
-              <h1 style="text-align: center; font-size: 54px;">作者</h1>
-
-              <div>
-                <div style="float: left;">
-                  <a target="_blank" href="https://github.com/lemon37564" style="text-decoration: none;">
-                    <img src="https://avatars.githubusercontent.com/u/65079334?v=4" class="zoom-on-hover"
-                      style="width: 150px; height: 150px; border-radius: 10px; border: 1px solid grey;" />
-                    <figcaption style="text-align: center;"> lemon37564 </figcaption>
-                  </a>
-                </div>
-
-                <div style="float: left; visibility: hidden;"><span>place</span></div>
-
-                <div style="float: left;">
-                  <a target="_blank" href="https://github.com/Dino-0625" style="text-decoration: none;">
-                    <img src="https://avatars.githubusercontent.com/u/65156720?v=4" class="zoom-on-hover"
-                      style="width: 150px; height: 150px; border-radius: 10px; border: 1px solid grey;" />
-                    <figcaption style="text-align: center;"> Dino-0625 </figcaption>
-                  </a>
-                </div>
+            <div>
+              <div style="float: left;">
+                <a target="_blank" href="https://github.com/lemon37564" style="text-decoration: none;">
+                  <img src="https://avatars.githubusercontent.com/u/65079334?v=4" class="zoom-on-hover"
+                    style="width: 150px; height: 150px; border-radius: 10px; border: 1px solid grey;" />
+                  <figcaption style="text-align: center;"> lemon37564 </figcaption>
+                </a>
               </div>
 
+              <div style="float: left; visibility: hidden;"><span>place</span></div>
+
+              <div style="float: left;">
+                <a target="_blank" href="https://github.com/Dino-0625" style="text-decoration: none;">
+                  <img src="https://avatars.githubusercontent.com/u/65156720?v=4" class="zoom-on-hover"
+                    style="width: 150px; height: 150px; border-radius: 10px; border: 1px solid grey;" />
+                  <figcaption style="text-align: center;"> Dino-0625 </figcaption>
+                </a>
+              </div>
             </div>
 
-            <p class="version" style="position: absolute; right: 15px;">wp1101-final v0.1</p>
-
           </div>
+
+          <p class="version" style="position: absolute; right: 15px;">wp1101-final v0.1</p>
+
         </div>
       </div>
     </div>
+  </div>
 
 </body>
 
