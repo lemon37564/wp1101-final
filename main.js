@@ -92,10 +92,9 @@ async function getRank() {
         tmp[stren] +=
           "<th>" + data[i].self_point + ":" + data[i].enemy_point + "</th>";
         
-        let date = data[i].game_date;
-        let dateS = date.split("T");
+        let date = new Date(data[i].game_date);
         
-        tmp[stren] += "<th>" + dateS[0] + "</th>";
+        tmp[stren] += "<th>" + date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate() + "</th>";
         tmp[stren] += "</tr>";
         currentRank[i]++;
       }
