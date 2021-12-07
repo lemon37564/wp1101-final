@@ -10,12 +10,37 @@ body {
 
 #titlebar {
   margin-left: 1vw;
-  width: 23vw;
+  width: 32em;
+  border-radius: 10px;
+}
+
+.navTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+p.sidebar {
+  color: whitesmoke;
+  font-size: larger;
+}
+
+#titlebar2 {
+  margin-left: 1vw;
+  width: 20em;
   border-radius: 10px;
 }
 
 #game:hover {
   color: lightyellow;
+}
+
+.rankBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .rightBoardBackground2 {
@@ -80,7 +105,8 @@ body {
 @media screen and (max-width: 600px) {
   #titlebar {
     margin-left: 1vw;
-    width: 100vw;
+    margin-right: 1vw;
+    width: 98vw;
     border-radius: 10px;
   }
 
