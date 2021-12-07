@@ -159,7 +159,8 @@ function load(loadId, duration) {
   function next2() {
     if (prepare++ > 25) {
       loadingFinished = true;
-      loader.setAttribute("style", "display:none");
+      //loader = document.getElementById("loading-container");
+      //loader.setAttribute("style", "display:none");
 
       fadeIn(iframe, 1000);
 
