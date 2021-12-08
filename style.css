@@ -1,24 +1,23 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 body {
-  background-image: url("futureprototype.png");
+  background-image: url("imgs/futureprototype.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
-  font-family: "Noto Sans";
+  background-size: auto;
+  font-family: "Noto Sans TC";
 }
 
 #titlebar {
-  margin-left: 1vw;
-  width: 32em;
-  border-radius: 10px;
+  margin-left: 0;
+  width: 100%;
 }
 
 .navTitle {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
+  width: 29rem;
 }
 
 p.sidebar {
@@ -65,15 +64,6 @@ p.sidebar {
   color: red;
 }
 
-.about {
-  /*  background-color: gray; */
-  width: 72vw;
-  height: 40.5vw;
-  border: none;
-  box-sizing: border-box;
-  border-radius: 7px;
-}
-
 .tableShow {
   /*background-color:white;*/
   background-size: 100px 200px;
@@ -98,10 +88,7 @@ iframe.game {
 
 @media screen and (max-width: 600px) {
   #titlebar {
-    margin-left: 1vw;
-    margin-right: 1vw;
-    width: 98vw;
-    border-radius: 10px;
+    width: 100%;
   }
 
   #titlebar2 {
