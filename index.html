@@ -103,9 +103,24 @@
 
       <div class="col-sm-9" style="padding: 1%">
         <iframe src="test/" title="Game" id="iframe" class="game"></iframe>
-        
-      
+
         <div id="rankboard" style="display: none;" class="container">
+          <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+            </symbol>
+          </svg>
+
+          <div class="alert alert-primary d-flex align-items-center" role="alert" style="border-radius: 8px;">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+              <use xlink:href="#info-fill" />
+            </svg>
+            <div>
+              &nbsp; 排名計算方式為：幾方分數/(幾方分數+敵方分數)
+            </div>
+          </div>
+
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
               <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="titlebar2">
@@ -204,12 +219,11 @@
           </div>
         </div>
 
-        <div id="aboutPage" style="display: none;" style="padding: 0%;">
+        <div id="aboutPage" class="container" style="display: none;" style="padding: 0%;">
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
               <h1 style="text-align: center; font-size: 54px;">特色</h1>
-
-              <div>
+              <div class="about-content">
                 <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
                 <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
                 <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
@@ -228,20 +242,23 @@
 
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
-              <h1 style="text-align: center; font-size: 54px;">後端</h1>
-              <p>本網站後端使用Go語言編寫，並部屬在heroku上，資料庫使用postgreSQL(heroku postgres)</p>
-              <p>2</p>
-              <p>3</p>
-              <p>4</p>
-              <p>5</p>
-              <p>6</p>
-              <p>7</p>
-              <p>8</p>
-              <p>若網站出現問題歡迎回報
-                <a target="_blank"
-                  href="https://github.com/lemon37564/wp1101-final/issues">https://github.com/lemon37564/wp1101-final/issues</a>
-              </p>
-
+              <h1 style="text-align: center; font-size: 54px;">技術</h1>
+              <div class="about-content">
+                <p>前端使用HTML, JavaScript, CSS，並使用bootstrap。此外，也引入了 <a target="_blank"
+                    href="https://www.blender.org/">blender.org</a> 之CSS(開源)</p>
+                <p>後端使用Go語言編寫，部屬在heroku上，資料庫使用postgreSQL(heroku postgres)</p>
+                <p>歷史棋譜存在localStorage中並提供下載，以便備份等用途</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
+                <p>6</p>
+                <p>7</p>
+                <p>8</p>
+                <p>若網站出現問題歡迎回報
+                  <a target="_blank"
+                    href="https://github.com/lemon37564/wp1101-final/issues">https://github.com/lemon37564/wp1101-final/issues</a>
+                </p>
+              </div>
             </div>
           </div>
 
@@ -256,7 +273,7 @@
                 <col width="30%" />
                 <col width="60%" />
                 <thead>
-                  <tr>
+                  <tr style="font-size: larger">
                     <th>版本</th>
                     <th>日期</th>
                     <th>描述</th>
@@ -314,27 +331,35 @@
           </div>
 
           <div style="visibility: hidden;">placeholder</div>
-          <p class="version" style="position: absolute; right: 15px;">wp1101-final v0.2</p>
+          <p class="version" style="position: absolute; right: 15px;">wp1101-final v0.3</p>
         </div>
 
-        <div id="historyPage" style="display: none;">
-          <div class="wp-block-group is-style-box container">
-            <div class="wp-block-group__inner-container">
-              <p>本紀錄儲存在本地端而非伺服器，因此刪除瀏覽器快取會將所有紀錄刪除！</p>
-              <p>AI與AI的對局不會保存！</p>
+        <div id="historyPage" style="display: none;" class="container">
+          <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </symbol>
+          </svg>
+
+          <div class="alert alert-warning d-flex align-items-center" role="alert" style="border-radius: 8px;">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+              <use xlink:href="#exclamation-triangle-fill" />
+            </svg>
+            <div>
+              &nbsp; 本紀錄儲存在本地端而非伺服器，因此刪除瀏覽器快取會將所有記錄刪除！<br> &nbsp; 此外，AI之間的對局不會被記錄。
             </div>
           </div>
 
-          <br><br>
-
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
+
               <p id = boardRecordName></p>
               <p>先手:<p id = "player1"></p><p id="player1pic"></p>                   後手:<p id = "player2"></p><p id="player2pic"></p> </p>
               
               <p><a onclick="beforePage()"><h>上一則</h></a><a onclick="beforeStep()"><h>上一步</h></a><img src="imgs/black.webp"><img src="imgs/black.webp"><a onclick="nextStep()"><h>下一步</h></a><a onclick="nextPage()"><h>下一則</h></a><a onclick="saveTextAsFile()"><h>save</h></a>
               </p>
-              <div id = "boardRecord"></div>
+              <div id="boardRecord"></div>
 
               <p><input type="file" id="file-uploader" data-target="file-uploader" accept=".txt"/><a onclick="deleteAllRecord()">deleteAll</a><a onclick="deleteThisRecord()">deletethis</a>
               </p>

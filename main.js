@@ -79,7 +79,6 @@ async function getRank() {
 
       if (type.match(/^text/)) {
         data = JSON.parse(request.responseText);
-        console.log(data)
       }
 
       let rankEasyShow = document.getElementById("rankEasyContent");
