@@ -15,6 +15,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="main.js"></script>
+  <script src="boardRecord.js"></script>
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </head>
 
@@ -102,7 +103,8 @@
 
       <div class="col-sm-9" style="position:static;">
         <iframe src="test/" title="Game" id="iframe" class="game"></iframe>
-
+        
+      
         <div id="rankboard" style="display: none;" class="container">
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
@@ -290,6 +292,21 @@
               <p>本紀錄儲存在本地端而非伺服器，因此刪除瀏覽器快取會將所有紀錄刪除！</p>
               <p>AI與AI的對局不會保存！</p>
             </div>
+
+          </div>
+          <div class="wp-block-group is-style-box container">
+            <div class="wp-block-group__inner-container">
+              <p id = boardRecordName></p>
+              <p>先手:<p id = "player1"></p><p id="player1pic"></p>                   後手:<p id = "player2"></p><p id="player2pic"></p> </p>
+
+              <p><a onclick="beforePage()"><h>上一則</h></a><a onclick="beforeStep()"><h>上一步</h></a><a onclick="nextStep()"><h>下一步</h></a><a onclick="nextPage()"><h>下一則</h></a><a onclick="saveTextAsFile()"><h>save</h>
+              </p>
+              <div id = "boardRecord"></div>
+
+              <p><img src="imgs/black.webp"><img src="imgs/black.webp"><input type="file" id="file-uploader" data-target="file-uploader" accept=".txt" multiple="multiple"/>
+              </p>
+            </div>
+
           </div>
         </div>
 
