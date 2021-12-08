@@ -63,6 +63,12 @@ function start() {
 
 async function getRank() {
   let request = new XMLHttpRequest();
+  document.getElementById("spinner-easy").style.visibility = "visible";
+  document.getElementById("spinner-medium").style.visibility = "visible";
+  document.getElementById("spinner-hard").style.visibility = "visible";
+  document.getElementById("menu1").style.visibility = "hidden";
+  document.getElementById("menu2").style.visibility = "hidden";
+  document.getElementById("menu3").style.visibility = "hidden";
 
   request.open(
     "get",
@@ -111,6 +117,13 @@ async function getRank() {
       for (let i = 0; i < 3; i++) {
         ranks[i].innerHTML = tmp[i];
       }
+
+      document.getElementById("spinner-easy").style.visibility = "hidden";
+      document.getElementById("spinner-medium").style.visibility = "hidden";
+      document.getElementById("spinner-hard").style.visibility = "hidden";
+      document.getElementById("menu1").style.visibility = "visible";
+      document.getElementById("menu2").style.visibility = "visible";
+      document.getElementById("menu3").style.visibility = "visible";
     }
   };
   request.send(null);

@@ -109,17 +109,17 @@
               <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="titlebar2">
                 <ul class="navbar-nav nav rankBar">
                   <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link"
-                      href="#menu1"
+                      href="#menu1" onclick="getRank()"
                       style="font-size: x-large; color: white; text-decoration: none; width: 100%; text-align: center;"
                       onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI 弱</a>
                   </li>
                   <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link"
-                      href="#menu2"
+                      href="#menu2" onclick="getRank()"
                       style="font-size: x-large; color: white; text-decoration: none; width: 100%; text-align: center;"
                       onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI 中
                     </a></li>
                   <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link"
-                      href="#menu3"
+                      href="#menu3" onclick="getRank()"
                       style="font-size: x-large; color: white; text-decoration: none; width: 100%; text-align: center;"
                       onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI 強
                     </a></li>
@@ -146,6 +146,11 @@
                       <tbody id="rankEasyContent">
                       </tbody>
                     </table>
+                    <div class="d-flex justify-content-center" id="spinner-easy" style="visibility: visible;">
+                      <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="visually-hidden"></span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div id="menu2" class="tab-pane fade">
@@ -167,6 +172,11 @@
                       <tbody id="rankMiddleContent">
                       </tbody>
                     </table>
+                    <div class="d-flex justify-content-center" id="spinner-medium" style="visibility: visible;">
+                      <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="visually-hidden"></span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div id="menu3" class="tab-pane fade">
@@ -188,6 +198,11 @@
                       <tbody id="rankHardContent">
                       </tbody>
                     </table>
+                    <div class="d-flex justify-content-center" id="spinner-hard" style="visibility: visible;">
+                      <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="visually-hidden"></span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
