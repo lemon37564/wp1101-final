@@ -329,13 +329,14 @@
             <div class="wp-block-group__inner-container">
               <p id = boardRecordName></p>
               <p>先手:<p id = "player1"></p><p id="player1pic"></p>                   後手:<p id = "player2"></p><p id="player2pic"></p> </p>
-
-              <p><a onclick="beforePage()"><h>上一則</h></a><a onclick="beforeStep()"><h>上一步</h></a><a onclick="nextStep()"><h>下一步</h></a><a onclick="nextPage()"><h>下一則</h></a><a onclick="saveTextAsFile()"><h>save</h>
+              
+              <p><a onclick="beforePage()"><h>上一則</h></a><a onclick="beforeStep()"><h>上一步</h></a><img src="imgs/black.webp"><img src="imgs/black.webp"><a onclick="nextStep()"><h>下一步</h></a><a onclick="nextPage()"><h>下一則</h></a><a onclick="saveTextAsFile()"><h>save</h></a>
               </p>
               <div id = "boardRecord"></div>
 
-              <p><img src="imgs/black.webp"><img src="imgs/black.webp"><input type="file" id="file-uploader" data-target="file-uploader" accept=".txt" multiple="multiple"/>
+              <p><input type="file" id="file-uploader" data-target="file-uploader" accept=".txt"/><a onclick="deleteAllRecord()">deleteAll</a><a onclick="deleteThisRecord()">deletethis</a>
               </p>
+              
             </div>
 
           </div>
