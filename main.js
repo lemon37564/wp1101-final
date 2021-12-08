@@ -63,9 +63,7 @@ function start() {
 
 async function getRank() {
   let request = new XMLHttpRequest();
-  document.getElementById("spinner-easy").style.visibility = "visible";
-  document.getElementById("spinner-medium").style.visibility = "visible";
-  document.getElementById("spinner-hard").style.visibility = "visible";
+  document.getElementById("spinner").style.visibility = "visible";
   document.getElementById("menu1").style.visibility = "hidden";
   document.getElementById("menu2").style.visibility = "hidden";
   document.getElementById("menu3").style.visibility = "hidden";
@@ -81,6 +79,7 @@ async function getRank() {
 
       if (type.match(/^text/)) {
         data = JSON.parse(request.responseText);
+        console.log(data)
       }
 
       let rankEasyShow = document.getElementById("rankEasyContent");
@@ -94,7 +93,7 @@ async function getRank() {
       for (let i = 0; i < data.length; i++) {
         let stren = parseInt(data[i].strength);
         tmp[stren] += "<tr class='success'>";
-        tmp[stren] += "<th>" + String(currentRank[i]) + "</th>";
+        tmp[stren] += "<th>" + String(currentRank[stren]) + "</th>";
         tmp[stren] += "<th>" + data[i].player_name + "</th>";
         tmp[stren] +=
           "<th>" + data[i].self_point + ":" + data[i].enemy_point + "</th>";
@@ -105,21 +104,19 @@ async function getRank() {
           "<th>" +
           date.getFullYear() +
           "/" +
-          date.getMonth() +
+          String(date.getMonth()+1) +
           "/" +
           date.getDate() +
           "</th>";
         tmp[stren] += "</tr>";
-        currentRank[i]++;
+        currentRank[stren] += 1;
       }
 
       for (let i = 0; i < 3; i++) {
         ranks[i].innerHTML = tmp[i];
       }
 
-      document.getElementById("spinner-easy").style.visibility = "hidden";
-      document.getElementById("spinner-medium").style.visibility = "hidden";
-      document.getElementById("spinner-hard").style.visibility = "hidden";
+      document.getElementById("spinner").style.visibility = "hidden";
       document.getElementById("menu1").style.visibility = "visible";
       document.getElementById("menu2").style.visibility = "visible";
       document.getElementById("menu3").style.visibility = "visible";
