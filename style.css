@@ -93,6 +93,10 @@ iframe.game {
   overflow: hidden;
 }
 
+div.about-content {
+  font-size: larger;
+}
+
 @media screen and (max-width: 600px) {
   #titlebar {
     width: 100%;
