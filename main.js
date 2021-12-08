@@ -92,7 +92,7 @@ async function getRank() {
 
       for (let i = 0; i < data.length; i++) {
         let stren = parseInt(data[i].strength);
-        tmp[stren] += "<tr class='success'>";
+        tmp[stren] += "<tr>";
         tmp[stren] += "<th>" + String(currentRank[stren]) + "</th>";
         tmp[stren] += "<th>" + data[i].player_name + "</th>";
         tmp[stren] +=
@@ -104,7 +104,7 @@ async function getRank() {
           "<th>" +
           date.getFullYear() +
           "/" +
-          String(date.getMonth()+1) +
+          String(date.getMonth() + 1) +
           "/" +
           date.getDate() +
           "</th>";
