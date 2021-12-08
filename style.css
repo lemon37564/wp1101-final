@@ -26,8 +26,9 @@ p.sidebar {
 }
 
 #titlebar2 {
-  margin-left: 1vw;
-  width: 95.5%;
+  margin-left: 1.6%;
+  margin-right: 1.6%;
+  width: 96.8%;
   border-radius: 10px;
 }
 
@@ -70,10 +71,16 @@ p.sidebar {
   width: 300px;
   height: 100px;
   color: red;
-  font-size: 25px;
-  padding: 20px;
+  font-size: 1.6em;
+  padding: 1rem;
   overflow: hidden;
   border: yellowgreen;
+  border-radius: 10px;
+}
+
+.dev-table {
+  font-size: 1.2em;
+  overflow: hidden;
   border-radius: 10px;
 }
 
@@ -122,7 +129,6 @@ iframe.game {
   }
 
   .tableShow {
-    white-space: normal !important;
-    table-layout: auto !important;
+    font-size: 1.2em;
   }
 }

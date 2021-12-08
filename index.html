@@ -101,7 +101,7 @@
         </div>
       </div>
 
-      <div class="col-sm-9" style="position:static;">
+      <div class="col-sm-9" style="padding: 1%">
         <iframe src="test/" title="Game" id="iframe" class="game"></iframe>
         
       
@@ -112,30 +112,37 @@
                 <ul class="navbar-nav nav rankBar">
                   <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link"
                       href="#menu1" onclick="getRank()"
-                      style="font-size: x-large; color: white; text-decoration: none; width: 100%; text-align: center;"
+                      style="font-size: large; color: white; text-decoration: none; width: 100%; text-align: center;"
                       onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI 弱</a>
                   </li>
                   <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link"
                       href="#menu2" onclick="getRank()"
-                      style="font-size: x-large; color: white; text-decoration: none; width: 100%; text-align: center;"
+                      style="font-size: large; color: white; text-decoration: none; width: 100%; text-align: center;"
                       onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI 中
                     </a></li>
                   <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link"
                       href="#menu3" onclick="getRank()"
-                      style="font-size: x-large; color: white; text-decoration: none; width: 100%; text-align: center;"
+                      style="font-size: large; color: white; text-decoration: none; width: 100%; text-align: center;"
                       onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI 強
                     </a></li>
                 </ul>
               </nav>
+
+              <div class="d-flex justify-content-center" id="spinner"
+                style="visibility: visible; position: absolute; top: 50%; left: 50%;">
+                <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                  <span class="visually-hidden"></span>
+                </div>
+              </div>
 
               <div class="tab-content">
                 <div id="menu1" class="tab-pane fade in active show">
                   <div class='card-body' style="width: 100%;">
                     <table class='tableShow'
                       style="color: #4C4D52; table-layout: fixed; text-align: center;background-color: #b2bfcf; width: 100%;">
-                      <col width="8%" />
-                      <col width="60%" />
-                      <col width="12%" />
+                      <col width="10%" />
+                      <col width="55%" />
+                      <col width="15%" />
                       <col width="20%" />
                       <thead>
                         <tr>
@@ -148,20 +155,15 @@
                       <tbody id="rankEasyContent">
                       </tbody>
                     </table>
-                    <div class="d-flex justify-content-center" id="spinner-easy" style="visibility: visible;">
-                      <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-                        <span class="visually-hidden"></span>
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <div id="menu2" class="tab-pane fade">
                   <div class='card-body' style="width: 100%;">
                     <table class='tableShow'
                       style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #b2bfcf; width: 100%;">
-                      <col width="8%" />
-                      <col width="60%" />
-                      <col width="12%" />
+                      <col width="10%" />
+                      <col width="55%" />
+                      <col width="15%" />
                       <col width="20%" />
                       <thead>
                         <tr>
@@ -174,20 +176,15 @@
                       <tbody id="rankMiddleContent">
                       </tbody>
                     </table>
-                    <div class="d-flex justify-content-center" id="spinner-medium" style="visibility: visible;">
-                      <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-                        <span class="visually-hidden"></span>
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <div id="menu3" class="tab-pane fade">
                   <div class='card-body' style="width: 100%;">
                     <table class='tableShow'
                       style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #b2bfcf; width: 100%;">
-                      <col width="8%" />
-                      <col width="60%" />
-                      <col width="12%" />
+                      <col width="10%" />
+                      <col width="55%" />
+                      <col width="15%" />
                       <col width="20%" />
                       <thead>
                         <tr>
@@ -200,11 +197,6 @@
                       <tbody id="rankHardContent">
                       </tbody>
                     </table>
-                    <div class="d-flex justify-content-center" id="spinner-hard" style="visibility: visible;">
-                      <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-                        <span class="visually-hidden"></span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -255,8 +247,47 @@
 
           <br><br>
 
-          <div class="wp-block-columns">
-            <div class="wp-block-column is-style-box">
+          <div class="wp-block-group is-style-box container">
+            <div class="wp-block-group__inner-container">
+              <h1 style="text-align: center; font-size: 54px;">網站開發記錄</h1>
+              <table class='dev-table'
+                style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #b2bfcf; width: 100%;">
+                <col width="10%" />
+                <col width="30%" />
+                <col width="60%" />
+                <thead>
+                  <tr>
+                    <th>版本</th>
+                    <th>日期</th>
+                    <th>描述</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>v0.1</th>
+                    <th>2021/11/27</th>
+                    <th>完成後端、撰寫基本HTML，JavaScript與CSS</th>
+                  </tr>
+                  <tr>
+                    <th>v0.2</th>
+                    <th>2021/12/04</th>
+                    <th>網站架設在Github Pages上、資料庫由SQLite改為PostgreSQL</th>
+                  </tr>
+                  <tr>
+                    <th>v0.3</th>
+                    <th>2021/12/08</th>
+                    <th>遊戲本體完成、頁面呈現改進</th>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+
+          <br><br>
+
+          <div class="wp-block-group is-style-box container">
+            <div class="wp-block-group__inner-container">
               <h1 style="text-align: center; font-size: 54px;">作者</h1>
 
               <div>
@@ -280,10 +311,10 @@
               </div>
 
             </div>
-
-            <p class="version" style="position: absolute; right: 15px;">wp1101-final v0.1</p>
-
           </div>
+
+          <div style="visibility: hidden;">placeholder</div>
+          <p class="version" style="position: absolute; right: 15px;">wp1101-final v0.2</p>
         </div>
 
         <div id="historyPage" style="display: none;">
