@@ -110,6 +110,25 @@ div.about-content {
   margin-right: 26px;
 }
 
+#rank-nav-bar {
+  font-size: large;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  color: white;
+  height: 55px;
+  padding-top: 15px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  float: left;
+}
+
+#rank-nav-bar:hover {
+  color: #00a4eb;
+}
+
 @media screen and (max-width: 650px) {
   #titlebar {
     width: 100%;
