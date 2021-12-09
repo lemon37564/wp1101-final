@@ -61,16 +61,37 @@ function start() {
   // load(loadId, 500);
 }
 
-async function getRank() {
+async function getRank(strength) {
   let request = new XMLHttpRequest();
   document.getElementById("spinner").style.visibility = "visible";
   document.getElementById("menu1").style.visibility = "hidden";
   document.getElementById("menu2").style.visibility = "hidden";
   document.getElementById("menu3").style.visibility = "hidden";
 
+  let rankEasyShow = document.getElementById("rankEasyContent");
+  let rankMiddleShow = document.getElementById("rankMiddleContent");
+  let rankHardShow = document.getElementById("rankHardContent");
+  let currentShow;
+
+  switch (strength) {
+    case 0:
+      currentShow = rankEasyShow;
+      break;
+    case 1:
+      currentShow = rankMiddleShow;
+      break;
+    case 2:
+      currentShow = rankHardShow;
+      break;
+    default:
+      return;
+  }
+
   request.open(
     "get",
-    "https://ntou-sell.herokuapp.com/backend/leaderboard/get"
+    "https://ntou-sell.herokuapp.com/backend/leaderboard/get?strength=" +
+      String(strength) +
+      "&amount=100"
   );
   request.onload = function () {
     if (request.readyState === 4 && request.status === 200) {
@@ -81,25 +102,19 @@ async function getRank() {
         data = JSON.parse(request.responseText);
       }
 
-      let rankEasyShow = document.getElementById("rankEasyContent");
-      let rankMiddleShow = document.getElementById("rankMiddleContent");
-      let rankHardShow = document.getElementById("rankHardContent");
-      let ranks = [rankEasyShow, rankMiddleShow, rankHardShow];
-
-      let tmp = ["", "", ""];
-      let currentRank = [1, 1, 1];
+      let tmp = "";
+      let rank = 1;
 
       for (let i = 0; i < data.length; i++) {
-        let stren = parseInt(data[i].strength);
-        tmp[stren] += "<tr>";
-        tmp[stren] += "<th>" + String(currentRank[stren]) + "</th>";
-        tmp[stren] += "<th>" + data[i].player_name + "</th>";
-        tmp[stren] +=
+        tmp += "<tr>";
+        tmp += "<th>" + String(rank) + "</th>";
+        tmp += "<th>" + data[i].player_name + "</th>";
+        tmp +=
           "<th>" + data[i].self_point + ":" + data[i].enemy_point + "</th>";
 
         let date = new Date(data[i].game_date);
 
-        tmp[stren] +=
+        tmp +=
           "<th>" +
           date.getFullYear() +
           "/" +
@@ -107,13 +122,11 @@ async function getRank() {
           "/" +
           date.getDate() +
           "</th>";
-        tmp[stren] += "</tr>";
-        currentRank[stren] += 1;
+        tmp += "</tr>";
+        rank += 1;
       }
 
-      for (let i = 0; i < 3; i++) {
-        ranks[i].innerHTML = tmp[i];
-      }
+      currentShow.innerHTML = tmp;
 
       document.getElementById("spinner").style.visibility = "hidden";
       document.getElementById("menu1").style.visibility = "visible";
@@ -142,7 +155,7 @@ function showGame() {
 }
 
 function showRank() {
-  getRank();
+  getRank(0);
   hideAll();
   showBoard.style.display = "block";
 }
