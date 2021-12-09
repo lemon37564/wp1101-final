@@ -27,20 +27,20 @@
 
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="titlebar">
     <ul class="navbar-nav navTitle">
-      <li class="nav-item" id="game">
+      <li class="nav-item">
         <a class="nav-link" href="#" id="game" style="color: #BBBB00; font-size: large;"
           onmouseover="this.style.color='yellow'" onmouseout="this.style.color='#BBBB00'"><strong>決戰黑白棋</strong></a>
       </li>
-      <li class="nav-item" id="rank">
-        <a class="nav-link" href="#" style="color: white; font-size: large;" onmouseover="this.style.color='#00A4EB'"
+      <li class="nav-item">
+        <a class="nav-link" href="#rank" style="color: white; font-size: large;" onmouseover="this.style.color='#00A4EB'"
           onmouseout="this.style.color='white'">排行榜</a>
       </li>
-      <li class="nav-item" id="history">
-        <a class="nav-link" href="#" style="color:white; font-size: large;" onmouseover="this.style.color='#00A4EB'"
+      <li class="nav-item">
+        <a class="nav-link" href="#record" style="color:white; font-size: large;" onmouseover="this.style.color='#00A4EB'"
           onmouseout="this.style.color='white'">我的棋譜</a>
       </li>
-      <li class="nav-item" id="about">
-        <a class="nav-link" href="#" style="color:white; font-size: large;" onmouseover="this.style.color='#00A4EB'"
+      <li class="nav-item">
+        <a class="nav-link" href="#about" style="color:white; font-size: large;" onmouseover="this.style.color='#00A4EB'"
           onmouseout="this.style.color='white'">關於網站</a>
       </li>
     </ul>
@@ -236,6 +236,7 @@
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
               <h1 style="text-align: center; font-size: 54px;">特色</h1>
+              <br>
               <div class="about-content">
                 <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
                 <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
@@ -256,12 +257,13 @@
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
               <h1 style="text-align: center; font-size: 54px;">技術</h1>
+              <br>
               <div class="about-content">
                 <p>前端使用HTML, JavaScript, CSS，並使用bootstrap。此外，也引入了 <a target="_blank"
-                    href="https://www.blender.org/">blender.org</a> 之CSS(開源)</p>
-                <p>後端使用Go語言編寫，部屬在heroku上，資料庫使用postgreSQL(heroku postgres)</p>
-                <p>歷史棋譜存在localStorage中並提供下載，以便備份等用途</p>
-                <p>3</p>
+                    href="https://www.blender.org/">blender.org</a> 之CSS(開源)。</p>
+                <p>後端使用Go語言編寫，部屬在heroku上，資料庫使用postgreSQL(heroku postgres)。</p>
+                <p>遊戲本體使用WebAssembly、WebGL製作，根據使用者環境不同，可能能夠提供比JavaScript更好的效能來執行。</p>
+                <p>歷史棋譜存在localStorage中並提供下載，以便備份等用途。</p>
                 <p>4</p>
                 <p>5</p>
                 <p>6</p>

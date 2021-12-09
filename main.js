@@ -1,5 +1,4 @@
-let rankButton, gameButton, aboutGameButton;
-let showBoard, history;
+let showBoard;
 let historyPage;
 let iframe;
 let loadId;
@@ -8,11 +7,7 @@ let aboutPage;
 let loader;
 
 function start() {
-  rankButton = document.getElementById("rank");
-  gameButton = document.getElementById("game");
-  aboutGameButton = document.getElementById("about");
   showBoard = document.getElementById("rankboard");
-  history = document.getElementById("history");
   iframe = document.getElementById("iframe");
   loadId = document.getElementById("loading");
   collapse1 = document.getElementById("collapse1");
@@ -24,10 +19,6 @@ function start() {
   let rankMusic = new Audio("rankMusic.mp3");
   let clickMusic = new Audio("clickMusic.mp3");
 
-  rankButton.addEventListener("click", showRank, false);
-  gameButton.addEventListener("click", showGame, false);
-  aboutGameButton.addEventListener("click", showAboutPage, false);
-  history.addEventListener("click", showHistoryPage, false);
   let gameBackGroundMusic = document.getElementById("Test_Audio");
 
   //background music;
@@ -58,7 +49,7 @@ function start() {
     false
   );
 
-  // load(loadId, 500);
+  hashChange();
 }
 
 async function getRank(strength) {
@@ -206,4 +197,24 @@ function load(loadId, duration) {
   next2();
 }
 
+function hashChange() {
+  switch (window.location.hash) {
+    case "": // index
+      showGame();
+      break;
+    case "#rank":
+      showRank();
+      break;
+    case "#record":
+      showHistoryPage();
+      break;
+    case "#about":
+      showAboutPage();
+      break;
+    default:
+      break;
+  }
+}
+
 window.addEventListener("load", start, false);
+window.onhashchange = hashChange;
