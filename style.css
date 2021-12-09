@@ -26,10 +26,18 @@ p.sidebar {
 }
 
 #titlebar2 {
-  margin-left: 1.6%;
-  margin-right: 1.6%;
-  width: 96.8%;
-  border-radius: 10px;
+  height: 50px;
+  margin-left: 3%;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#titlebar2-div {
+  height: 50px;
+  float: left;
+  width: 33%;
+  margin-left: 18px;
 }
 
 #game:hover {
@@ -97,14 +105,20 @@ div.about-content {
   font-size: larger;
 }
 
-@media screen and (max-width: 600px) {
+#rank-hint-bar {
+  float: right;
+  margin-right: 26px;
+}
+
+@media screen and (max-width: 650px) {
   #titlebar {
     width: 100%;
   }
 
   #titlebar2 {
-    width: 98%;
-    border-radius: 10px;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
 
   .rightBoardBackground2 {
@@ -134,5 +148,20 @@ div.about-content {
 
   .tableShow {
     font-size: 1.2em;
+  }
+
+  #rank-hint-bar {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+    width: 96%;
+  }
+
+  #titlebar2-div {
+    float: left;
+    width: 85%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 6px;
   }
 }

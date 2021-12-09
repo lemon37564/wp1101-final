@@ -105,46 +105,56 @@
         <iframe src="test/" title="Game" id="iframe" class="game"></iframe>
 
         <div id="rankboard" style="display: none;" class="container">
-          <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-            <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-              <path
-                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
-            </symbol>
-          </svg>
 
-          <div class="alert alert-primary d-flex align-items-center" role="alert" style="border-radius: 8px;">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
-              <use xlink:href="#info-fill" />
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" loading="lazy">
+              <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+              </symbol>
             </svg>
-            <div>
-              &nbsp; 排名計算方式為：幾方分數/(幾方分數+敵方分數)
+
+            <div id="rank-hint-bar">
+              <div class="alert alert-primary d-flex align-items-center" role="alert" style="border-radius: 8px; margin-bottom: 2px;">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                  <use xlink:href="#info-fill" />
+                </svg>
+                <div>
+                  &nbsp; 排名計算方式為: 幾方分數/(幾方分數+敵方分數)
+                </div>
+              </div>
+            </div>
+
+            <div id="titlebar2-div">
+              <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="titlebar2">
+                <ul class="navbar-nav nav rankBar">
+                  <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link"
+                      href="#menu1" onclick="getRank(0)" onmouseover="this.style.color='#00A4EB'"
+                      onmouseout="this.style.color='white'"
+                      style="font-size: large; text-decoration: none; width: 100%; text-align: center; color: white; height: 50px; padding-top: 13px;">AI
+                      弱</a>
+                  </li>
+                  <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link"
+                      href="#menu2" onclick="getRank(1)" onmouseover="this.style.color='#00A4EB'"
+                      onmouseout="this.style.color='white'"
+                      style="font-size: large; text-decoration: none; width: 100%; text-align: center; color: white; height: 50px; padding-top: 13px;">AI
+                      中
+                    </a></li>
+                  <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link"
+                      href="#menu3" onclick="getRank(2)" onmouseover="this.style.color='#00A4EB'"
+                      onmouseout="this.style.color='white'"
+                      style="font-size: large; text-decoration: none; width: 100%; text-align: center; color: white; height: 50px; padding-top: 13px;">AI
+                      強
+                    </a></li>
+                </ul>
+              </nav>
             </div>
           </div>
 
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
-              <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="titlebar2">
-                <ul class="navbar-nav nav rankBar">
-                  <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link"
-                      href="#menu1" onclick="getRank(0)"
-                      style="font-size: large; color: white; text-decoration: none; width: 100%; text-align: center;"
-                      onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI 弱</a>
-                  </li>
-                  <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link"
-                      href="#menu2" onclick="getRank(1)"
-                      style="font-size: large; color: white; text-decoration: none; width: 100%; text-align: center;"
-                      onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI 中
-                    </a></li>
-                  <li class="nav-item rankLi" style="float:left; width: 33%;"><a data-toggle="tab" class="nav-link"
-                      href="#menu3" onclick="getRank(2)"
-                      style="font-size: large; color: white; text-decoration: none; width: 100%; text-align: center;"
-                      onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">AI 強
-                    </a></li>
-                </ul>
-              </nav>
-
               <div class="d-flex justify-content-center" id="spinner"
-                style="visibility: visible; position: absolute; top: 50%; left: 50%;">
+                style="visibility: visible; position: absolute; top: 300px; left: 48.5%;">
                 <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
                   <span class="visually-hidden"></span>
                 </div>
@@ -152,7 +162,7 @@
 
               <div class="tab-content">
                 <div id="menu1" class="tab-pane fade in active show">
-                  <div class='card-body' style="width: 100%;">
+                  <div class='card-body' style="width: 100%; padding: 8px;">
                     <table class='tableShow'
                       style="color: #4C4D52; table-layout: fixed; text-align: center;background-color: #b2bfcf; width: 100%;">
                       <col width="10%" />
@@ -173,7 +183,7 @@
                   </div>
                 </div>
                 <div id="menu2" class="tab-pane fade">
-                  <div class='card-body' style="width: 100%;">
+                  <div class='card-body' style="width: 100%; padding: 8px;">
                     <table class='tableShow'
                       style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #b2bfcf; width: 100%;">
                       <col width="10%" />
@@ -194,7 +204,7 @@
                   </div>
                 </div>
                 <div id="menu3" class="tab-pane fade">
-                  <div class='card-body' style="width: 100%;">
+                  <div class='card-body' style="width: 100%; padding: 8px;">
                     <table class='tableShow'
                       style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #b2bfcf; width: 100%;">
                       <col width="10%" />
@@ -224,16 +234,16 @@
             <div class="wp-block-group__inner-container">
               <h1 style="text-align: center; font-size: 54px;">特色</h1>
               <div class="about-content">
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如：語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
               </div>
-              <img src="imgs/screenshot_fabric.png" style="width: 200px; width: 200px; float: left;">
-              <img src="imgs/screenshot_metal.png" style="width: 200px; width: 200px; float: left;">
+              <img src="imgs/screenshot_fabric.png" loading="lazy" style="width: 200px; width: 200px; float: left;">
+              <img src="imgs/screenshot_metal.png" loading="lazy" style="width: 200px; width: 200px; float: left;">
 
             </div>
           </div>
@@ -310,7 +320,7 @@
               <div>
                 <div style="float: left;">
                   <a target="_blank" href="https://github.com/lemon37564" style="text-decoration: none;">
-                    <img src="https://avatars.githubusercontent.com/u/65079334?v=4" class="zoom-on-hover"
+                    <img src="https://avatars.githubusercontent.com/u/65079334?v=4" class="zoom-on-hover" loading="lazy"
                       style="width: 120px; height: 120px; border-radius: 10px; border: 1px solid grey;" />
                     <figcaption style="text-align: center;"> lemon37564 </figcaption>
                   </a>
@@ -320,7 +330,7 @@
 
                 <div style="float: left;">
                   <a target="_blank" href="https://github.com/Dino-0625" style="text-decoration: none;">
-                    <img src="https://avatars.githubusercontent.com/u/65156720?v=4" class="zoom-on-hover"
+                    <img src="https://avatars.githubusercontent.com/u/65156720?v=4" class="zoom-on-hover" loading="lazy"
                       style="width: 120px; height: 120px; border-radius: 10px; border: 1px solid grey;" />
                     <figcaption style="text-align: center;"> Dino-0625 </figcaption>
                   </a>
