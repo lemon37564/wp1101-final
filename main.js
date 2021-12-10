@@ -2,19 +2,18 @@ let showBoard;
 let historyPage;
 let iframe;
 let loadId;
-let collapse1, collapse2, collapse3;
 let aboutPage;
 let loader;
 
 function start() {
   showBoard = document.getElementById("rankboard");
   iframe = document.getElementById("iframe");
-  loadId = document.getElementById("loading");
-  collapse1 = document.getElementById("collapse1");
-  collapse2 = document.getElementById("collapse2");
-  collapse3 = document.getElementById("collapse3");
   aboutPage = document.getElementById("aboutPage");
   historyPage = document.getElementById("historyPage");
+
+  let collapse1 = document.getElementById("collapse1");
+  let collapse2 = document.getElementById("collapse2");
+  let collapse3 = document.getElementById("collapse3");
 
   let rankMusic = new Audio("rankMusic.mp3");
   let clickMusic = new Audio("clickMusic.mp3");
@@ -48,8 +47,6 @@ function start() {
     },
     false
   );
-
-  hashChange();
 }
 
 async function getRank(strength) {
@@ -173,7 +170,7 @@ function fadeIn(el, duration) {
   }
   next();
 }
-arr2 = ["loading", "loading.", "loading..", "loading..."];
+
 let timeForLoading = 0;
 let prepare = 0;
 

@@ -32,7 +32,7 @@ function startBoardRecord() {
 function getRecord() {
   pageLength = localStorage.length;
   if (pageLength == 0) {
-    window.alert("norecord");
+    // window.alert("norecord");
   }
   var count = 0;
 
