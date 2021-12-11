@@ -1,13 +1,15 @@
 {
-　"short_name": "黑白棋",
-　"name": "黑白棋",
-　"icons": [{
-　　"src":"imgs/icon_192x192.png",
-　　"sizes": "192×192",
-　　"type": "image/png"
-　　}],
-　"start_url": "https://lemon37564.github.io/wp1101-final/",
-　"background_color": "#000",
-　"theme_color": "#536878",
-　"display": "standalone"
+    "short_name": "黑白棋",
+    "name": "黑白棋",
+    "icons": [
+        {
+            "src": "imgs/icon_192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "https://lemon37564.github.io/wp1101-final/",
+    "background_color": "#000",
+    "theme_color": "#536878",
+    "display": "standalone"
 }
