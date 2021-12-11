@@ -1,15 +1,19 @@
 {
-    "short_name": "黑白棋",
-    "name": "黑白棋",
-    "icons": [
-        {
-            "src": "imgs/icon_192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        }
-    ],
+    "name": "wp1101-final reversi",
+    "short_name": "reversi",
+    "icons": [{
+      "src": "imgs/icon_192x192",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "imgs/icon_512x512",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
     "start_url": "https://lemon37564.github.io/wp1101-final/",
-    "background_color": "#000",
-    "theme_color": "#536878",
-    "display": "standalone"
-}
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#FAFAFA",
+    "theme_color": "#6387F5"
+  }
