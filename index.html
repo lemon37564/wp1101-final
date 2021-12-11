@@ -7,6 +7,8 @@
   <meta name="description" content="A 3d reversi which runs on web">
   <title>黑白棋</title>
 
+  <link rel="manifest" href="manifest.json">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="blender.org.css">
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -17,6 +19,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="main.js"></script>
   <script src="boardRecord.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js").then(function(reg){
+      }).catch(function(err) {});
+    }
+  </script>
 </head>
 
 <body>
