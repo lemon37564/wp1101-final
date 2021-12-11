@@ -47,6 +47,8 @@ function start() {
     },
     false
   );
+
+  window.location.hash = "";
 }
 
 async function getRank(strength) {

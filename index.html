@@ -21,8 +21,8 @@
   <script src="boardRecord.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js").then(function(reg){
-      }).catch(function(err) {});
+      navigator.serviceWorker.register("service-worker.js").then(function (reg) {
+      }).catch(function (err) { });
     }
   </script>
 </head>
@@ -246,16 +246,23 @@
               <br>
               <div class="about-content">
                 <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <p>本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+                <div style="text-align: center;">
+                  <figure>
+                    <img src="imgs/screenshot_fabric.png" class="about-page-img zoom-on-hover" loading="lazy">
+                    <figcaption> 纖維材質的棋子 </figcaption>
+                  </figure>
+                  <figure>
+                    <img src="imgs/screenshot_metal.png" class="about-page-img zoom-on-hover" loading="lazy">
+                    <figcaption> 陶瓷材質的棋子 </figcaption>
+                  </figure>
+                </div>
+                <p>提供儲存棋譜功能，能夠在下完棋後慢慢思考與檢討。同時亦支援匯出紀錄，避免清除瀏覽器快取時失去所有資料，也可以將資料帶著走。</p>
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
               </div>
-              <img src="imgs/screenshot_fabric.png" loading="lazy" style="width: 200px; width: 200px; float: left;">
-              <img src="imgs/screenshot_metal.png" loading="lazy" style="width: 200px; width: 200px; float: left;">
-
             </div>
           </div>
 
@@ -269,14 +276,14 @@
                 <p>前端使用HTML, JavaScript, CSS，並使用bootstrap。此外，也引入了 <a target="_blank"
                     href="https://www.blender.org/">blender.org</a> 之CSS(開源)。</p>
                 <p>後端使用Go語言編寫，部屬在heroku上，資料庫使用postgreSQL(heroku postgres)。</p>
-                <p>遊戲本體使用WebAssembly、WebGL製作，根據使用者環境不同，可能能夠提供比JavaScript更好的效能來執行。</p>
+                <p>遊戲本體使用WebAssembly、WebGL製作，根據使用者環境不同，在大多數情況下能夠提供比JavaScript更好的效能來執行。</p>
+                <p>PWA: 本網站為progressive web application，在chrome的右上角可以看見安裝鍵，安裝後便可以離線使用(排行榜與AI無法使用)</p>
                 <p>歷史棋譜存在localStorage中並提供下載，以便備份等用途。</p>
-                <p>4</p>
                 <p>5</p>
                 <p>6</p>
                 <p>7</p>
                 <p>8</p>
-                <p>若網站出現問題歡迎回報
+                <p>若網站出現問題歡迎回報 &nbsp;
                   <a target="_blank"
                     href="https://github.com/lemon37564/wp1101-final/issues">https://github.com/lemon37564/wp1101-final/issues</a>
                 </p>
@@ -317,6 +324,11 @@
                     <th>2021/12/08</th>
                     <th>遊戲本體完成、新增棋譜頁面與功能</th>
                   </tr>
+                  <tr>
+                    <th>v0.4</th>
+                    <th>2021/12/11</th>
+                    <th>將網頁製作為PWA(progressive web application)</th>
+                  </tr>
                 </tbody>
               </table>
 
@@ -353,7 +365,7 @@
           </div>
 
           <div style="visibility: hidden;">placeholder</div>
-          <p class="version" style="position: absolute; right: 15px;">wp1101-final v0.3</p>
+          <p class="version" style="position: absolute; right: 15px; color: black">wp1101-final v0.4</p>
         </div>
 
         <div id="historyPage" style="display: none;" class="container">
@@ -369,7 +381,7 @@
               <use xlink:href="#exclamation-triangle-fill" />
             </svg>
             <div>
-              &nbsp; 本紀錄儲存在本地端而非伺服器，因此刪除瀏覽器快取會將所有記錄刪除！<br> &nbsp; 此外，AI之間的對局不會被記錄。
+              &nbsp; 本紀錄儲存在本地端而非伺服器，因此刪除瀏覽器快取會將所有記錄刪除!<br> &nbsp; 此外，AI之間的對局不會被記錄。
             </div>
           </div>
 
