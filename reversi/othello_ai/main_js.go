@@ -4,6 +4,9 @@
 package main
 
 import (
+	"fmt"
+	"time"
+
 	"reversi/ai"
 	"syscall/js"
 )
@@ -20,6 +23,7 @@ func aiThink(input string, color string, strength string) string {
 		lv = ai.LV_FIVE
 	}
 
+	t := time.Now()
 	if color == "1" {
 		mainAi = ai.NewAI8(ai.BLACK, lv)
 	} else {
@@ -29,6 +33,12 @@ func aiThink(input string, color string, strength string) string {
 	if err != nil {
 		panic(err)
 	}
+
+	spent := time.Since(t)
+	if spent < time.Millisecond*500 {
+		time.Sleep(time.Millisecond*500 - spent)
+	}
+	fmt.Println("time spent: ", spent)
 	return out
 }
 

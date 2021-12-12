@@ -116,6 +116,8 @@
 <link rel='manifest' href='index.manifest.json'>
 <script type='application/javascript'>window.addEventListener('load', () => {if ('serviceWorker' in navigator) {navigator.serviceWorker.register('index.service.worker.js');}});</script>
 
+<script type="text/javascript" src="wasm_exec.js"></script>
+<script type="text/javascript" src="ai.js"></script>
 </head>
 <body>
 	<canvas id='canvas'>
@@ -137,10 +139,13 @@
 		<div id='status-notice' class='godot' style='display: none;'></div>
 	</div>
 
+	<label style="display: none;" id="request"></label>
+<label style="display: none;" id="result"></label>
+
 	<script type='text/javascript' src='index.js'></script>
 	<script type='text/javascript'>//<![CDATA[
 
-		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":3960448,"index.wasm":11529167},"focusCanvas":true,"gdnativeLibs":[]};
+		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":3960064,"index.wasm":11529167},"focusCanvas":true,"gdnativeLibs":[]};
 		var engine = new Engine(GODOT_CONFIG);
 
 		(function() {

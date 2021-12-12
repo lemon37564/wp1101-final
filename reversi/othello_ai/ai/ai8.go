@@ -77,7 +77,7 @@ func (ai *AI8) move(input string, c chan string) {
 	if !aibd.putAndCheck(ai.color, best.loc) {
 		c <- fmt.Sprintf("cannot put: %v, builtin ai %v", bestPoint, ai.color)
 	}
-	c <- bestPoint.String()
+	c <- fmt.Sprintf("%d%d", bestPoint.x, bestPoint.y)
 }
 
 func (ai AI8) Close() {}
