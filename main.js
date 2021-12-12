@@ -22,8 +22,8 @@ function start() {
 
   //background music;
   document.addEventListener("click", function () {
-    gameBackGroundMusic.muted = false;
-    gameBackGroundMusic.play();
+    // gameBackGroundMusic.muted = false;
+    // gameBackGroundMusic.play();
   });
   //other music
   collapse1.addEventListener(
@@ -132,6 +132,9 @@ function hideAll() {
   aboutPage.style.display = "none";
   iframe.style.display = "none";
   historyPage.style.display = "none";
+  try {
+    document.getElementById("easter-egg").style.display = "none";
+  } catch {}
 }
 
 function showAboutPage() {
@@ -194,6 +197,38 @@ function load(loadId, duration) {
     setTimeout(next2, 200);
   }
   next2();
+}
+
+function surprise() {
+  if (document.getElementById("easter-egg") != null) {
+    document.getElementById("easter-egg").style.display = "block";
+    iframe.style.display = "none";
+    return;
+  }
+
+  let easterEgg = document.createElement("iframe");
+  easterEgg.setAttribute("class", "game");
+  easterEgg.setAttribute("id", "easter-egg");
+  easterEgg.setAttribute(
+    "src",
+    "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+  );
+  easterEgg.setAttribute("title", "YouTube video player");
+  easterEgg.setAttribute("frameborder", "0");
+  easterEgg.setAttribute(
+    "allow",
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  );
+  easterEgg.setAttribute("style", "display: none");
+  easterEgg.setAttribute("allowfullscreen", "true");
+  easterEgg.muted = false;
+
+  document.getElementById("pages").insertBefore(easterEgg, iframe);
+
+  window.setTimeout(function () {
+    iframe.style.display = "none";
+    easterEgg.style.display = "block";
+  }, 600);
 }
 
 function hashChange() {
