@@ -8,6 +8,11 @@ body {
   font-family: "Noto Sans TC";
 }
 
+h1 {
+  text-align: center;
+  font-size: 54px;
+}
+
 #titlebar {
   margin-left: 0;
   width: 100%;
@@ -130,10 +135,27 @@ div.about-content {
 
 img.about-page-img {
   width: 200px;
-  height: 200px;
+  height: auto;
   border-radius: 8px;
   margin-left: 25px;
   margin-right: 25px;
+}
+
+img.about-page-img-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  border: 1px solid grey;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+img.about-page-img-small {
+  width: auto;
+  height: 100px;
+  border-radius: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 figure {
