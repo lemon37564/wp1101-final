@@ -109,6 +109,7 @@ iframe.game {
 }
 
 div.about-content {
+  text-align: left;
   font-size: larger;
 }
 
@@ -200,6 +201,17 @@ col.rank-table-col4 {
   display: block;
 }
 
+.about-page-img-arch {
+  width: 60%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.about-page-img-arch-2 {
+  width: 70%;
+  height: auto;
+}
+
 @media screen and (max-width: 650px) {
   #titlebar {
     width: 100%;
@@ -288,5 +300,16 @@ col.rank-table-col4 {
 
   #easter-egg-button {
     display: none;
+  }
+
+  .about-page-img-arch {
+    width: 80%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .about-page-img-arch-2 {
+    width: 100%;
+    height: auto;
   }
 }
