@@ -235,9 +235,19 @@ function surprise() {
 }
 
 let bgmIsPlaying = false;
-let bgm = null; // don't init audio first to save network traffic
+let bgm = null;
+let clickTimes = 0;
 
 function bgmClick() {
+  clickTimes++;
+  if (clickTimes == 10) {
+    document.getElementById("music-button").src =
+      "imgs/1200px-Icon-round-Question_mark.png";
+    bgm.pause();
+    bgmClick = surprise;
+    return;
+  }
+
   if (!bgmIsPlaying) {
     if (bgm == null) {
       bgm = new Audio("gameBackGroundMusic.mp3");
