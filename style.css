@@ -323,6 +323,6 @@ col.rank-table-col4 {
   }
 
   #music-button{
-    display: none;
+    z-index: 10;
   }
 }
