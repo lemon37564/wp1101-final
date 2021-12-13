@@ -212,6 +212,15 @@ col.rank-table-col4 {
   height: auto;
 }
 
+#music-button{
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+
 @media screen and (max-width: 650px) {
   #titlebar {
     width: 100%;
@@ -311,5 +320,9 @@ col.rank-table-col4 {
   .about-page-img-arch-2 {
     width: 100%;
     height: auto;
+  }
+
+  #music-button{
+    display: none;
   }
 }

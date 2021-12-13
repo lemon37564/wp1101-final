@@ -219,7 +219,10 @@ function surprise() {
     "allow",
     "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   );
-  easterEgg.setAttribute("style", "display: none; width: calc(70vw); height: calc(70vw * 9 / 16);");
+  easterEgg.setAttribute(
+    "style",
+    "display: none; width: calc(70vw); height: calc(70vw * 9 / 16);"
+  );
   easterEgg.setAttribute("allowfullscreen", "true");
   easterEgg.muted = false;
 
@@ -229,6 +232,23 @@ function surprise() {
     hideAll();
     easterEgg.style.display = "inline-block";
   }, 600);
+}
+
+let bgmIsPlaying = false;
+let bgm = null; // don't init audio first to save network traffic
+
+function bgmClick() {
+  if (!bgmIsPlaying) {
+    if (bgm == null) {
+      bgm = new Audio("gameBackGroundMusic.mp3");
+    }
+    bgm.play();
+    document.getElementById("music-button").src = "imgs/pause.png";
+  } else {
+    bgm.pause();
+    document.getElementById("music-button").src = "imgs/play.png";
+  }
+  bgmIsPlaying = !bgmIsPlaying;
 }
 
 function hashChange() {

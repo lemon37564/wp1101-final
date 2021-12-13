@@ -28,10 +28,6 @@
 </head>
 
 <body>
-  <!-- <audio id="Test_Audio" muted="muted" loop>
-    <source src="gameBackGroundMusic.mp3" type="audio/mpeg">
-  </audio> -->
-
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="titlebar">
     <ul class="navbar-nav navTitle">
       <li class="nav-item">
@@ -113,7 +109,8 @@
       <div style="padding: 1%; text-align: center; width: 100%;" id="pages">
 
         <iframe src="test/" title="Game" id="iframe" class="game" allowtransparency="true"></iframe>
-        <img src="imgs/1200px-Icon-round-Question_mark.png" id="easter-egg-button" onclick="surprise();">
+        <input type="image" id="easter-egg-button" src="imgs/1200px-Icon-round-Question_mark.png" onclick="surprise();">
+        <input type="image" id="music-button" src="imgs/play.png" onclick="bgmClick();">
 
         <div id="rankboard" class="container" style="display: none;">
           <div>
