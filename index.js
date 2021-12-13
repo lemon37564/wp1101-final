@@ -26,27 +26,27 @@ function start() {
     // gameBackGroundMusic.play();
   });
   //other music
-  collapse1.addEventListener(
-    "click",
-    function () {
-      clickMusic.play();
-    },
-    false
-  );
-  collapse2.addEventListener(
-    "click",
-    function () {
-      clickMusic.play();
-    },
-    false
-  );
-  collapse3.addEventListener(
-    "click",
-    function () {
-      clickMusic.play();
-    },
-    false
-  );
+  // collapse1.addEventListener(
+  //   "click",
+  //   function () {
+  //     clickMusic.play();
+  //   },
+  //   false
+  // );
+  // collapse2.addEventListener(
+  //   "click",
+  //   function () {
+  //     clickMusic.play();
+  //   },
+  //   false
+  // );
+  // collapse3.addEventListener(
+  //   "click",
+  //   function () {
+  //     clickMusic.play();
+  //   },
+  //   false
+  // );
 
   window.location.hash = "";
 }

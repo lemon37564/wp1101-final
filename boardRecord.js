@@ -85,13 +85,13 @@ function boardRecordShow() {
   for (var j = 0; j < 8; j++) {
     for (var k = 0; k < 8; k++) {
       if (board[count] == "X") {
-        boardShow += "<img src = 'imgs/black.webp'>";
+        boardShow += "<img src = 'imgs/black.webp' style='height: 8%; width: 8%;'>";
       }
       if (board[count] == "O") {
-        boardShow += "<img src = 'imgs/white.webp'>";
+        boardShow += "<img src = 'imgs/white.webp' style='height: 8%; width: 8%;'>";
       }
       if (board[count] == "_") {
-        boardShow += "<img src = 'imgs/none.webp'>";
+        boardShow += "<img src = 'imgs/none.webp' style='height: 8%; width: 8%;'>";
       }
       count++;
     }
