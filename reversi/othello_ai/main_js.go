@@ -45,23 +45,8 @@ func aiThink(input string, color string, strength string) string {
 func jsFuncWrapper() js.Func {
 	// 傳回 JavaScript 函式
 	return js.FuncOf(func(this js.Value, args []js.Value) interface{} {
-		// 取得 JavaScript DOM 文件元素
-		alert := js.Global().Get("alert")
-		doc := js.Global().Get("document")
-		label := doc.Call("getElementById", "result")
-		if !label.Truthy() {
-			alert.Invoke("網頁未包含 id='result' 元素")
-			return nil
-		}
-		label.Set("innerHTML", "")
-		// 開一個新的 Goroutine, 以免 http.Get 卡死 js.FuncOf
-		go func() {
-			// 呼叫 queryCovidCase
-			result := aiThink(args[0].String(), args[1].String(), args[2].String())
-			// 將查詢結果寫到網頁的 DOM 元素
-			label.Set("innerHTML", result)
-		}()
-		return nil
+		result := aiThink(args[0].String(), args[1].String(), args[2].String())
+		return result
 	})
 }
 

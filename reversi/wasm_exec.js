@@ -634,3 +634,20 @@
 		});
 	}
 })();
+
+
+// my part
+const go = new Go();
+
+WebAssembly.instantiateStreaming(fetch("ai.wasm"), go.importObject).then(
+  (result) => {
+    go.run(result.instance);
+  }
+);
+
+self.onmessage = function(req) {
+	req = req.data;
+	req = req.split(" ");
+	let returnValue = aiThink(req[0], req[1], req[2]);
+	self.postMessage(returnValue);
+}
