@@ -112,7 +112,7 @@
 
       <div style="padding: 1%; text-align: center; width: 100%;" id="pages">
 
-        <iframe src="reversi/" title="Game" id="iframe" class="game" allowtransparency="true"></iframe>
+        <iframe src="test/" title="Game" id="iframe" class="game" allowtransparency="true"></iframe>
         <img src="imgs/1200px-Icon-round-Question_mark.png" id="easter-egg-button" onclick="surprise();">
 
         <div id="rankboard" class="container" style="display: none;">
@@ -277,7 +277,7 @@
                 <p>前端使用HTML, JavaScript, CSS，並使用bootstrap。此外，也引入了 <a target="_blank"
                     href="https://www.blender.org/">blender.org</a> 之CSS(開源)。</p>
                 <p>後端使用Go語言編寫，部屬在heroku上，資料庫使用postgreSQL(heroku postgres)。</p>
-                <p>AI使用Go語言編寫，編譯成wasm提供遊戲呼叫。由於AI考慮時間較長，使用Web Worker避免畫面凍結。</p>
+                <p>AI使用Go語言編寫，編譯成wasm提供遊戲呼叫。由於AI思考時間較長，使用Web Worker避免畫面凍結。</p>
                 <p>遊戲本體使用WebAssembly、WebGL製作，根據使用者環境不同，在大多數情況下能夠提供比JavaScript更好的效能來執行。</p>
                 <p>PWA: 本網站為progressive web application，在chrome的右上角可以看見安裝鍵，安裝後便可以離線使用(排行榜與AI無法使用)</p>
                 <p>歷史棋譜存在localStorage中並提供下載，以便備份等用途。</p>
