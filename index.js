@@ -202,7 +202,7 @@ function load(loadId, duration) {
 function surprise() {
   if (document.getElementById("easter-egg") != null) {
     hideAll();
-    document.getElementById("easter-egg").style.display = "block";
+    document.getElementById("easter-egg").style.display = "inline-block";
     return;
   }
 
