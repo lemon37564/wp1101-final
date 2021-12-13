@@ -182,11 +182,20 @@ col.rank-table-col2 {
 }
 
 col.rank-table-col3 {
-  width: 140px;
+  width: 160px;
 }
 
 col.rank-table-col4 {
-  width: 180px;
+  width: 200px;
+}
+
+#easter-egg-button {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  display: block;
 }
 
 @media screen and (max-width: 650px) {
@@ -254,24 +263,28 @@ col.rank-table-col4 {
   col.rank-table-col1 {
     width: 50px;
   }
-  
+
   col.rank-table-col2 {
     width: auto;
   }
-  
+
   col.rank-table-col3 {
     width: 70px;
   }
-  
+
   col.rank-table-col4 {
     width: 110px;
   }
 
   .tableShow {
-    font-size: small; 
+    font-size: small;
   }
 
   #rank-div {
     padding: 1px;
+  }
+
+  #easter-egg-button {
+    display: none;
   }
 }
