@@ -35,8 +35,8 @@ func aiThink(input string, color string, strength string) string {
 	}
 
 	spent := time.Since(t)
-	if spent < time.Millisecond*500 {
-		time.Sleep(time.Millisecond*500 - spent)
+	if spent < time.Millisecond*650 {
+		time.Sleep(time.Millisecond*650 - spent)
 	}
 	fmt.Println("time spent: ", spent)
 	return out
