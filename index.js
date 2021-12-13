@@ -201,8 +201,8 @@ function load(loadId, duration) {
 
 function surprise() {
   if (document.getElementById("easter-egg") != null) {
+    hideAll();
     document.getElementById("easter-egg").style.display = "block";
-    iframe.style.display = "none";
     return;
   }
 
@@ -226,7 +226,7 @@ function surprise() {
   document.getElementById("pages").insertBefore(easterEgg, iframe);
 
   window.setTimeout(function () {
-    iframe.style.display = "none";
+    hideAll();
     easterEgg.style.display = "block";
   }, 600);
 }
