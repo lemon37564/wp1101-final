@@ -219,7 +219,7 @@ function surprise() {
     "allow",
     "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   );
-  easterEgg.setAttribute("style", "display: none");
+  easterEgg.setAttribute("style", "display: none; width: calc(70vw); height: calc(70vw * 9 / 16);");
   easterEgg.setAttribute("allowfullscreen", "true");
   easterEgg.muted = false;
 
@@ -227,7 +227,7 @@ function surprise() {
 
   window.setTimeout(function () {
     hideAll();
-    easterEgg.style.display = "block";
+    easterEgg.style.display = "inline-block";
   }, 600);
 }
 
