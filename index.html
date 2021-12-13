@@ -110,13 +110,13 @@
         </div>
       </div>
 
-      <div class="col-sm-9" style="padding: 1%" id="pages">
+      <div class="col-sm-9" style="padding: 1%;" id="pages">
         <iframe src="reversi/" title="Game" id="iframe" class="game" allowtransparency="true"></iframe>
 
         <img src="imgs/1200px-Icon-round-Question_mark.png"
           style="position: fixed; left: 10px; bottom: 10px; width: 50px; height: 50px;" onclick="surprise();">
 
-        <div id="rankboard" style="display: none;" class="container">
+        <div id="rankboard" class="container" style="display: none;">
 
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" loading="lazy">
@@ -164,7 +164,7 @@
             </div>
           </div>
 
-          <div class="wp-block-group is-style-box container">
+          <div class="wp-block-group is-style-box container" id="rank-div">
             <div class="wp-block-group__inner-container">
               <div class="d-flex justify-content-center" id="spinner"
                 style="visibility: visible; position: absolute; top: 300px; left: 48.5%;">
@@ -178,10 +178,10 @@
                   <div class='card-body' style="width: 100%; padding: 8px;">
                     <table class='tableShow'
                       style="color: #4C4D52; table-layout: fixed; text-align: center;background-color: #b2bfcf; width: 100%;">
-                      <col width="10%" />
-                      <col width="55%" />
-                      <col width="15%" />
-                      <col width="20%" />
+                      <col class="rank-table-col1" />
+                      <col class="rank-table-col2" />
+                      <col class="rank-table-col3" />
+                      <col class="rank-table-col4" />
                       <thead>
                         <tr>
                           <th>排行</th>
@@ -199,10 +199,10 @@
                   <div class='card-body' style="width: 100%; padding: 8px;">
                     <table class='tableShow'
                       style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #aac8e1; width: 100%;">
-                      <col width="10%" />
-                      <col width="55%" />
-                      <col width="15%" />
-                      <col width="20%" />
+                      <col class="rank-table-col1" />
+                      <col class="rank-table-col2" />
+                      <col class="rank-table-col3" />
+                      <col class="rank-table-col4" />
                       <thead>
                         <tr>
                           <th>排行</th>
@@ -220,10 +220,10 @@
                   <div class='card-body' style="width: 100%; padding: 8px;">
                     <table class='tableShow'
                       style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #A2D2F2; width: 100%;">
-                      <col width="10%" />
-                      <col width="55%" />
-                      <col width="15%" />
-                      <col width="20%" />
+                      <col class="rank-table-col1" />
+                      <col class="rank-table-col2" />
+                      <col class="rank-table-col3" />
+                      <col class="rank-table-col4" />
                       <thead>
                         <tr>
                           <th>排行</th>
@@ -330,11 +330,10 @@
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
               <h1>網站開發記錄</h1>
-              <table class='dev-table'
+              <table class='dev-table tableShow'
                 style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #b2bfcf; width: 100%;">
-                <col width="10%" />
-                <col width="30%" />
-                <col width="60%" />
+                <col id="about-page-table-col1" />
+                <col id="about-page-table-col2" />
                 <thead>
                   <tr style="font-size: larger">
                     <th>版本</th>

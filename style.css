@@ -5,7 +5,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: auto; */
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
   font-family: "Noto Sans TC";
 }
 
@@ -165,6 +165,30 @@ figcaption {
   text-align: center;
 }
 
+#about-page-table-col1 {
+  width: 100px;
+}
+
+#about-page-table-col2 {
+  width: 180px;
+}
+
+col.rank-table-col1 {
+  width: 120px;
+}
+
+col.rank-table-col2 {
+  width: auto;
+}
+
+col.rank-table-col3 {
+  width: 140px;
+}
+
+col.rank-table-col4 {
+  width: 180px;
+}
+
 @media screen and (max-width: 650px) {
   #titlebar {
     width: 100%;
@@ -217,5 +241,37 @@ figcaption {
     margin-right: 5%;
     margin-left: 5%;
     margin-top: 6px;
+  }
+
+  #about-page-table-col1 {
+    width: 80px;
+  }
+
+  #about-page-table-col2 {
+    width: 90px;
+  }
+
+  col.rank-table-col1 {
+    width: 50px;
+  }
+  
+  col.rank-table-col2 {
+    width: auto;
+  }
+  
+  col.rank-table-col3 {
+    width: 70px;
+  }
+  
+  col.rank-table-col4 {
+    width: 110px;
+  }
+
+  .tableShow {
+    font-size: small; 
+  }
+
+  #rank-div {
+    padding: 1px;
   }
 }
