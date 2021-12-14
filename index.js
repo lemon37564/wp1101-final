@@ -12,6 +12,10 @@ function start() {
   historyPage = document.getElementById("historyPage");
 
   window.location.hash = "";
+  setTimeout(function() {
+    bgm = new Audio("gameBackGroundMusic.mp3");
+    bgm.load();
+  }, 10000);
 }
 
 async function getRank(strength) {
@@ -166,6 +170,7 @@ function surprise() {
   if (document.getElementById("easter-egg") != null) {
     hideAll();
     document.getElementById("easter-egg").style.display = "inline-block";
+    window.location.hash = "surprise";
     return;
   }
 
