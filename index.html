@@ -9,13 +9,14 @@
 
   <link rel="manifest" href="manifest.json">
 
+  <script src="jquery-3.6.0.min.js"></script>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="blender.org.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <link rel="shortcut icon" href="imgs/icon2.png">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="index.js"></script>
   <script src="boardRecord.js"></script>
@@ -51,61 +52,6 @@
 
   <div class="container-fluid" style="margin-top:30px;">
     <div class="row">
-      <!-- <div class="col-sm-3">
-        <div id="accordion">
-          <div class="card"
-            style="background-color: #136058;z-index: 10; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
-            <a class="card-link" data-toggle="collapse" href="#collapseOne">
-              <div class="card-header">
-                <span class="introuduceTitle" id="collapse1">遊戲介紹<span>
-              </div>
-            </a>
-            <div id="collapseOne" class="collapse" data-parent="#accordion">
-              <div class="card-body">
-                <p class="sidebar">黑白棋（Reversi），又稱翻轉棋、蘋果棋或奧賽羅棋（Othello），是一種雙人對弈的棋類遊戲。</p>
-                <p class="sidebar">
-                  本遊戲為十九世紀末英國人的發明，百年後世人借用莎士比亞名劇奧賽羅為這個遊戲重新命名。奧賽羅是一個黑人，妻子是白人，奧賽羅懷疑妻子不忠，最終親手把妻子殺死。後來真相大白，奧賽羅懊悔不已，自殺而死。黑白棋就是借用這個黑人白人鬥爭的故事。
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="card" style="background-color: #136058; border-radius: 0px;">
-            <a class="card-link" data-toggle="collapse" href="#collapseTwo">
-              <div class="card-header">
-                <span class="introuduceTitle" id="collapse2">遊戲規則<span>
-              </div>
-            </a>
-            <div id="collapseTwo" class="collapse" data-parent="#accordion">
-              <div class="card-body">
-                <p class="sidebar">1. 棋盤共有8行8列共64格</p>
-                <p class="sidebar">
-                  2. 雙方輪流落子。只要落子和棋盤上任一枚己方的棋子在一條線上（橫、直、斜線皆可）夾著對方棋子，就能將對方的這些棋子轉變為己方</p>
-                <p class="sidebar">3. 如果在任一位置落子都不能夾住對手的任一顆棋子，就要讓對手下子</p>
-                <p class="sidebar">4. 當雙方皆不能下子時，遊戲就結束，子多的一方勝</p>
-              </div>
-            </div>
-          </div>
-          <div class="card"
-            style="background-color: #136058; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-            <a class="card-link" data-toggle="collapse" href="#collapseThree">
-              <div class="card-header">
-                <span class="introuduceTitle" id="collapse3">操作說明<span>
-              </div>
-            </a>
-            <div id="collapseThree" class="collapse" data-parent="#accordion">
-              <div class="card-body">
-                <p class="sidebar">1. 滑鼠點選一下選擇位置，再點一下確定落子；亦可使用↑↓←→鍵控制位置，並按enter/空白鍵落子</p>
-                <p class="sidebar">2. 滑鼠滾輪調整視角，CTRL+滑鼠滾輪調整遠近</p>
-                <p class="sidebar">3. C鍵讓視角回歸原位</p>
-                <p class="sidebar">4. 按ESC鍵或右上角圖標開啟設定列表</p>
-                <p class="sidebar">5. 選擇困難難度的AI時，最久可能會想45秒左右</p>
-                <p class="sidebar">6. 上傳成績時，姓名長度限制在32個字以內</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
       <div style="padding: 1%; text-align: center; width: 100%;" id="pages">
 
         <iframe src="reversi/" title="Game" id="iframe" class="game" allowtransparency="true"></iframe>
@@ -253,7 +199,7 @@
                     <figcaption> 陶瓷材質的棋子 </figcaption>
                   </figure>
                 </div>
-                <p>提供儲存棋譜功能，能夠在下完棋後慢慢思考與檢討。同時亦支援匯出紀錄，避免清除瀏覽器快取時失去所有資料，也可以將資料帶著走。</p>
+                <p>提供儲存棋譜功能，能夠在下完棋後慢慢思考與檢討。支援記錄匯出，避免清除瀏覽器快取時失去所有資料，也可以將資料帶著走。</p>
                 <p>1</p>
                 <p>2</p>
                 <p>3</p>
@@ -327,7 +273,7 @@
                 <img src="imgs/architecture.png" class="about-page-img-arch zoom-on-hover" loading="lazy">
                 <br><br><br><br>
                 <img src="imgs/architecture-2.png" class="about-page-img-arch-2 zoom-on-hover" loading="lazy">
-                <br>
+                <br><br>
               </div>
             </div>
           </div>
