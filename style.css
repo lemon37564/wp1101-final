@@ -23,9 +23,8 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 29rem;
-  margin-left: calc((100% - 29rem) / 2);
-  margin-right: calc((100% - 29rem) / 2);
+  width: 28rem;
+  margin-left: 13%;
 }
 
 p.sidebar {
@@ -222,6 +221,11 @@ col.rank-table-col4 {
   z-index: 10;
 }
 
+img.record-img {
+  width: 8%;
+  height: 8%;
+}
+
 @media screen and (max-width: 650px) {
   #titlebar {
     width: 100%;
@@ -334,5 +338,10 @@ col.rank-table-col4 {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+  }
+
+  img.record-img {
+    width: 12%;
+    height: 12%;
   }
 }
