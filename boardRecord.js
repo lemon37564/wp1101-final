@@ -72,6 +72,15 @@ function initShow() {
   }
   boardRecord.innerHTML = boardShow;
 
+  let hour = String(storageData[currentIndex]["date"].hour);
+  if (hour.length == 1) {
+    hour = "0" + hour;
+  }
+  let minute = String(storageData[currentIndex]["date"].minute);
+  if (minute.length == 1) {
+    minute = "0" + minute;
+  }
+
   gamesRecordTime.innerHTML =
     "記錄 #" +
     String(storageKeys.length - currentIndex) +
@@ -82,12 +91,12 @@ function initShow() {
     "/" +
     storageData[currentIndex]["date"].day +
     "&nbsp;&nbsp;&nbsp;&nbsp;" +
-    storageData[currentIndex]["date"].hour +
+    hour +
     ":" +
-    storageData[currentIndex]["date"].minute;
+    minute;
 
-  player1.innerHTML = judgePlayer(storageData[currentIndex]["p1"]);
-  player2.innerHTML = judgePlayer(storageData[currentIndex]["p2"]);
+  player1.innerHTML = "先手: " + judgePlayer(storageData[currentIndex]["p1"]);
+  player2.innerHTML = "後手: " + judgePlayer(storageData[currentIndex]["p2"]);
   judgePlayerpic();
 }
 
