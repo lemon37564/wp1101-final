@@ -94,7 +94,7 @@ func (ai AI8) printValue(best node) {
 
 func (ai *AI8) setPhase(bd bboard8) {
 	emptyCount := bd.emptyCount()
-	phase2 := PHASE2DEPTH8 + (ai.level-4)*4 // level
+	phase2 := PHASE2DEPTH8 + (ai.level-4)*3 // level
 	if emptyCount > phase2 {
 		ai.phase = 1
 	} else {

@@ -11,44 +11,11 @@ function start() {
   aboutPage = document.getElementById("aboutPage");
   historyPage = document.getElementById("historyPage");
 
-  let collapse1 = document.getElementById("collapse1");
-  let collapse2 = document.getElementById("collapse2");
-  let collapse3 = document.getElementById("collapse3");
-
-  let rankMusic = new Audio("rankMusic.mp3");
-  let clickMusic = new Audio("clickMusic.mp3");
-
-  let gameBackGroundMusic = document.getElementById("Test_Audio");
-
-  //background music;
-  document.addEventListener("click", function () {
-    // gameBackGroundMusic.muted = false;
-    // gameBackGroundMusic.play();
-  });
-  //other music
-  // collapse1.addEventListener(
-  //   "click",
-  //   function () {
-  //     clickMusic.play();
-  //   },
-  //   false
-  // );
-  // collapse2.addEventListener(
-  //   "click",
-  //   function () {
-  //     clickMusic.play();
-  //   },
-  //   false
-  // );
-  // collapse3.addEventListener(
-  //   "click",
-  //   function () {
-  //     clickMusic.play();
-  //   },
-  //   false
-  // );
-
   window.location.hash = "";
+  setTimeout(function() {
+    bgm = new Audio("gameBackGroundMusic.mp3");
+    bgm.load();
+  }, 10000);
 }
 
 async function getRank(strength) {
@@ -203,6 +170,7 @@ function surprise() {
   if (document.getElementById("easter-egg") != null) {
     hideAll();
     document.getElementById("easter-egg").style.display = "inline-block";
+    window.location.hash = "surprise";
     return;
   }
 
