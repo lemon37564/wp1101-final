@@ -183,8 +183,7 @@ function deleteThisRecord() {
     return;
   }
   // if current index is final one, prevent index out of range. and return directly. renaming not needed.
-  if (currentIndex == storageData.length - 1) {
-    currentIndex--;
+  if (currentIndex == 0) {
     getStorage();
     initShow();
     boardRecordShow();
@@ -265,7 +264,6 @@ function importData() {
   input.type = "file";
   input.onchange = (_) => {
     // you can use this method to get file and perform respective operations
-    console.log("input" + input.files[0]);
     resultFile = input.files[0];
     if (resultFile) {
       var reader = new FileReader();
@@ -274,13 +272,15 @@ function importData() {
       reader.onload = function (e) {
         let data = JSON.parse(this.result);
 
-        for(let i in data) {
+        for (let i in data) {
           localStorage.setItem(i, data[i]);
         }
+        getStorage();
+        initShow();
+        boardRecordShow();
       };
     }
-    
-  }
+  };
   input.click();
 }
 //////////////////////////////////////////////////////
