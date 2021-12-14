@@ -259,26 +259,44 @@ function destroyClickedElement(event) {
 
 //////////////////////////////////////////////////////upload data
 
-function showDataByText() {
-  let resultFile = document.getElementById("file-uploader").files[0];
-  if (resultFile) {
-    let reader = new FileReader();
+function importData() {
+  let input = document.createElement('input');
 
-    reader.readAsText(resultFile, "UTF-8");
-    reader.onload = function (e) {
-      let data = JSON.parse(this.result);
+  input.type = 'file';
+  input.onchange = _ => {
+    // you can use this method to get file and perform respective operations
+    console.log("input" + input.files[0]);
+    resultFile=input.files[0];
+    var urlData;
+    if (resultFile) {
+      var reader = new FileReader();
 
-      for(let i in data) {
-        localStorage.setItem(i, data[i]);
-      }
+      reader.readAsText(resultFile, "UTF-8");
+      reader.onload = function (e) {
+        urlData = this.result;
+        var temp = urlData.split("-----");
+        console.log(temp);
+        count = 0;
+        for (var i = 0; i < temp.length - 1; i++) {
+          str = "history-" + count;
+          count++;
+          //console.log(temp[i]);
+          localStorage.setItem(str, temp[i]);
 
-      getStorage();
-      initShow();
-      boardRecordShow();
-    };
-  }
+        }
+        //key = "history-" + localStorage.length;
+
+        //console.log(urlData);
+        //document.getElementById("result").innerHTML += urlData;
+      };
+    }
+
 }
 
+  };
+  input.click();
+
+}
 //////////////////////////////////////////////////////
 
 window.addEventListener("load", startBoardRecord, false);

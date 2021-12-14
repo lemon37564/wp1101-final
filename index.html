@@ -413,13 +413,28 @@
                 
               </p>
               <div id="boardRecord"></div>
-
+             
               <p>
-                <input type="file" id="file-uploader" data-target="file-uploader" accept=".txt" style="display:none"/><img src="imgs/1608710_upload_icon.png" height="50em"></img>
                 
-                <input type = "image" src = "imgs/trash-all.png" height="50em" onclick="deleteAllRecord()">
-                <input type ="image" src ="imgs/trash-1.png" height="50em" onclick="deleteThisRecord()">
-                <input type ="image" src = "imgs/save+icon-1320167995084087448.png" height="50em" onclick="saveTextAsFile()">
+
+                <div style="text-align: center;position:relative">
+                  <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                    <button class="buttonInFile" onclick="importData()">Import Data</button>
+                    <!-- <img src="imgs/1608710_upload_icon.png" width="50em"></img>
+                    <input type="file" id="file-uploader" data-target="file-uploader" accept=".txt"/> -->
+                  </figure>
+                  
+                  <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                    <input type = "image" src = "imgs/trash-all.png" height="50em" onclick="deleteAllRecord()">
+                  </figure>
+                  <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                    <input type ="image" src ="imgs/trash-1.png" height="50em" onclick="deleteThisRecord()">
+                  </figure>
+                  <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                    <input type ="image" src = "imgs/save+icon-1320167995084087448.png" height="50em" onclick="saveTextAsFile()">
+                  </figure>
+                </div>
+                 
               </p>
 
             </div>
