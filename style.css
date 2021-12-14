@@ -325,4 +325,13 @@ col.rank-table-col4 {
   #music-button{
     z-index: 10;
   }
+
+  .navTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
