@@ -10,6 +10,7 @@ var player1pic;
 var player2pic;
 var itemVsKey = [];
 var gamesRecordTime;
+
 function startBoardRecord() {
   boardRecord = document.getElementById("boardRecord");
   boardRecordName = document.getElementById("boardRecordName");
@@ -21,6 +22,7 @@ function startBoardRecord() {
   nowPage = 0;
   getRecord();
 
+  initShow();
   boardRecordShow();
 
   const fileUploader = document.querySelector("#file-uploader");
@@ -42,7 +44,7 @@ function getRecord() {
       var temp2 = localStorage.key(i).split("-");
       if (parseInt(temp2[1]) == nowPage) {
         itemVsKey[count] = nowPage;
-       
+
         wholeBoards[count++] = localStorage.key(i);
       }
     }
@@ -53,7 +55,7 @@ function getRecord() {
       localStorage.getItem(wholeBoards[nowPage])
     );
   }
-  
+
   for (nowPage = 0; nowPage < pageLength; nowPage++) {
     wholeBoardsMaxStep[nowPage] = wholeBoards[nowPage].boards.length;
   }
@@ -64,47 +66,65 @@ function getRecord() {
 
   console.log("totalPage=" + totalPage);
   console.log("nowStep=" + nowStep);
-  boardRecordShow();
+}
+
+function initShow() {
+  player1.innerHTML = "";
+  player2.innerHTML = "";
+  player1pic.setAttribute("src", "");
+  player2pic.setAttribute("src", "");
+
+  let boardShow = "";
+  for (let j = 0; j < 8; j++) {
+    for (let k = 0; k < 8; k++) {
+      boardShow +=
+        "<img src = 'imgs/none.webp' class='record-img' id='cell" +
+        String(j) +
+        String(k) +
+        "'>";
+    }
+    boardShow += "<br>";
+  }
+  boardRecord.innerHTML = boardShow;
 }
 
 function boardRecordShow() {
-  console.log("bordershow");
-
+  if (pageLength == 0) {
+    return;
+  }
   var boardShow = "";
-  player1.innerHTML = "";
-  player2.innerHTML = "";
-  player1pic.setAttribute("src","");
-  player2pic.setAttribute("src","");
 
-  gamesRecordTime.innerHTML = "本次遊玩時間"+wholeBoards[nowPage]["date"].year+"/"+wholeBoards[nowPage]["date"].month+"/"+wholeBoards[nowPage]["date"].day; 
-  if (pageLength == 0) return;
+  gamesRecordTime.innerHTML =
+    "本次遊玩時間" +
+    wholeBoards[nowPage]["date"].year +
+    "/" +
+    wholeBoards[nowPage]["date"].month +
+    "/" +
+    wholeBoards[nowPage]["date"].day;
+
   var board = wholeBoards[nowPage].boards[nowStep];
 
   player1.innerHTML = judgePlayer(wholeBoards[nowPage].p1);
   player2.innerHTML = judgePlayer(wholeBoards[nowPage].p2);
   judgePlayerpic();
 
-  var count = 0;
-  for (var j = 0; j < 8; j++) {
-    for (var k = 0; k < 8; k++) {
-      if (board[count] == "X") {
-        boardShow += "<img src = 'imgs/black.webp' class='record-img'>";
-      }
-      if (board[count] == "O") {
-        boardShow += "<img src = 'imgs/white.webp' class='record-img'>";
-      }
-      if (board[count] == "_") {
-        boardShow += "<img src = 'imgs/none.webp' class='record-img'>";
+  let count = 0;
+  
+  console.time("test1");
+  for (let j = 0; j < 8; j++) {
+    for (let k = 0; k < 8; k++) {
+      let cell = document.getElementById("cell" + String(j) + String(k));
+      if (board[count] == "X" && cell.src != "imgs/black.webp") {
+        cell.src = "imgs/black.webp";
+      } else if (board[count] == "O" && cell.src != "imgs/white.webp") {
+        cell.src = "imgs/white.webp";
+      } else {
+        cell.src = "imgs/none.webp";
       }
       count++;
     }
-
-    boardShow += "<br>";
   }
-
-  console.log("nowstep=" + nowStep);
-  console.log("nowpage=" + nowPage);
-  boardRecord.innerHTML = boardShow;
+  console.timeEnd("test1");
 }
 
 function beforePage() {
@@ -186,11 +206,11 @@ function judgePlayer(player) {
 
 function judgePlayerpic() {
   if (wholeBoards[nowPage].first == "black") {
-    player1pic.setAttribute("src","imgs/black.webp");
-    player2pic.setAttribute("src","imgs/white.webp");
+    player1pic.setAttribute("src", "imgs/black.webp");
+    player2pic.setAttribute("src", "imgs/white.webp");
   } else {
-    player1pic.setAttribute("src","imgs/white.webp");
-    player2pic.setAttribute("src","imgs/black.webp");
+    player1pic.setAttribute("src", "imgs/white.webp");
+    player2pic.setAttribute("src", "imgs/black.webp");
   }
 }
 ////////////////////////////////////////////////////download data
