@@ -368,75 +368,67 @@
 
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
-
-              <p id=boardRecordName></p>
-              
               <h2 id="gamesRecordTime"></h2>
               <div style="text-align: center;">
                 <figure style="margin-left: 2.5%; margin-right: 2.5%;">
-                  
-                    <img src="" id = "player1pic"class="about-page-img-small zoom-on-hover" loading="lazy">
-                    <figcaption id="player1"></figcaption>
+
+                  <img src="" id="player1pic" class="about-page-img-small zoom-on-hover" loading="lazy">
+                  <figcaption id="player1"></figcaption>
                   </a>
                 </figure>
 
                 <figure style="margin-left: 2.5%; margin-right: 2.5%;">
-                  
-                    <img src="" id = "player2pic" class="about-page-img-small zoom-on-hover" loading="lazy">
-                    <figcaption id="player2"></figcaption>
+
+                  <img src="" id="player2pic" class="about-page-img-small zoom-on-hover" loading="lazy">
+                  <figcaption id="player2"></figcaption>
                   </a>
                 </figure>
               </div>
-              <p style="display: flex;flex-direction: row;justify-content: space-between;width: 70%;margin-left: 15%;margin-right: 15%;">
-                <a onclick="beforePage()" style="text-decoration: none;"><h>上一則</h></a>
+              <p
+                style="display: flex;flex-direction: row;justify-content: space-between;width: 70%;margin-left: 15%;margin-right: 15%;">
+                <a onclick="beforePage()" style="text-decoration: none;">
+                  <h>上一則</h>
+                </a>
                 <a onclick="firstStep()" style="text-decoration: none;">
-                  <input type="image" src="imgs/fast-forward.png"  width=30em style="transform:scaleX(-1)" loading = "lazy">
-                  
+                  <input type="image" src="imgs/fast-forward.png" width=30em style="transform:scaleX(-1)"
+                    loading="lazy">
+
                 </a>
                 <a onclick="beforeStep()" style="text-decoration: none;">
-                  <input type="image" src="imgs/next.png"  width=30em style="transform:scaleX(-1)" loading = "lazy">
+                  <input type="image" src="imgs/next.png" width=30em style="transform:scaleX(-1)" loading="lazy">
                 </a>
 
-                
-                
                 <a onclick="nextStep()" style="text-decoration: none;">
-                  <input type="image" src="imgs/next.png" width=30em loading = "lazy">
-                  
+                  <input type="image" src="imgs/next.png" width=30em loading="lazy">
+
                 </a>
                 <a onclick="lastStep()" style="text-decoration: none;">
-                  <input type="image" src="imgs/fast-forward.png" width=30em loading = "lazy">
-                  <!-- <img src="imgs/fast-forward.png" width=30em loading = "lazy"> -->
+                  <input type="image" src="imgs/fast-forward.png" width=30em loading="lazy">
                 </a>
                 <a onclick="nextPage()" style="text-decoration: none;">
                   <h>下一則</h>
                 </a>
-                
+
               </p>
               <div id="boardRecord"></div>
-             
               <p>
-                
+              <div style="text-align: center;position:relative">
+                <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                  <button class="buttonInFile" onclick="importData()">Import Data</button>
+                </figure>
 
-                <div style="text-align: center;position:relative">
-                  <figure style="margin-left: 2.5%; margin-right: 2.5%;">
-                    <button class="buttonInFile" onclick="importData()">Import Data</button>
-                    <!-- <img src="imgs/1608710_upload_icon.png" width="50em"></img>
-                    <input type="file" id="file-uploader" data-target="file-uploader" accept=".txt"/> -->
-                  </figure>
-                  
-                  <figure style="margin-left: 2.5%; margin-right: 2.5%;">
-                    <input type = "image" src = "imgs/trash-all.png" height="50em" onclick="deleteAllRecord()">
-                  </figure>
-                  <figure style="margin-left: 2.5%; margin-right: 2.5%;">
-                    <input type ="image" src ="imgs/trash-1.png" height="50em" onclick="deleteThisRecord()">
-                  </figure>
-                  <figure style="margin-left: 2.5%; margin-right: 2.5%;">
-                    <input type ="image" src = "imgs/save+icon-1320167995084087448.png" height="50em" onclick="saveTextAsFile()">
-                  </figure>
-                </div>
-                 
+                <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                  <input type="image" src="imgs/trash-all.png" height="50em" onclick="deleteAllRecord()">
+                </figure>
+                <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                  <input type="image" src="imgs/trash-1.png" height="50em" onclick="deleteThisRecord()">
+                </figure>
+                <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                  <input type="image" src="imgs/save+icon-1320167995084087448.png" height="50em"
+                    onclick="saveTextAsFile()">
+                </figure>
+              </div>
               </p>
-
             </div>
           </div>
         </div>
