@@ -9,15 +9,13 @@
 
   <link rel="manifest" href="manifest.json">
 
-  <script src="jquery-3.6.0.min.js"></script>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap-5.0.2-dist/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="blender.org.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <link rel="shortcut icon" href="imgs/icon2.png">
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="bootstrap-5.0.2-dist/bootstrap.bundle.min.js"></script>
   <script src="index.js"></script>
   <script src="boardRecord.js"></script>
   <script>
@@ -199,7 +197,9 @@
                     <figcaption> 陶瓷材質的棋子 </figcaption>
                   </figure>
                 </div>
-                <p>提供儲存棋譜功能，資訊儲存在瀏覽器本身的localstorage，在該頁面可對每一則(每一次遊玩)觀看每一步紀錄。可刪除該則遊玩紀錄，清空紀錄。能夠在下完棋後慢慢思考與檢討。支援記錄匯出、匯入，避免清除瀏覽器快取時失去所有資料，也可以將資料帶著走。</p>
+                <p>
+                  提供儲存棋譜功能，資訊儲存在瀏覽器本身的localstorage，在該頁面可對每一則(每一次遊玩)觀看每一步紀錄。可刪除該則遊玩紀錄，清空紀錄。能夠在下完棋後慢慢思考與檢討。支援記錄匯出、匯入，避免清除瀏覽器快取時失去所有資料，也可以將資料帶著走。
+                </p>
                 <p>在排行榜上顯示之前玩家對戰不同等級AI的分數紀錄，分數由高到低顯示該玩家的姓名及遊玩日期</p>
                 <p></p>
                 <p>3</p>
@@ -371,7 +371,6 @@
               <h2 id="gamesRecordTime"></h2>
               <div style="text-align: center;">
                 <figure style="margin-left: 2.5%; margin-right: 2.5%;">
-
                   <img src="" id="player1pic" class="about-page-img-small zoom-on-hover" loading="lazy">
                   <figcaption id="player1"></figcaption>
                   </a>
@@ -386,28 +385,25 @@
               </div>
               <p
                 style="display: flex;flex-direction: row;justify-content: space-between;width: 70%;margin-left: 15%;margin-right: 15%;">
-                <a onclick="beforePage()" style="text-decoration: none;">
-                  <h>上一則</h>
-                </a>
-                <a onclick="firstStep()" style="text-decoration: none;">
+                <button type="button" id="previous-page-button" class="btn btn-outline-primary" onclick="beforePage();">上一則</button>
+                
+                <a onclick="firstStep()" id="first-step-button" style="text-decoration: none;">
                   <input type="image" src="imgs/fast-forward.png" width=30em style="transform:scaleX(-1)"
                     loading="lazy">
 
                 </a>
-                <a onclick="beforeStep()" style="text-decoration: none;">
+                <a onclick="beforeStep()" id="previous-step-button" style="text-decoration: none;">
                   <input type="image" src="imgs/next.png" width=30em style="transform:scaleX(-1)" loading="lazy">
                 </a>
 
-                <a onclick="nextStep()" style="text-decoration: none;">
+                <a onclick="nextStep()" id="next-step-button" style="text-decoration: none;">
                   <input type="image" src="imgs/next.png" width=30em loading="lazy">
 
                 </a>
-                <a onclick="lastStep()" style="text-decoration: none;">
+                <a onclick="lastStep()" id="last-step-button" style="text-decoration: none;">
                   <input type="image" src="imgs/fast-forward.png" width=30em loading="lazy">
                 </a>
-                <a onclick="nextPage()" style="text-decoration: none;">
-                  <h>下一則</h>
-                </a>
+                <button type="button" id="next-page-button" class="btn btn-outline-primary" onclick="nextPage();">下一則</button>
 
               </p>
               <div id="boardRecord"></div>
@@ -417,13 +413,13 @@
                   <button class="buttonInFile" onclick="importData()">Import Data</button>
                 </figure>
 
-                <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                <figure style="margin-left: 2.5%; margin-right: 2.5%;" id="delete-all-button">
                   <input type="image" src="imgs/trash-all.png" height="50em" onclick="deleteAllRecord()">
                 </figure>
-                <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                <figure style="margin-left: 2.5%; margin-right: 2.5%;" id="delete-this-button">
                   <input type="image" src="imgs/trash-1.png" height="50em" onclick="deleteThisRecord()">
                 </figure>
-                <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                <figure style="margin-left: 2.5%; margin-right: 2.5%;" id="save-file-button">
                   <input type="image" src="imgs/save+icon-1320167995084087448.png" height="50em"
                     onclick="saveTextAsFile()">
                 </figure>

@@ -23,19 +23,15 @@ function startBoardRecord() {
   currentStep = 0;
 
   initShow();
+  document.getElementById("previous-page-button").setAttribute("disabled", "");
   boardRecordShow();
 
   const fileUploader = document.querySelector("#file-uploader");
-
-  /*fileUploader.addEventListener("change", (e) => {
-    showDataByText();
-  });*/
 }
 
 function getStorage() {
   if (localStorage.length == 0) {
     return;
-    // window.alert("norecord");
   }
 
   storageKeys = [];
@@ -58,8 +54,30 @@ function getStorage() {
 
 function initShow() {
   if (storageKeys.length == 0) {
+    gamesRecordTime.innerHTML = "沒有遊戲記錄，快去玩幾場吧～";
+    document.getElementById("previous-page-button").style.display = "none";
+    document.getElementById("previous-page-button").style.display = "none";
+    document.getElementById("first-step-button").style.display = "none";
+    document.getElementById("previous-step-button").style.display = "none";
+    document.getElementById("next-step-button").style.display = "none";
+    document.getElementById("last-step-button").style.display = "none";
+    document.getElementById("next-page-button").style.display = "none";
+    document.getElementById("delete-all-button").style.display = "none";
+    document.getElementById("delete-this-button").style.display = "none";
+    document.getElementById("save-file-button").style.display = "none";
     return;
   }
+
+  document.getElementById("previous-page-button").style.display = "block";
+  document.getElementById("previous-page-button").style.display = "block";
+  document.getElementById("first-step-button").style.display = "block";
+  document.getElementById("previous-step-button").style.display = "block";
+  document.getElementById("next-step-button").style.display = "block";
+  document.getElementById("last-step-button").style.display = "block";
+  document.getElementById("next-page-button").style.display = "block";
+  document.getElementById("delete-all-button").style.display = "inline-block";
+  document.getElementById("delete-this-button").style.display = "inline-block";
+  document.getElementById("save-file-button").style.display = "inline-block";
 
   let boardShow = "";
   for (let j = 0; j < 8; j++) {
@@ -126,25 +144,27 @@ function boardRecordShow() {
 }
 
 function beforePage() {
-  if (currentIndex - 1 < 0) {
-    window.alert("最前面了");
-    return;
-  }
   currentIndex--;
   currentStep = 0;
   initShow();
   boardRecordShow();
+  if (currentIndex == 0) {
+    document
+      .getElementById("previous-page-button")
+      .setAttribute("disabled", "");
+  }
+  document.getElementById("next-page-button").removeAttribute("disabled");
 }
 
 function nextPage() {
-  if (currentIndex + 1 >= storageKeys.length) {
-    window.alert("最後了");
-    return;
-  }
   currentIndex++;
   currentStep = 0;
   initShow();
   boardRecordShow();
+  if (currentIndex == storageKeys.length - 1) {
+    document.getElementById("next-page-button").setAttribute("disabled", "");
+  }
+  document.getElementById("previous-page-button").removeAttribute("disabled");
 }
 
 function beforeStep() {
@@ -241,12 +261,20 @@ function judgePlayerpic() {
 ////////////////////////////////////////////////////download data
 
 function saveTextAsFile() {
-  _fileName = "record";
   let data = JSON.stringify(localStorage);
-  let textFileAsBlob = new Blob([data], { type: "text/plain" });
+  let textFileAsBlob = new Blob([data], { type: "application/json" });
+  let dateTime = new Date();
 
   let downloadLink = document.createElement("a");
-  downloadLink.download = _fileName;
+  downloadLink.download =
+    "record-" +
+    String(dateTime.getFullYear()) +
+    String(dateTime.getMonth() + 1).padStart(2, "0") +
+    String(dateTime.getDate()).padStart(2, "0") +
+    "-" +
+    String(dateTime.getHours()).padStart(2, "0") +
+    String(dateTime.getMinutes()).padStart(2, "0") +
+    String(dateTime.getSeconds()).padStart(2, "0");
   downloadLink.innerHTML = "Download File";
   if (window.webkitURL != null) {
     // Chrome allows the link to be clicked
