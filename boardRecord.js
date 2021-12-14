@@ -38,6 +38,9 @@ function getStorage() {
     // window.alert("norecord");
   }
 
+  storageKeys = [];
+  storageData = [];
+
   for (let i = 0; i < localStorage.length; i++) {
     storageKeys[i] = localStorage.key(i);
   }
@@ -51,7 +54,6 @@ function getStorage() {
     let data = localStorage[storageKeys[i]];
     storageData[i] = JSON.parse(data);
   }
-  console.log(storageData);
 }
 
 function initShow() {
@@ -184,8 +186,6 @@ function deleteAllRecord() {
 }
 
 function deleteThisRecord() {
-  localStorage.removeItem("history-" + String(storageKeys[currentIndex]));
-
   // only one data
   if (storageData.length == 1) {
     deleteAllRecord();
@@ -193,6 +193,7 @@ function deleteThisRecord() {
   }
   // if current index is final one, prevent index out of range. and return directly. renaming not needed.
   if (currentIndex == 0) {
+    localStorage.removeItem(String(storageKeys[currentIndex]));
     getStorage();
     initShow();
     boardRecordShow();
@@ -207,6 +208,10 @@ function deleteThisRecord() {
   localStorage.removeItem(storageKeys[0]);
 
   getStorage();
+  if (currentIndex >= storageKeys.length) {
+    currentIndex = storageKeys.length - 1;
+  }
+
   initShow();
   boardRecordShow();
 }
