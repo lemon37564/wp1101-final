@@ -1,26 +1,26 @@
-var boardRecord;
-var nowPage;
-var pageLength;
-var nowStep;
-var wholeBoards = [];
-var wholeBoardsMaxStep = [];
-var player1;
-var player2;
-var player1pic;
-var player2pic;
-var itemVsKey = [];
-var gamesRecordTime;
+let boardRecord;
+let player1;
+let player2;
+let player1pic;
+let player2pic;
+let gamesRecordTime;
+
+let storageKeys = [];
+let storageData = [];
+let currentIndex;
+let currentStep;
 
 function startBoardRecord() {
   boardRecord = document.getElementById("boardRecord");
-  boardRecordName = document.getElementById("boardRecordName");
   player1 = document.getElementById("player1");
   player2 = document.getElementById("player2");
   player1pic = document.getElementById("player1pic");
   player2pic = document.getElementById("player2pic");
   gamesRecordTime = document.getElementById("gamesRecordTime");
-  nowPage = 0;
-  getRecord();
+
+  getStorage();
+  currentIndex = 0;
+  currentStep = 0;
 
   initShow();
   boardRecordShow();
@@ -32,47 +32,32 @@ function startBoardRecord() {
   });
 }
 
-function getRecord() {
-  pageLength = localStorage.length;
-  if (pageLength == 0) {
+function getStorage() {
+  if (localStorage.length == 0) {
+    return;
     // window.alert("norecord");
   }
-  var count = 0;
 
-  for (nowPage = 0; nowPage < pageLength; nowPage++) {
-    for (i = 0; i < pageLength; i++) {
-      var temp2 = localStorage.key(i).split("-");
-      if (parseInt(temp2[1]) == nowPage) {
-        itemVsKey[count] = nowPage;
-
-        wholeBoards[count++] = localStorage.key(i);
-      }
-    }
+  for (let i = 0; i < localStorage.length; i++) {
+    storageKeys[i] = localStorage.key(i);
   }
+  storageKeys.sort(function (a, b) {
+    let numA = parseInt(a.split("-")[1]);
+    let numB = parseInt(b.split("-")[1]);
+    return numB - numA;
+  });
 
-  for (nowPage = 0; nowPage < pageLength; nowPage++) {
-    wholeBoards[nowPage] = JSON.parse(
-      localStorage.getItem(wholeBoards[nowPage])
-    );
+  for (let i = 0; i < storageKeys.length; i++) {
+    let data = localStorage[storageKeys[i]];
+    storageData[i] = JSON.parse(data);
   }
-
-  for (nowPage = 0; nowPage < pageLength; nowPage++) {
-    wholeBoardsMaxStep[nowPage] = wholeBoards[nowPage].boards.length;
-  }
-  nowPage = 0;
-  nowStep = 0;
-  //console.log(nowPage);
-  totalPage = wholeBoards.length;
-
-  console.log("totalPage=" + totalPage);
-  console.log("nowStep=" + nowStep);
+  console.log(storageData);
 }
 
 function initShow() {
-  player1.innerHTML = "";
-  player2.innerHTML = "";
-  player1pic.setAttribute("src", "");
-  player2pic.setAttribute("src", "");
+  if (storageKeys.length == 0) {
+    return;
+  }
 
   let boardShow = "";
   for (let j = 0; j < 8; j++) {
@@ -86,31 +71,34 @@ function initShow() {
     boardShow += "<br>";
   }
   boardRecord.innerHTML = boardShow;
+
+  gamesRecordTime.innerHTML =
+    "記錄 #" +
+    String(currentIndex+1) +
+    "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;時間" +
+    storageData[currentIndex]["date"].year +
+    "/" +
+    storageData[currentIndex]["date"].month +
+    "/" +
+    storageData[currentIndex]["date"].day +
+    "&nbsp;&nbsp;&nbsp;&nbsp;" +
+    storageData[currentIndex]["date"].hour +
+    ":" +
+    storageData[currentIndex]["date"].minute;
+
+  player1.innerHTML = judgePlayer(storageData[currentIndex]["p1"]);
+  player2.innerHTML = judgePlayer(storageData[currentIndex]["p2"]);
+  judgePlayerpic();
 }
 
 function boardRecordShow() {
-  if (pageLength == 0) {
+  if (storageKeys.length == 0) {
     return;
   }
-  var boardShow = "";
 
-  gamesRecordTime.innerHTML =
-    "本次遊玩時間" +
-    wholeBoards[nowPage]["date"].year +
-    "/" +
-    wholeBoards[nowPage]["date"].month +
-    "/" +
-    wholeBoards[nowPage]["date"].day;
-
-  var board = wholeBoards[nowPage].boards[nowStep];
-
-  player1.innerHTML = judgePlayer(wholeBoards[nowPage].p1);
-  player2.innerHTML = judgePlayer(wholeBoards[nowPage].p2);
-  judgePlayerpic();
-
+  let board = storageData[currentIndex]["boards"][currentStep];
   let count = 0;
-  
-  console.time("test1");
+
   for (let j = 0; j < 8; j++) {
     for (let k = 0; k < 8; k++) {
       let cell = document.getElementById("cell" + String(j) + String(k));
@@ -118,94 +106,118 @@ function boardRecordShow() {
         cell.src = "imgs/black.webp";
       } else if (board[count] == "O" && cell.src != "imgs/white.webp") {
         cell.src = "imgs/white.webp";
-      } else {
+      } else if (board[count] == "_" && cell.src != "imgs/none.webp") {
         cell.src = "imgs/none.webp";
       }
       count++;
     }
   }
-  console.timeEnd("test1");
 }
 
 function beforePage() {
-  if (nowPage - 1 < 0) {
+  if (currentIndex - 1 < 0) {
     window.alert("最前面了");
     return;
   }
-
-  nowPage--;
-  nowStep = 0;
+  currentIndex--;
+  currentStep = 0;
+  initShow();
   boardRecordShow();
 }
 
 function nextPage() {
-  if (nowPage + 1 >= pageLength) {
+  if (currentIndex + 1 >= storageKeys.length) {
     window.alert("最後了");
     return;
   }
-  nowStep = 0;
-  nowPage++;
+  currentIndex++;
+  currentStep = 0;
+  initShow();
   boardRecordShow();
 }
 
 function beforeStep() {
-  if (nowStep - 1 < 0) {
+  if (currentStep - 1 < 0) {
     window.alert("第一步");
     return;
   }
-  nowStep--;
+  currentStep--;
   boardRecordShow();
 }
 
 function nextStep() {
-  if (nowStep + 1 >= wholeBoardsMaxStep[nowPage]) {
+  if (currentStep + 1 >= storageData[currentIndex]["boards"].length) {
     window.alert("最後一步");
     return;
   }
-  nowStep++;
+  currentStep++;
   boardRecordShow();
 }
 
 function firstStep() {
-  nowStep = 0;
+  currentStep = 0;
   boardRecordShow();
 }
 
 function lastStep() {
-  nowStep = wholeBoardsMaxStep[nowPage] - 1;
+  currentStep = storageData[currentIndex]["boards"].length - 1;
   boardRecordShow();
 }
 
-function exportRecord() {}
-
-function importRecord() {}
-
 function deleteAllRecord() {
   localStorage.clear();
-  getRecord();
+  boardRecord.innerHTML = "";
+  gamesRecordTime.innerHTML = "";
+  player1.innerHTML = "";
+  player2.innerHTML = "";
+  player1pic.setAttribute("src", "");
+  player2pic.setAttribute("src", "");
 }
 
 function deleteThisRecord() {
-  localStorage.removeItem(itemVsKey[nowPage]);
-  getRecord();
+  localStorage.removeItem("history-" + String(storageKeys[currentIndex]));
+
+  // only one data
+  if (storageData.length == 1) {
+    deleteAllRecord();
+    return;
+  }
+  // if current index is final one, prevent index out of range. and return directly. renaming not needed.
+  if (currentIndex == storageData.length - 1) {
+    currentIndex--;
+    getStorage();
+    initShow();
+    boardRecordShow();
+    return;
+  }
+
+  // rename historys.
+  for(let i = currentIndex; i >= 0; i--) {
+    let tmp = localStorage.getItem(storageKeys[i-1]);
+    localStorage.setItem(storageKeys[i], tmp);
+  }
+  localStorage.removeItem(storageKeys[0]);
+
+  getStorage();
+  initShow();
+  boardRecordShow();
 }
 
 function judgePlayer(player) {
   switch (player) {
     case "human":
       return "玩家";
-
     case "ai0":
-      return "弱";
+      return "AI 弱";
     case "ai1":
-      return "中";
+      return "AI 中";
     case "ai2":
-      return "強";
+      return "AI 強";
   }
 }
 
 function judgePlayerpic() {
-  if (wholeBoards[nowPage].first == "black") {
+  if (storageData[currentIndex]["first"] == "black") {
     player1pic.setAttribute("src", "imgs/black.webp");
     player2pic.setAttribute("src", "imgs/white.webp");
   } else {
@@ -217,20 +229,12 @@ function judgePlayerpic() {
 
 //console.log(JSON.stringify(localStorage));
 
-data = JSON.stringify(localStorage);
-localStorage = JSON.parse(data);
-
 function saveTextAsFile() {
   _fileName = "record";
-  var sentence = "";
-  for (var i = 0; i < pageLength; i++) {
-    sentence += localStorage.getItem(localStorage.key(i));
-    sentence += "-----";
-  }
-  _text = sentence;
-  var textFileAsBlob = new Blob([_text], { type: "text/plain" });
+  let data = JSON.stringify(localStorage);
+  let textFileAsBlob = new Blob([data], { type: "text/plain" });
 
-  var downloadLink = document.createElement("a");
+  let downloadLink = document.createElement("a");
   downloadLink.download = _fileName;
   downloadLink.innerHTML = "Download File";
   if (window.webkitURL != null) {
@@ -258,30 +262,26 @@ function destroyClickedElement(event) {
 //////////////////////////////////////////////////////upload data
 
 function showDataByText() {
-  var resultFile = document.getElementById("file-uploader").files[0];
-  var urlData;
+  let resultFile = document.getElementById("file-uploader").files[0];
+  let urlData;
   if (resultFile) {
-    var reader = new FileReader();
+    let reader = new FileReader();
 
     reader.readAsText(resultFile, "UTF-8");
     reader.onload = function (e) {
-      urlData = this.result;
-      var temp = urlData.split("-----");
+      let data = JSON.parse(this.result);
       count = 0;
-      for (var i = 0; i < temp.length - 1; i++) {
+      for (let i = 0; i < temp.length - 1; i++) {
         str = "history-" + count;
         count++;
-        console.log(temp[i]);
         localStorage.setItem(str, temp[i]);
       }
-      //key = "history-" + localStorage.length;
 
-      //console.log(urlData);
-      //document.getElementById("result").innerHTML += urlData;
+      getStorage();
+      initShow();
+      boardRecordShow();
     };
   }
-
-  getRecord();
 }
 
 //////////////////////////////////////////////////////
