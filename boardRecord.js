@@ -42,7 +42,7 @@ function getRecord() {
       var temp2 = localStorage.key(i).split("-");
       if (parseInt(temp2[1]) == nowPage) {
         itemVsKey[count] = nowPage;
-       
+
         wholeBoards[count++] = localStorage.key(i);
       }
     }
@@ -53,7 +53,7 @@ function getRecord() {
       localStorage.getItem(wholeBoards[nowPage])
     );
   }
-  
+
   for (nowPage = 0; nowPage < pageLength; nowPage++) {
     wholeBoardsMaxStep[nowPage] = wholeBoards[nowPage].boards.length;
   }
@@ -73,12 +73,12 @@ function boardRecordShow() {
   var boardShow = "";
   player1.innerHTML = "";
   player2.innerHTML = "";
-  player1pic.setAttribute("src","");
-  player2pic.setAttribute("src","");
+  player1pic.setAttribute("src", "");
+  player2pic.setAttribute("src", "");
 
   if (pageLength == 0) return;
-  gamesRecordTime.innerHTML = "本次遊玩時間"+wholeBoards[nowPage]["date"].year+"/"+wholeBoards[nowPage]["date"].month+"/"+wholeBoards[nowPage]["date"].day; 
-  
+  gamesRecordTime.innerHTML = "本次遊玩時間" + wholeBoards[nowPage]["date"].year + "/" + wholeBoards[nowPage]["date"].month + "/" + wholeBoards[nowPage]["date"].day;
+
   var board = wholeBoards[nowPage].boards[nowStep];
 
   player1.innerHTML = judgePlayer(wholeBoards[nowPage].p1);
@@ -157,9 +157,9 @@ function lastStep() {
   boardRecordShow();
 }
 
-function exportRecord() {}
+function exportRecord() { }
 
-function importRecord() {}
+function importRecord() { }
 
 function deleteAllRecord() {
   localStorage.clear();
@@ -187,11 +187,11 @@ function judgePlayer(player) {
 
 function judgePlayerpic() {
   if (wholeBoards[nowPage].first == "black") {
-    player1pic.setAttribute("src","imgs/black.webp");
-    player2pic.setAttribute("src","imgs/white.webp");
+    player1pic.setAttribute("src", "imgs/black.webp");
+    player2pic.setAttribute("src", "imgs/white.webp");
   } else {
-    player1pic.setAttribute("src","imgs/white.webp");
-    player2pic.setAttribute("src","imgs/black.webp");
+    player1pic.setAttribute("src", "imgs/white.webp");
+    player2pic.setAttribute("src", "imgs/black.webp");
   }
 }
 ////////////////////////////////////////////////////download data
@@ -238,8 +238,9 @@ function destroyClickedElement(event) {
 
 //////////////////////////////////////////////////////upload data
 
-function showDataByText() {
+/*function showDataByText() {
   var resultFile = document.getElementById("file-uploader").files[0];
+  console.log("resultfile=" + document.getElementById("file-uploader").files);
   var urlData;
   if (resultFile) {
     var reader = new FileReader();
@@ -252,7 +253,7 @@ function showDataByText() {
       for (var i = 0; i < temp.length - 1; i++) {
         str = "history-" + count;
         count++;
-        console.log(temp[i]);
+        //console.log(temp[i]);
         localStorage.setItem(str, temp[i]);
       }
       //key = "history-" + localStorage.length;
@@ -263,8 +264,45 @@ function showDataByText() {
   }
 
   getRecord();
-}
+}*/
 
+function importData() {
+  let input = document.createElement('input');
+
+  input.type = 'file';
+  input.onchange = _ => {
+    // you can use this method to get file and perform respective operations
+    console.log("input" + input.files[0]);
+    resultFile=input.files[0];
+    var urlData;
+    if (resultFile) {
+      var reader = new FileReader();
+
+      reader.readAsText(resultFile, "UTF-8");
+      reader.onload = function (e) {
+        urlData = this.result;
+        var temp = urlData.split("-----");
+        console.log(temp);
+        count = 0;
+        for (var i = 0; i < temp.length - 1; i++) {
+          str = "history-" + count;
+          count++;
+          //console.log(temp[i]);
+          localStorage.setItem(str, temp[i]);
+
+        }
+        //key = "history-" + localStorage.length;
+
+        //console.log(urlData);
+        //document.getElementById("result").innerHTML += urlData;
+      };
+    }
+
+
+  };
+  input.click();
+
+}
 //////////////////////////////////////////////////////
 
 window.addEventListener("load", startBoardRecord, false);
