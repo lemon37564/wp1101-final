@@ -76,8 +76,9 @@ function boardRecordShow() {
   player1pic.setAttribute("src","");
   player2pic.setAttribute("src","");
 
-  gamesRecordTime.innerHTML = "本次遊玩時間"+wholeBoards[nowPage]["date"].year+"/"+wholeBoards[nowPage]["date"].month+"/"+wholeBoards[nowPage]["date"].day; 
   if (pageLength == 0) return;
+  gamesRecordTime.innerHTML = "本次遊玩時間"+wholeBoards[nowPage]["date"].year+"/"+wholeBoards[nowPage]["date"].month+"/"+wholeBoards[nowPage]["date"].day; 
+  
   var board = wholeBoards[nowPage].boards[nowStep];
 
   player1.innerHTML = judgePlayer(wholeBoards[nowPage].p1);
