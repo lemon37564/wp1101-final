@@ -38,6 +38,9 @@ function getStorage() {
     // window.alert("norecord");
   }
 
+  storageKeys = [];
+  storageData = [];
+
   for (let i = 0; i < localStorage.length; i++) {
     storageKeys[i] = localStorage.key(i);
   }
@@ -51,7 +54,6 @@ function getStorage() {
     let data = localStorage[storageKeys[i]];
     storageData[i] = JSON.parse(data);
   }
-  console.log(storageData);
 }
 
 function initShow() {
@@ -72,6 +74,15 @@ function initShow() {
   }
   boardRecord.innerHTML = boardShow;
 
+  let hour = String(storageData[currentIndex]["date"].hour);
+  if (hour.length == 1) {
+    hour = "0" + hour;
+  }
+  let minute = String(storageData[currentIndex]["date"].minute);
+  if (minute.length == 1) {
+    minute = "0" + minute;
+  }
+
   gamesRecordTime.innerHTML =
     "記錄 #" +
     String(storageKeys.length - currentIndex) +
@@ -82,12 +93,12 @@ function initShow() {
     "/" +
     storageData[currentIndex]["date"].day +
     "&nbsp;&nbsp;&nbsp;&nbsp;" +
-    storageData[currentIndex]["date"].hour +
+    hour +
     ":" +
-    storageData[currentIndex]["date"].minute;
+    minute;
 
-  player1.innerHTML = judgePlayer(storageData[currentIndex]["p1"]);
-  player2.innerHTML = judgePlayer(storageData[currentIndex]["p2"]);
+  player1.innerHTML = "先手: " + judgePlayer(storageData[currentIndex]["p1"]);
+  player2.innerHTML = "後手: " + judgePlayer(storageData[currentIndex]["p2"]);
   judgePlayerpic();
 }
 
@@ -175,8 +186,6 @@ function deleteAllRecord() {
 }
 
 function deleteThisRecord() {
-  localStorage.removeItem("history-" + String(storageKeys[currentIndex]));
-
   // only one data
   if (storageData.length == 1) {
     deleteAllRecord();
@@ -184,6 +193,7 @@ function deleteThisRecord() {
   }
   // if current index is final one, prevent index out of range. and return directly. renaming not needed.
   if (currentIndex == 0) {
+    localStorage.removeItem(String(storageKeys[currentIndex]));
     getStorage();
     initShow();
     boardRecordShow();
@@ -198,6 +208,10 @@ function deleteThisRecord() {
   localStorage.removeItem(storageKeys[0]);
 
   getStorage();
+  if (currentIndex >= storageKeys.length) {
+    currentIndex = storageKeys.length - 1;
+  }
+
   initShow();
   boardRecordShow();
 }
