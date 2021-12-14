@@ -27,9 +27,9 @@ function startBoardRecord() {
 
   const fileUploader = document.querySelector("#file-uploader");
 
-  fileUploader.addEventListener("change", (e) => {
+  /*fileUploader.addEventListener("change", (e) => {
     showDataByText();
-  });
+  });*/
 }
 
 function getStorage() {
@@ -279,8 +279,9 @@ function importData() {
         }
       };
     }
-    input.click();
-  };
+    
+  }
+  input.click();
 }
 //////////////////////////////////////////////////////
 
