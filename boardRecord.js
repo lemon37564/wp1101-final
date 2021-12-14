@@ -74,7 +74,7 @@ function initShow() {
 
   gamesRecordTime.innerHTML =
     "記錄 #" +
-    String(currentIndex+1) +
+    String(storageKeys.length - currentIndex) +
     "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;時間" +
     storageData[currentIndex]["date"].year +
     "/" +
@@ -227,8 +227,6 @@ function judgePlayerpic() {
 }
 ////////////////////////////////////////////////////download data
 
-//console.log(JSON.stringify(localStorage));
-
 function saveTextAsFile() {
   _fileName = "record";
   let data = JSON.stringify(localStorage);
@@ -263,18 +261,15 @@ function destroyClickedElement(event) {
 
 function showDataByText() {
   let resultFile = document.getElementById("file-uploader").files[0];
-  let urlData;
   if (resultFile) {
     let reader = new FileReader();
 
     reader.readAsText(resultFile, "UTF-8");
     reader.onload = function (e) {
       let data = JSON.parse(this.result);
-      count = 0;
-      for (let i = 0; i < temp.length - 1; i++) {
-        str = "history-" + count;
-        count++;
-        localStorage.setItem(str, temp[i]);
+
+      for(let i in data) {
+        localStorage.setItem(i, data[i]);
       }
 
       getStorage();
