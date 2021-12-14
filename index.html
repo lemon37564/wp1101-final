@@ -424,28 +424,55 @@
             <div class="wp-block-group__inner-container">
 
               <p id=boardRecordName></p>
-              <p>先手:
-              <p id="player1"></p>
-              <p id="player1pic"></p> 後手:<p id="player2"></p>
-              <p id="player2pic"></p>
-              </p>
+              
+              <p id="gamesRecordTime"></p>
+              <div style="text-align: center;">
+                <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                  
+                    <img src="" id = "player1pic"class="about-page-img-small zoom-on-hover" loading="lazy">
+                    <figcaption id="player1"></figcaption>
+                  </a>
+                </figure>
 
-              <p><a onclick="beforePage()">
-                  <h>上一則</h>
-                </a><a onclick="beforeStep()">
-                  <h>上一步</h>
-                </a><img src="imgs/black.webp"><img src="imgs/black.webp"><a onclick="nextStep()">
-                  <h>下一步</h>
-                </a><a onclick="nextPage()">
-                  <h>下一則</h>
-                </a><a onclick="saveTextAsFile()">
-                  <h>save</h>
+                <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                  
+                    <img src="" id = "player2pic" class="about-page-img-small zoom-on-hover" loading="lazy">
+                    <figcaption id="player2"></figcaption>
+                  </a>
+                </figure>
+              </div>
+              <p style="display: flex;flex-direction: row;justify-content: space-between;width: 70%;margin-left: 15%;margin-right: 15%;">
+                <a onclick="beforePage()" style="text-decoration: none;"><h>上一則</h></a>
+                <a onclick="firstStep()" style="text-decoration: none;">
+                  <input type="image" src="imgs/fast-forward.png"  width=30em style="transform:scaleX(-1)" loading = "lazy">
+                  
                 </a>
+                <a onclick="beforeStep()" style="text-decoration: none;">
+                  <input type="image" src="imgs/next.png"  width=30em style="transform:scaleX(-1)" loading = "lazy">
+                </a>
+
+                
+                
+                <a onclick="nextStep()" style="text-decoration: none;">
+                  <input type="image" src="imgs/next.png" width=30em loading = "lazy">
+                  
+                </a>
+                <a onclick="lastStep()" style="text-decoration: none;">
+                  <input type="image" src="imgs/fast-forward.png" width=30em loading = "lazy">
+                  <!-- <img src="imgs/fast-forward.png" width=30em loading = "lazy"> -->
+                </a>
+                <a onclick="nextPage()" style="text-decoration: none;">
+                  <h>下一則</h>
+                </a>
+                
               </p>
               <div id="boardRecord"></div>
 
               <p><input type="file" id="file-uploader" data-target="file-uploader" accept=".txt" /><a
                   onclick="deleteAllRecord()">deleteAll</a><a onclick="deleteThisRecord()">deletethis</a>
+                  <a onclick="saveTextAsFile()" style="text-decoration: none;">
+                    <h>save</h>
+                  </a>
               </p>
 
             </div>

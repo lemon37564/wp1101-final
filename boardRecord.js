@@ -9,7 +9,7 @@ var player2;
 var player1pic;
 var player2pic;
 var itemVsKey = [];
-
+var gamesRecordTime;
 function startBoardRecord() {
   boardRecord = document.getElementById("boardRecord");
   boardRecordName = document.getElementById("boardRecordName");
@@ -17,6 +17,7 @@ function startBoardRecord() {
   player2 = document.getElementById("player2");
   player1pic = document.getElementById("player1pic");
   player2pic = document.getElementById("player2pic");
+  gamesRecordTime = document.getElementById("gamesRecordTime");
   nowPage = 0;
   getRecord();
 
@@ -41,7 +42,7 @@ function getRecord() {
       var temp2 = localStorage.key(i).split("-");
       if (parseInt(temp2[1]) == nowPage) {
         itemVsKey[count] = nowPage;
-        console.log(nowPage);
+       
         wholeBoards[count++] = localStorage.key(i);
       }
     }
@@ -52,13 +53,13 @@ function getRecord() {
       localStorage.getItem(wholeBoards[nowPage])
     );
   }
-  console.log(wholeBoards);
+  
   for (nowPage = 0; nowPage < pageLength; nowPage++) {
     wholeBoardsMaxStep[nowPage] = wholeBoards[nowPage].boards.length;
   }
   nowPage = 0;
   nowStep = 0;
-  console.log(nowPage);
+  //console.log(nowPage);
   totalPage = wholeBoards.length;
 
   console.log("totalPage=" + totalPage);
@@ -72,8 +73,10 @@ function boardRecordShow() {
   var boardShow = "";
   player1.innerHTML = "";
   player2.innerHTML = "";
-  player1pic.innerHTML = "";
-  player2pic.innerHTML = "";
+  player1pic.setAttribute("src","");
+  player2pic.setAttribute("src","");
+
+  gamesRecordTime.innerHTML = "本次遊玩時間"+wholeBoards[nowPage]["date"].year+"/"+wholeBoards[nowPage]["date"].month+"/"+wholeBoards[nowPage]["date"].day; 
   if (pageLength == 0) return;
   var board = wholeBoards[nowPage].boards[nowStep];
 
@@ -106,7 +109,7 @@ function boardRecordShow() {
 
 function beforePage() {
   if (nowPage - 1 < 0) {
-    window.alert("最錢了");
+    window.alert("最前面了");
     return;
   }
 
@@ -127,7 +130,7 @@ function nextPage() {
 
 function beforeStep() {
   if (nowStep - 1 < 0) {
-    window.alert("第一步了");
+    window.alert("第一步");
     return;
   }
   nowStep--;
@@ -136,7 +139,7 @@ function beforeStep() {
 
 function nextStep() {
   if (nowStep + 1 >= wholeBoardsMaxStep[nowPage]) {
-    window.alert("最後一了");
+    window.alert("最後一步");
     return;
   }
   nowStep++;
@@ -150,6 +153,7 @@ function firstStep() {
 
 function lastStep() {
   nowStep = wholeBoardsMaxStep[nowPage] - 1;
+  boardRecordShow();
 }
 
 function exportRecord() {}
@@ -182,16 +186,16 @@ function judgePlayer(player) {
 
 function judgePlayerpic() {
   if (wholeBoards[nowPage].first == "black") {
-    player1pic.innerHTML = "<img src = 'imgs/black.webp'>";
-    player2pic.innerHTML = "<img src = 'imgs/white.webp'>";
+    player1pic.setAttribute("src","imgs/black.webp");
+    player2pic.setAttribute("src","imgs/white.webp");
   } else {
-    player1pic.innerHTML = "<img src = 'imgs/white.webp'>";
-    player2pic.innerHTML = "<img src = 'imgs/black.webp'>";
+    player1pic.setAttribute("src","imgs/white.webp");
+    player2pic.setAttribute("src","imgs/black.webp");
   }
 }
 ////////////////////////////////////////////////////download data
 
-console.log(JSON.stringify(localStorage));
+//console.log(JSON.stringify(localStorage));
 
 data = JSON.stringify(localStorage);
 localStorage = JSON.parse(data);
