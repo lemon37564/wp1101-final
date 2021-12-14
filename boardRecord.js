@@ -192,8 +192,8 @@ function deleteThisRecord() {
   }
 
   // rename historys.
-  for(let i = currentIndex; i >= 0; i--) {
-    let tmp = localStorage.getItem(storageKeys[i-1]);
+  for (let i = currentIndex; i >= 0; i--) {
+    let tmp = localStorage.getItem(storageKeys[i - 1]);
     localStorage.setItem(storageKeys[i], tmp);
   }
   localStorage.removeItem(storageKeys[0]);
@@ -260,42 +260,27 @@ function destroyClickedElement(event) {
 //////////////////////////////////////////////////////upload data
 
 function importData() {
-  let input = document.createElement('input');
+  let input = document.createElement("input");
 
-  input.type = 'file';
-  input.onchange = _ => {
+  input.type = "file";
+  input.onchange = (_) => {
     // you can use this method to get file and perform respective operations
     console.log("input" + input.files[0]);
-    resultFile=input.files[0];
-    var urlData;
+    resultFile = input.files[0];
     if (resultFile) {
       var reader = new FileReader();
 
       reader.readAsText(resultFile, "UTF-8");
       reader.onload = function (e) {
-        urlData = this.result;
-        var temp = urlData.split("-----");
-        console.log(temp);
-        count = 0;
-        for (var i = 0; i < temp.length - 1; i++) {
-          str = "history-" + count;
-          count++;
-          //console.log(temp[i]);
-          localStorage.setItem(str, temp[i]);
+        let data = JSON.parse(this.result);
 
+        for(let i in data) {
+          localStorage.setItem(i, data[i]);
         }
-        //key = "history-" + localStorage.length;
-
-        //console.log(urlData);
-        //document.getElementById("result").innerHTML += urlData;
       };
     }
-
-}
-
+    input.click();
   };
-  input.click();
-
 }
 //////////////////////////////////////////////////////
 
