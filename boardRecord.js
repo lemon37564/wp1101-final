@@ -50,20 +50,26 @@ function initialize() {
 function initShow() {
   if (storageKeys.length == 0) {
     gamesRecordTime.innerHTML = "沒有遊戲記錄，快去玩幾場吧～";
+    gamesRecordTime.style.float = "none";
     document.getElementById("total-count-show").style.display = "none";
     let all = document.getElementsByClassName("record-page-button");
-    for (let i = 0; i < all.length; i++){
+    for (let i = 0; i < all.length; i++) {
       all[i].style.display = "none";
     }
     document.getElementById("record-page-top-button").style.display = "none";
+    document.getElementById("record-page-bottom-button").style.justifyContent =
+      "center";
     return;
   }
+  gamesRecordTime.style.float = "left";
   document.getElementById("total-count-show").style.display = "block";
   let all = document.getElementsByClassName("record-page-button");
-    for (let i = 0; i < all.length; i++){
-      all[i].style.display = "block";
-    }
+  for (let i = 0; i < all.length; i++) {
+    all[i].style.display = "block";
+  }
   document.getElementById("record-page-top-button").style.display = "flex";
+  document.getElementById("record-page-bottom-button").style.justifyContent =
+    "space-between";
 
   let boardShow = "";
   for (let j = 0; j < 8; j++) {
@@ -102,7 +108,7 @@ function updateTopLabel() {
     storageData[currentIndex]["date"].month +
     "/" +
     storageData[currentIndex]["date"].day +
-    "&nbsp;&nbsp;&nbsp;&nbsp;" +
+    "&nbsp;&nbsp;&nbsp;" +
     hour +
     ":" +
     minute;
