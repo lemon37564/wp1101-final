@@ -86,6 +86,7 @@ function hideEverythingExceptImportButton() {
     "center";
   blackCounter.style.display = "none";
   whiteCounter.style.display = "none";
+  document.getElementById("jump-function-label").style.display = "none";
 }
 
 function showEverything() {
@@ -100,6 +101,7 @@ function showEverything() {
     "space-between";
     blackCounter.style.display = "block";
   whiteCounter.style.display = "block";
+  document.getElementById("jump-function-label").style.display = "block";
 }
 
 function updateTopLabel() {
