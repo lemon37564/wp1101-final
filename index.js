@@ -86,9 +86,7 @@ async function getRank(strength) {
       currentShow.innerHTML = tmp;
 
       document.getElementById("spinner").style.visibility = "hidden";
-      document.getElementById("menu1").style.visibility = "visible";
-      document.getElementById("menu2").style.visibility = "visible";
-      document.getElementById("menu3").style.visibility = "visible";
+      currentShow.style.visibility = "visible";
     }
   };
   request.send(null);
