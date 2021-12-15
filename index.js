@@ -72,7 +72,7 @@ async function getRank(strength) {
       for (let i = 0; i < data.length; i++) {
         tmp += "<tr>";
         tmp += "<th>" + String(rank) + "</th>";
-        tmp += "<th>" + data[i].player_name + "</th>";
+        tmp += "<th>" + escapeHTML(data[i].player_name) + "</th>";
         tmp +=
           "<th>" + data[i].self_point + ":" + data[i].enemy_point + "</th>";
 
@@ -233,6 +233,15 @@ function bgmClick() {
     document.getElementById("music-button").src = "imgs/play.png";
   }
   bgmIsPlaying = !bgmIsPlaying;
+}
+
+function escapeHTML(raw) {
+  return raw
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 function hashChange() {
