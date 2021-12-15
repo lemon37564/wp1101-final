@@ -368,7 +368,8 @@
 
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
-              <h2 id="gamesRecordTime"></h2>
+              <h2 id="gamesRecordTime" style="float: left; margin-left: 3%;"></h2>
+              <h2 id="total-count-show" style="float: right; margin-right: 3%;"></h2><br><br><br>
               <div style="text-align: center;">
                 <figure style="margin-left: 2.5%; margin-right: 2.5%;">
                   <img src="" id="player1pic" class="about-page-img-small zoom-on-hover" loading="lazy">
@@ -383,10 +384,10 @@
                   </a>
                 </figure>
               </div>
-              <p
-                style="display: flex;flex-direction: row;justify-content: space-between;width: 70%;margin-left: 15%;margin-right: 15%;">
-                <button type="button" id="previous-page-button" class="btn btn-outline-primary" onclick="beforePage();">上一則</button>
-                
+              <div id="record-page-top-button">
+                <button type="button" id="previous-page-button" class="btn btn-outline-info"
+                  onclick="beforePage();">上一則</button>
+
                 <a onclick="firstStep()" id="first-step-button" style="text-decoration: none;">
                   <input type="image" src="imgs/fast-forward.png" width=30em style="transform:scaleX(-1)"
                     loading="lazy">
@@ -403,28 +404,26 @@
                 <a onclick="lastStep()" id="last-step-button" style="text-decoration: none;">
                   <input type="image" src="imgs/fast-forward.png" width=30em loading="lazy">
                 </a>
-                <button type="button" id="next-page-button" class="btn btn-outline-primary" onclick="nextPage();">下一則</button>
+                <button type="button" id="next-page-button" class="btn btn-outline-info"
+                  onclick="nextPage();">下一則</button>
 
-              </p>
+              </div>
               <div id="boardRecord"></div>
-              <p>
-              <div style="text-align: center;position:relative">
-                <figure style="margin-left: 2.5%; margin-right: 2.5%;">
-                  <button class="buttonInFile" onclick="importData()">Import Data</button>
-                </figure>
-
-                <figure style="margin-left: 2.5%; margin-right: 2.5%;" id="delete-all-button">
+              <div style="text-align: center; padding: 0%;">
+                <div style="margin-left: 2.5%; margin-right: 2.5%; display: inline-block; margin-top: 0px;">
+                  <button class="btn btn-outline-info" onclick="importData()">Import Data</button>
+                </div>
+                <div style="margin-left: 2.5%; margin-right: 2.5%; display: inline-block;" id="delete-all-button">
                   <input type="image" src="imgs/trash-all.png" height="50em" onclick="deleteAllRecord()">
-                </figure>
-                <figure style="margin-left: 2.5%; margin-right: 2.5%;" id="delete-this-button">
+                </div>
+                <div style="margin-left: 2.5%; margin-right: 2.5%; display: inline-block;" id="delete-this-button">
                   <input type="image" src="imgs/trash-1.png" height="50em" onclick="deleteThisRecord()">
-                </figure>
-                <figure style="margin-left: 2.5%; margin-right: 2.5%;" id="save-file-button">
+                </div>
+                <div style="margin-left: 2.5%; margin-right: 2.5%; display: inline-block;" id="save-file-button">
                   <input type="image" src="imgs/save+icon-1320167995084087448.png" height="50em"
                     onclick="saveTextAsFile()">
-                </figure>
+                </div>
               </div>
-              </p>
             </div>
           </div>
         </div>

@@ -18,22 +18,13 @@ function startBoardRecord() {
   player2pic = document.getElementById("player2pic");
   gamesRecordTime = document.getElementById("gamesRecordTime");
 
-  getStorage();
-  currentIndex = 0;
-  currentStep = 0;
-
-  initShow();
-  document.getElementById("previous-page-button").setAttribute("disabled", "");
+  initialize();
   boardRecordShow();
-
-  const fileUploader = document.querySelector("#file-uploader");
 }
 
-function getStorage() {
-  if (localStorage.length == 0) {
-    return;
-  }
-
+function initialize() {
+  currentIndex = 0;
+  currentStep = 0;
   storageKeys = [];
   storageData = [];
 
@@ -50,6 +41,10 @@ function getStorage() {
     let data = localStorage[storageKeys[i]];
     storageData[i] = JSON.parse(data);
   }
+
+  initShow();
+  updateTopLabel();
+  checkCanChangePage();
 }
 
 function initShow() {
@@ -65,6 +60,7 @@ function initShow() {
     document.getElementById("delete-all-button").style.display = "none";
     document.getElementById("delete-this-button").style.display = "none";
     document.getElementById("save-file-button").style.display = "none";
+    document.getElementById("total-count-show").style.display = "none";
     return;
   }
 
@@ -78,6 +74,7 @@ function initShow() {
   document.getElementById("delete-all-button").style.display = "inline-block";
   document.getElementById("delete-this-button").style.display = "inline-block";
   document.getElementById("save-file-button").style.display = "inline-block";
+  document.getElementById("total-count-show").style.display = "block";
 
   let boardShow = "";
   for (let j = 0; j < 8; j++) {
@@ -91,6 +88,12 @@ function initShow() {
     boardShow += "<br>";
   }
   boardRecord.innerHTML = boardShow;
+}
+
+function updateTopLabel() {
+  if (storageKeys.length == 0) {
+    return;
+  }
 
   let hour = String(storageData[currentIndex]["date"].hour);
   if (hour.length == 1) {
@@ -114,6 +117,9 @@ function initShow() {
     hour +
     ":" +
     minute;
+
+  document.getElementById("total-count-show").innerHTML =
+    "共有 " + String(storageKeys.length) + " 筆記錄";
 
   player1.innerHTML = "先手: " + judgePlayer(storageData[currentIndex]["p1"]);
   player2.innerHTML = "後手: " + judgePlayer(storageData[currentIndex]["p2"]);
@@ -146,25 +152,32 @@ function boardRecordShow() {
 function beforePage() {
   currentIndex--;
   currentStep = 0;
-  initShow();
+  updateTopLabel();
   boardRecordShow();
-  if (currentIndex == 0) {
-    document
-      .getElementById("previous-page-button")
-      .setAttribute("disabled", "");
-  }
-  document.getElementById("next-page-button").removeAttribute("disabled");
+  checkCanChangePage();
 }
 
 function nextPage() {
   currentIndex++;
   currentStep = 0;
-  initShow();
+  updateTopLabel();
   boardRecordShow();
+  checkCanChangePage();
+}
+
+function checkCanChangePage() {
+  let next = document.getElementById("next-page-button");
+  let prev = document.getElementById("previous-page-button");
   if (currentIndex == storageKeys.length - 1) {
-    document.getElementById("next-page-button").setAttribute("disabled", "");
+    next.setAttribute("disabled", "");
+  } else {
+    next.removeAttribute("disabled");
   }
-  document.getElementById("previous-page-button").removeAttribute("disabled");
+  if (currentIndex == 0) {
+    prev.setAttribute("disabled", "");
+  } else {
+    prev.removeAttribute("disabled");
+  }
 }
 
 function beforeStep() {
@@ -203,6 +216,7 @@ function deleteAllRecord() {
   player2.innerHTML = "";
   player1pic.setAttribute("src", "");
   player2pic.setAttribute("src", "");
+  initialize();
 }
 
 function deleteThisRecord() {
@@ -214,8 +228,8 @@ function deleteThisRecord() {
   // if current index is final one, prevent index out of range. and return directly. renaming not needed.
   if (currentIndex == 0) {
     localStorage.removeItem(String(storageKeys[currentIndex]));
-    getStorage();
-    initShow();
+    initialize();
+    updateTopLabel();
     boardRecordShow();
     return;
   }
@@ -227,13 +241,15 @@ function deleteThisRecord() {
   }
   localStorage.removeItem(storageKeys[0]);
 
-  getStorage();
-  if (currentIndex >= storageKeys.length) {
-    currentIndex = storageKeys.length - 1;
+  let tmp = currentIndex; // reserve current index
+  initialize();
+  if (tmp >= storageKeys.length) {
+    tmp = storageKeys.length - 1;
   }
-
-  initShow();
+  currentIndex = tmp;
   boardRecordShow();
+  checkCanChangePage(); // needed
+  updateTopLabel(); // needed
 }
 
 function judgePlayer(player) {
@@ -317,8 +333,7 @@ function importData() {
         for (let i in data) {
           localStorage.setItem(i, data[i]);
         }
-        getStorage();
-        initShow();
+        initialize();
         boardRecordShow();
       };
     }

@@ -5,7 +5,8 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: auto; */
-  background-color: #EDEFF1;
+  background-color: #edeff1;
+  -webkit-tap-highlight-color: transparent;
   font-family: "Noto Sans TC";
 }
 
@@ -211,7 +212,7 @@ col.rank-table-col4 {
   height: auto;
 }
 
-#music-button{
+#music-button {
   position: fixed;
   right: 18px;
   bottom: 18px;
@@ -222,25 +223,25 @@ col.rank-table-col4 {
 }
 
 img.record-img {
-  width: 8%;
-  height: 8%;
+  width: 6.5%;
+  height: 6.5%;
 }
 
 input[type="file"] {
-    position: relative;
-    width: 50px;
-    height: 50px;
-	opacity: 0;
-    /*padding: 0;*/
-    margin: -1px;
-	left:-50px;
-	top:0px;
-    /*overflow: hidden;*/
-    border: 0;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  /*padding: 0;*/
+  margin: -1px;
+  left: -50px;
+  top: 0px;
+  /*overflow: hidden;*/
+  border: 0;
 }
 
 .buttonInFile {
-  background-color: #4CAF50; /* Green */
+  background-color: #4caf50; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -248,6 +249,16 @@ input[type="file"] {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+#record-page-top-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 5px;
 }
 
 @media screen and (max-width: 650px) {
@@ -351,7 +362,7 @@ input[type="file"] {
     height: auto;
   }
 
-  #music-button{
+  #music-button {
     z-index: 10;
   }
 
@@ -367,5 +378,14 @@ input[type="file"] {
   img.record-img {
     width: 12%;
     height: 12%;
+  }
+
+  #record-page-top-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: auto;
+    margin-left: 0%;
+    margin-right: 0%;
   }
 }
