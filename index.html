@@ -282,7 +282,7 @@
 
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
-              <h1>網站開發記錄</h1>
+              <h1>開發記錄</h1>
               <table class='dev-table tableShow'
                 style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #b2bfcf; width: 100%;">
                 <col id="about-page-table-col1" />
@@ -385,28 +385,37 @@
                 </figure>
               </div>
               <div id="record-page-top-button">
-                <button type="button" id="previous-page-button" class="btn btn-outline-info"
+                <button type="button" id="previous-page-button" class="btn btn-info btn-lg"
                   onclick="beforePage();">上一則</button>
+
+                <div class="record-page-button"></div>
+                <div class="record-page-button"></div>
 
                 <a onclick="firstStep()" id="first-step-button" style="text-decoration: none;">
                   <input type="image" src="imgs/fast-forward.png" width=30em style="transform:scaleX(-1)"
                     loading="lazy">
-
                 </a>
+
                 <a onclick="beforeStep()" id="previous-step-button" style="text-decoration: none;">
                   <input type="image" src="imgs/next.png" width=30em style="transform:scaleX(-1)" loading="lazy">
                 </a>
 
+                <div class="record-page-button"></div>
+                <div class="record-page-button"></div>
+
                 <a onclick="nextStep()" id="next-step-button" style="text-decoration: none;">
                   <input type="image" src="imgs/next.png" width=30em loading="lazy">
-
                 </a>
+
                 <a onclick="lastStep()" id="last-step-button" style="text-decoration: none;">
                   <input type="image" src="imgs/fast-forward.png" width=30em loading="lazy">
                 </a>
-                <button type="button" id="next-page-button" class="btn btn-outline-info"
-                  onclick="nextPage();">下一則</button>
 
+                <div class="record-page-button"></div>
+                <div class="record-page-button"></div>
+
+                <button type="button" id="next-page-button" class="btn btn-info btn-lg"
+                  onclick="nextPage();">下一則</button>
               </div>
               <div id="boardRecord"></div>
 
@@ -424,7 +433,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
                         onclick="deleteAllRecord()">確認</button>
                     </div>
                   </div>
@@ -444,28 +453,36 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
                         onclick="deleteThisRecord()">確認</button>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div style="text-align: center; padding: 0%;">
-                <button class="btn btn-outline-info" onclick="importData()">匯入記錄</button>
-
-                <button type="button" id="save-file-button" class="btn btn-outline-info"
-                  onclick="saveTextAsFile();">匯出記錄</button>
-
-                <button type="button" class="btn btn-warning" id="delete-this-button" data-bs-toggle="modal"
-                  data-bs-target="#delete-this-modal">
-                  刪除本則記錄
-                </button>
-
-                <button type="button" class="btn btn-warning" id="delete-all-button" data-bs-toggle="modal"
-                  data-bs-target="#delete-all-modal">
-                  清除所有記錄
-                </button>
+              <div id="record-page-bottom-button" style="text-align: center; padding: 0%; margin-top: 10px;">
+                <div class="record-page-button-always-show">
+                  <button class="btn btn-info" onclick="importData()">匯入記錄</button>
+                </div>
+                <div class="record-page-button">
+                  <button type="button" id="save-file-button" class="btn btn-info"
+                    onclick="saveTextAsFile();">匯出記錄</button>
+                </div>
+                <div class="record-page-button"></div>
+                <div class="record-page-button"></div>
+                <div class="record-page-button"></div>
+                <div class="record-page-button">
+                  <button type="button" class="btn btn-danger" id="delete-this-button" data-bs-toggle="modal"
+                    data-bs-target="#delete-this-modal">
+                    刪除本則記錄
+                  </button>
+                </div>
+                <div class="record-page-button">
+                  <button type="button" class="btn btn-danger" id="delete-all-button" data-bs-toggle="modal"
+                    data-bs-target="#delete-all-modal">
+                    清除所有記錄
+                  </button>
+                </div>
               </div>
             </div>
           </div>

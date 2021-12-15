@@ -259,10 +259,26 @@ input[type="file"] {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 60%;
-  margin-left: 20%;
-  margin-right: 20%;
+  width: 52%;
+  margin-left: 24%;
+  margin-right: 24%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#record-page-bottom-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 52%;
+  margin-left: 24%;
+  margin-right: 24%;
+  margin-top: 5px;
   margin-bottom: 5px;
+}
+
+div.record-page-button {
+  text-align: center;
 }
 
 @media screen and (max-width: 650px) {
