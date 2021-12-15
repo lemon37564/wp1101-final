@@ -9,8 +9,8 @@
 
   <link rel="manifest" href="manifest.json">
 
-  <link rel="stylesheet" href="bootstrap-5.0.2-dist/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="blender.org.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap-5.0.2-dist/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <link rel="shortcut icon" href="imgs/icon2.png">
@@ -409,20 +409,63 @@
 
               </div>
               <div id="boardRecord"></div>
+
+              <!-- Modal -->
+              <div class="modal fade" id="delete-all-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">提示</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      確定刪除全部記錄?<br>刪除後無法恢復!
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        onclick="deleteAllRecord()">確認</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="delete-this-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">提示</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      確定刪除本則記錄?<br>刪除後無法恢復!
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        onclick="deleteThisRecord()">確認</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div style="text-align: center; padding: 0%;">
-                <div style="margin-left: 2.5%; margin-right: 2.5%; display: inline-block; margin-top: 0px;">
-                  <button class="btn btn-outline-info" onclick="importData()">匯入記錄</button>
-                </div>
-                <div style="margin-left: 2.5%; margin-right: 2.5%; display: inline-block;" id="delete-all-button">
-                  <input type="image" src="imgs/trash-all.png" height="50em" onclick="deleteAllRecord()">
-                </div>
-                <div style="margin-left: 2.5%; margin-right: 2.5%; display: inline-block;" id="delete-this-button">
-                  <input type="image" src="imgs/trash-1.png" height="50em" onclick="deleteThisRecord()">
-                </div>
-                <div style="margin-left: 2.5%; margin-right: 2.5%; display: inline-block;" id="save-file-button">
-                  <input type="image" src="imgs/save+icon-1320167995084087448.png" height="50em"
-                    onclick="saveTextAsFile()">
-                </div>
+                <button class="btn btn-outline-info" onclick="importData()">匯入記錄</button>
+
+                <button type="button" id="save-file-button" class="btn btn-outline-info"
+                  onclick="saveTextAsFile();">匯出記錄</button>
+
+                <button type="button" class="btn btn-warning" id="delete-this-button" data-bs-toggle="modal"
+                  data-bs-target="#delete-this-modal">
+                  刪除本則記錄
+                </button>
+
+                <button type="button" class="btn btn-warning" id="delete-all-button" data-bs-toggle="modal"
+                  data-bs-target="#delete-all-modal">
+                  清除所有記錄
+                </button>
               </div>
             </div>
           </div>
