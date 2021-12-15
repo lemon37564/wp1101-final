@@ -127,6 +127,7 @@ function showRank() {
 
 function showHistoryPage() {
   hideAll();
+  startBoardRecord();
   historyPage.style.display = "block";
 }
 

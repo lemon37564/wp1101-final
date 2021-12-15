@@ -364,5 +364,3 @@ function importData() {
   input.click();
 }
 //////////////////////////////////////////////////////
-
-window.addEventListener("load", startBoardRecord, false);
