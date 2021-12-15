@@ -428,6 +428,10 @@ div.record-page-button {
     width: 110px;
   }
 
+  th {
+    padding: 8px !important;
+  }
+
   #rank-div {
     padding: 1px;
   }
@@ -474,3 +478,140 @@ div.record-page-button {
     margin-right: 0%;
   }
 }
+
+@media screen and (max-width: 400px) {
+  #titlebar {
+    width: 100%;
+  }
+
+  #titlebar2 {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  div#pages {
+    padding: 1%;
+    width: 98%;
+  }
+
+  .rightBoardBackground2 {
+    background-image: url("board2.jpg");
+    width: 100vw;
+    height: 50vw;
+
+    background-size: 100vw 50vw;
+
+    top: 150px;
+    background-repeat: no-repeat;
+    z-index: 3;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 50px;
+  }
+
+  iframe.game {
+    width: 98vw;
+    height: calc(98vw * 9 / 16);
+    margin-left: 0%;
+    margin-right: 0%;
+    display: block;
+    border: none;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .tableShow {
+    font-size: 0.6em;
+  }
+
+  #rank-hint-bar {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+    width: 96%;
+  }
+
+  #titlebar2-div {
+    float: left;
+    width: 85%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 6px;
+  }
+
+  #about-page-table-col1 {
+    width: 80px;
+  }
+
+  #about-page-table-col2 {
+    width: 90px;
+  }
+
+  col.rank-table-col1 {
+    width: 40px;
+  }
+
+  col.rank-table-col2 {
+    width: auto;
+  }
+
+  col.rank-table-col3 {
+    width: 50px;
+  }
+
+  col.rank-table-col4 {
+    width: 80px;
+  }
+
+  th {
+    padding: 6px !important;
+  }
+
+  #rank-div {
+    padding: 1px;
+  }
+
+  #easter-egg-button {
+    display: none;
+  }
+
+  .about-page-img-arch {
+    width: 80%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .about-page-img-arch-2 {
+    width: 100%;
+    height: auto;
+  }
+
+  #music-button {
+    z-index: 10;
+  }
+
+  .navTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  img.record-img {
+    width: 12%;
+    height: 12%;
+  }
+
+  #record-page-top-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: auto;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+}
+
