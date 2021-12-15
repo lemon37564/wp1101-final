@@ -12,7 +12,7 @@ function start() {
   historyPage = document.getElementById("historyPage");
 
   window.location.hash = "";
-  setTimeout(function() {
+  setTimeout(function () {
     bgm = new Audio("gameBackGroundMusic.mp3");
     bgm.load();
   }, 10000);
@@ -21,24 +21,31 @@ function start() {
 async function getRank(strength) {
   let request = new XMLHttpRequest();
   document.getElementById("spinner").style.visibility = "visible";
-  document.getElementById("menu1").style.visibility = "hidden";
-  document.getElementById("menu2").style.visibility = "hidden";
-  document.getElementById("menu3").style.visibility = "hidden";
+  let menu1 = document.getElementById("menu1");
+  let menu2 = document.getElementById("menu2");
+  let menu3 = document.getElementById("menu3");
 
   let rankEasyShow = document.getElementById("rankEasyContent");
   let rankMiddleShow = document.getElementById("rankMiddleContent");
   let rankHardShow = document.getElementById("rankHardContent");
-  let currentShow;
+  let currentShow, currentMenu;
+
+  menu1.setAttribute("class", "tab-pane fade");
+  menu2.setAttribute("class", "tab-pane fade");
+  menu3.setAttribute("class", "tab-pane fade");
 
   switch (strength) {
     case 0:
       currentShow = rankEasyShow;
+      currentMenu = menu1;
       break;
     case 1:
       currentShow = rankMiddleShow;
+      currentMenu = menu2;
       break;
     case 2:
       currentShow = rankHardShow;
+      currentMenu = menu3;
       break;
     default:
       return;
@@ -86,7 +93,7 @@ async function getRank(strength) {
       currentShow.innerHTML = tmp;
 
       document.getElementById("spinner").style.visibility = "hidden";
-      currentShow.style.visibility = "visible";
+      currentMenu.setAttribute("class", "tab-pane fade in active show");
     }
   };
   request.send(null);
