@@ -12,8 +12,7 @@
       "type": "image/png"
     }],
     "start_url": "https://lemon37564.github.io/wp1101-final/",
-    "display": "standalone",
-    "orientation": "portrait",
+    "display": "fullscreen",
     "background_color": "#FAFAFA",
-    "theme_color": "#6387F5"
+    "theme_color": "#1E1E1E"
   }
