@@ -32,6 +32,12 @@ h1 {
   margin-left: 13%;
 }
 
+div#pages {
+  padding: 1%;
+  text-align: center;
+  width: 100%;
+}
+
 p.sidebar {
   color: whitesmoke;
   font-size: larger;
@@ -292,6 +298,11 @@ div.record-page-button {
     border-top-right-radius: 10px;
   }
 
+  div#pages {
+    padding: 1%;
+    width: 98%;
+  }
+
   .rightBoardBackground2 {
     background-image: url("board2.jpg");
     width: 100vw;
@@ -308,8 +319,8 @@ div.record-page-button {
   }
 
   iframe.game {
-    width: 100vw;
-    height: calc(100vw * 9 / 16);
+    width: 98vw;
+    height: calc(98vw * 9 / 16);
     margin-left: 0%;
     margin-right: 0%;
     display: block;
