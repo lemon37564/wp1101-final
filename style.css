@@ -297,7 +297,53 @@ div.record-page-button {
   font-size: x-large;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 960px) {
+  .tableShow {
+    font-size: 1.1em;
+  }
+
+  col.rank-table-col1 {
+    width: 60px;
+  }
+
+  col.rank-table-col2 {
+    width: auto;
+  }
+
+  col.rank-table-col3 {
+    width: 85px;
+  }
+
+  col.rank-table-col4 {
+    width: 130px;
+  }
+
+  div#pages {
+    padding: 1%;
+    width: 98%;
+  }
+
+  #rank-hint-bar {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+    width: 96%;
+  }
+
+  #titlebar2-div {
+    float: left;
+    width: 85%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 6px;
+  }
+
+  #rank-div {
+    padding: 1px;
+  }
+}
+
+@media screen and (max-width: 600px) {
   #titlebar {
     width: 100%;
   }
@@ -340,7 +386,7 @@ div.record-page-button {
   }
 
   .tableShow {
-    font-size: 1.2em;
+    font-size: 0.8em;
   }
 
   #rank-hint-bar {
@@ -380,10 +426,6 @@ div.record-page-button {
 
   col.rank-table-col4 {
     width: 110px;
-  }
-
-  .tableShow {
-    font-size: small;
   }
 
   #rank-div {
