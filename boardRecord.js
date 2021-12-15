@@ -172,6 +172,27 @@ function boardRecordShow() {
   whiteCounter.innerHTML = String(whiteCount);
 }
 
+function jumpPage(value) {
+  document.getElementById("jump-input").value = "";
+  if (value[0] == "#") {
+    value = value.substring(1, value.length);
+  }
+  let valueInt = parseInt(value);
+  console.log(value, valueInt)
+  if (isNaN(valueInt)) {
+    return;
+  }
+  if (valueInt <= 0) {
+    valueInt = 1;
+  } else if (valueInt > storageKeys.length) {
+    valueInt = storageKeys.length;
+  }
+  currentIndex = storageKeys.length - valueInt;
+  updateTopLabel();
+  boardRecordShow();
+  checkCanChangePage();
+}
+
 function beforePage() {
   currentIndex--;
   currentStep = 0;

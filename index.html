@@ -368,8 +368,14 @@
 
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
-              <h2 id="gamesRecordTime" style="float: left; margin-left: 3%;"></h2>
-              <h2 id="total-count-show" style="float: right; margin-right: 3%;"></h2><br><br><br>
+              <h2 id="gamesRecordTime" style="float: left; margin-left: 3%; margin-top: 15px;"></h2>
+              <div class="mb-3" style="float: right; margin-bottom: 10px;">
+                <label>跳躍到第# 則記錄</label>
+                <input type="text" class="form-control" id="jump-input" style="width: 130px;" onchange="jumpPage(this.value);">
+              </div>
+              <h2 id="total-count-show" style="float: right; margin-right: 3%; margin-top: 15px;"></h2>
+
+              <br><br><br><br>
               <div style="text-align: center;">
                 <figure style="margin-left: 4%; margin-right: 4%; padding: 0px; margin-bottom: 0px;">
                   <img src="" id="player1pic" class="about-page-img-small zoom-on-hover" loading="lazy">
