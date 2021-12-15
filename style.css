@@ -310,6 +310,8 @@ div.record-page-button {
   iframe.game {
     width: 100vw;
     height: calc(100vw * 9 / 16);
+    margin-left: 0%;
+    margin-right: 0%;
     display: block;
     border: none;
     border-radius: 3px;
