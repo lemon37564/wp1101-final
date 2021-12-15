@@ -409,7 +409,7 @@ div.record-page-button {
   }
 
   #about-page-table-col2 {
-    width: 80px;
+    width: 90px;
   }
 
   col.rank-table-col1 {
@@ -452,6 +452,13 @@ div.record-page-button {
   }
 
   #music-button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    width: 40px;
+    height: 40px;
+    display: block;
+    z-index: 10;
     z-index: 10;
   }
 
@@ -476,6 +483,13 @@ div.record-page-button {
     width: auto;
     margin-left: 0%;
     margin-right: 0%;
+  }
+
+  img.about-page-img-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    border: 1px solid grey;
   }
 }
 
@@ -523,6 +537,7 @@ div.record-page-button {
 
   .tableShow {
     font-size: 0.6em;
+    padding: 1%;
   }
 
   #rank-hint-bar {
@@ -541,11 +556,11 @@ div.record-page-button {
   }
 
   #about-page-table-col1 {
-    width: 80px;
+    width: 40px;
   }
 
   #about-page-table-col2 {
-    width: 90px;
+    width: 80px;
   }
 
   col.rank-table-col1 {
@@ -588,6 +603,12 @@ div.record-page-button {
   }
 
   #music-button {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    width: 30px;
+    height: 30px;
+    display: block;
     z-index: 10;
   }
 
@@ -613,5 +634,11 @@ div.record-page-button {
     margin-left: 0%;
     margin-right: 0%;
   }
-}
 
+  img.about-page-img-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 6px;
+    border: 1px solid grey;
+  }
+}
