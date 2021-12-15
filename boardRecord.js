@@ -5,6 +5,9 @@ let player1pic;
 let player2pic;
 let gamesRecordTime;
 
+let blackCounter;
+let whiteCounter;
+
 let storageKeys = [];
 let storageData = [];
 let currentIndex;
@@ -17,6 +20,8 @@ function startBoardRecord() {
   player1pic = document.getElementById("player1pic");
   player2pic = document.getElementById("player2pic");
   gamesRecordTime = document.getElementById("gamesRecordTime");
+  blackCounter = document.getElementById("black-count");
+  whiteCounter = document.getElementById("white-count");
 
   initialize();
   boardRecordShow();
@@ -49,27 +54,10 @@ function initialize() {
 
 function initShow() {
   if (storageKeys.length == 0) {
-    gamesRecordTime.innerHTML = "沒有遊戲記錄，快去玩幾場吧～";
-    gamesRecordTime.style.float = "none";
-    document.getElementById("total-count-show").style.display = "none";
-    let all = document.getElementsByClassName("record-page-button");
-    for (let i = 0; i < all.length; i++) {
-      all[i].style.display = "none";
-    }
-    document.getElementById("record-page-top-button").style.display = "none";
-    document.getElementById("record-page-bottom-button").style.justifyContent =
-      "center";
+    hideEverythingExceptImportButton();
     return;
   }
-  gamesRecordTime.style.float = "left";
-  document.getElementById("total-count-show").style.display = "block";
-  let all = document.getElementsByClassName("record-page-button");
-  for (let i = 0; i < all.length; i++) {
-    all[i].style.display = "block";
-  }
-  document.getElementById("record-page-top-button").style.display = "flex";
-  document.getElementById("record-page-bottom-button").style.justifyContent =
-    "space-between";
+  showEverything();
 
   let boardShow = "";
   for (let j = 0; j < 8; j++) {
@@ -83,6 +71,35 @@ function initShow() {
     boardShow += "<br>";
   }
   boardRecord.innerHTML = boardShow;
+}
+
+function hideEverythingExceptImportButton() {
+  gamesRecordTime.innerHTML = "沒有遊戲記錄，快去玩幾場吧～";
+  gamesRecordTime.style.float = "none";
+  document.getElementById("total-count-show").style.display = "none";
+  let all = document.getElementsByClassName("record-page-button");
+  for (let i = 0; i < all.length; i++) {
+    all[i].style.display = "none";
+  }
+  document.getElementById("record-page-top-button").style.display = "none";
+  document.getElementById("record-page-bottom-button").style.justifyContent =
+    "center";
+  blackCounter.style.display = "none";
+  whiteCounter.style.display = "none";
+}
+
+function showEverything() {
+  gamesRecordTime.style.float = "left";
+  document.getElementById("total-count-show").style.display = "block";
+  let all = document.getElementsByClassName("record-page-button");
+  for (let i = 0; i < all.length; i++) {
+    all[i].style.display = "block";
+  }
+  document.getElementById("record-page-top-button").style.display = "flex";
+  document.getElementById("record-page-bottom-button").style.justifyContent =
+    "space-between";
+    blackCounter.style.display = "block";
+  whiteCounter.style.display = "block";
 }
 
 function updateTopLabel() {
@@ -128,20 +145,31 @@ function boardRecordShow() {
 
   let board = storageData[currentIndex]["boards"][currentStep];
   let count = 0;
+  let blackCount = 0;
+  let whiteCount = 0;
 
   for (let j = 0; j < 8; j++) {
     for (let k = 0; k < 8; k++) {
       let cell = document.getElementById("cell" + String(j) + String(k));
-      if (board[count] == "X" && cell.src != "imgs/black.webp") {
-        cell.src = "imgs/black.webp";
-      } else if (board[count] == "O" && cell.src != "imgs/white.webp") {
-        cell.src = "imgs/white.webp";
+      if (board[count] == "X") {
+        if (cell.src != "imgs/black.webp") {
+          cell.src = "imgs/black.webp";
+        }
+        blackCount++;
+      } else if (board[count] == "O") {
+        if (cell.src != "imgs/white.webp") {
+          cell.src = "imgs/white.webp";
+        }
+        whiteCount++;
       } else if (board[count] == "_" && cell.src != "imgs/none.webp") {
         cell.src = "imgs/none.webp";
       }
       count++;
     }
   }
+
+  blackCounter.innerHTML = String(blackCount);
+  whiteCounter.innerHTML = String(whiteCount);
 }
 
 function beforePage() {

@@ -268,7 +268,7 @@ input[type="file"] {
   width: 52%;
   margin-left: 24%;
   margin-right: 24%;
-  margin-top: 5px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -287,6 +287,14 @@ input[type="file"] {
 
 div.record-page-button {
   text-align: center;
+}
+
+#black-count {
+  font-size: x-large;
+}
+
+#white-count {
+  font-size: x-large;
 }
 
 @media screen and (max-width: 650px) {
