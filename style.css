@@ -110,8 +110,8 @@ p.sidebar {
 }
 
 iframe.game {
-  width: calc(70vw);
-  height: calc(70vw * 9 / 16);
+  width: calc(66.66vw);
+  height: calc(66.66vw * 9 / 16);
   display: inline-block;
   border: none;
   border-radius: 3px;
