@@ -50,6 +50,7 @@ function initialize() {
   initShow();
   updateTopLabel();
   checkCanChangePage();
+  checkCanChangeStep();
 }
 
 function initShow() {
@@ -231,31 +232,45 @@ function checkCanChangePage() {
 }
 
 function beforeStep() {
-  if (currentStep - 1 < 0) {
-    window.alert("第一步");
-    return;
-  }
   currentStep--;
   boardRecordShow();
+  checkCanChangeStep();
 }
 
 function nextStep() {
-  if (currentStep + 1 >= storageData[currentIndex]["boards"].length) {
-    window.alert("最後一步");
-    return;
-  }
   currentStep++;
   boardRecordShow();
+  checkCanChangeStep();
 }
 
 function firstStep() {
   currentStep = 0;
   boardRecordShow();
+  checkCanChangeStep();
 }
 
 function lastStep() {
   currentStep = storageData[currentIndex]["boards"].length - 1;
   boardRecordShow();
+  checkCanChangeStep();
+}
+
+function checkCanChangeStep() {
+  if (currentStep == 0) {
+    document.getElementById("first-step-button").style.visibility = "hidden";
+    document.getElementById("previous-step-button").style.visibility = "hidden";
+  } else {
+    document.getElementById("first-step-button").style.visibility = "visible";
+    document.getElementById("previous-step-button").style.visibility = "visible";
+  }
+
+  if (currentStep == storageData[currentIndex]["boards"].length - 1) {
+    document.getElementById("next-step-button").style.visibility = "hidden";
+    document.getElementById("last-step-button").style.visibility = "hidden";
+  } else {
+    document.getElementById("next-step-button").style.visibility = "visible";
+    document.getElementById("last-step-button").style.visibility = "visible";
+  }
 }
 
 function deleteAllRecord() {
