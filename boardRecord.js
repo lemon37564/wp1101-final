@@ -216,13 +216,17 @@ function checkCanChangePage() {
   let prev = document.getElementById("previous-page-button");
   if (currentIndex == storageKeys.length - 1) {
     next.setAttribute("disabled", "");
+    next.setAttribute("class", "btn btn-outline-info");
   } else {
     next.removeAttribute("disabled");
+    next.setAttribute("class", "btn btn-info");
   }
   if (currentIndex == 0) {
     prev.setAttribute("disabled", "");
+    prev.setAttribute("class", "btn btn-outline-info");
   } else {
     prev.removeAttribute("disabled");
+    prev.setAttribute("class", "btn btn-info");
   }
 }
 
