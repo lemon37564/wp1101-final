@@ -256,6 +256,10 @@ function lastStep() {
 }
 
 function checkCanChangeStep() {
+  if (storageKeys.length == 0) {
+    return;
+  }
+  
   if (currentStep == 0) {
     document.getElementById("first-step-button").style.visibility = "hidden";
     document.getElementById("previous-step-button").style.visibility = "hidden";
