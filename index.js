@@ -18,6 +18,8 @@ function start() {
   }, 10000);
 }
 
+let currentShow, currentMenu;
+
 async function getRank(strength) {
   let request = new XMLHttpRequest();
   document.getElementById("spinner").style.visibility = "visible";
@@ -28,7 +30,6 @@ async function getRank(strength) {
   let rankEasyShow = document.getElementById("rankEasyContent");
   let rankMiddleShow = document.getElementById("rankMiddleContent");
   let rankHardShow = document.getElementById("rankHardContent");
-  let currentShow, currentMenu;
 
   menu1.setAttribute("class", "tab-pane fade");
   menu2.setAttribute("class", "tab-pane fade");
