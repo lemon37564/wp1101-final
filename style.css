@@ -270,6 +270,7 @@ input[type="file"] {
   margin-right: 24%;
   margin-top: 10px;
   margin-bottom: 10px;
+  text-size-adjust: auto;
 }
 
 #record-page-bottom-button {
@@ -284,7 +285,9 @@ input[type="file"] {
   padding: 0%;
   margin-top: 10px;
 }
-
+#gamesRecordTime {
+  font-size: 1.8vw;
+}
 div.record-page-button {
   text-align: center;
 }
@@ -295,6 +298,36 @@ div.record-page-button {
 
 #white-count {
   font-size: x-large;
+}
+
+#record-page-button {
+  margin-top: 0px;
+}
+
+.total-count-show {
+  font-size: 1.5vw;
+}
+
+.jumpFunctionLabel {
+  font-size: 1.5vw;
+}
+
+#player1Pic {
+  width: 3vw !important;
+  height: 3vw !important;
+  font-size: 3vw;
+}
+#player1PicSen {
+  font-size: 3vw;
+}
+#player2Pic {
+  width: 3vw !important;
+  height: 3vw !important;
+  font-size: 3vw;
+}
+
+#player2PicSen {
+  font-size: 3vw;
 }
 
 @media screen and (max-width: 960px) {
@@ -337,7 +370,9 @@ div.record-page-button {
     margin-left: 5%;
     margin-top: 6px;
   }
-
+  #record-page-button {
+    margin-top: 10px;
+  }
   #rank-div {
     padding: 1px;
   }
@@ -484,7 +519,30 @@ div.record-page-button {
     margin-left: 0%;
     margin-right: 0%;
   }
+  #record-page-bottom-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 52%;
+    margin-left: 24%;
+    margin-right: 24%;
+    margin-bottom: 5px;
+    text-align: center;
+    padding-bottom: 50px !important;
+    text-decoration: solid;
+    text-shadow: #4caf50;
+    margin-top: 10px;
+  }
+  #record-page-button {
+    margin-top: 10px;
+  }
 
+  #jumpFunctionLabel {
+    font-size: 10px;
+  }
+  #total-count-show {
+    font-size: 20px;
+  }
   img.about-page-img-avatar {
     width: 100px;
     height: 100px;
@@ -634,7 +692,28 @@ div.record-page-button {
     margin-left: 0%;
     margin-right: 0%;
   }
+  #record-page-bottom-button {
+    display: flex;
 
+    flex-direction: column;
+
+    justify-content: space-between;
+    width: 52%;
+    margin-left: 24%;
+    margin-right: 24%;
+    margin-bottom: 5px;
+    text-align: center;
+
+    text-decoration: solid;
+    text-shadow: #4caf50;
+    margin-top: 10px;
+  }
+  #jumpFunctionLabel {
+    font-size: 10px;
+  }
+  #total-count-show {
+    font-size: 8px;
+  }
   img.about-page-img-avatar {
     width: 80px;
     height: 80px;
