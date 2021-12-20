@@ -181,7 +181,6 @@ function jumpPage(value) {
     value = value.substring(1, value.length);
   }
   let valueInt = parseInt(value);
-  console.log(value, valueInt)
   if (isNaN(valueInt)) {
     return;
   }
