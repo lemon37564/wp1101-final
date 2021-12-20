@@ -77,7 +77,7 @@ function initShow() {
 function hideEverythingExceptImportButton() {
   gamesRecordTime.innerHTML = "沒有遊戲記錄，快去玩幾場吧～";
   gamesRecordTime.style.float = "none";
-  document.getElementById("total-count-show").style.display = "none";
+  //document.getElementById("total-count-show").style.display = "none";
   let all = document.getElementsByClassName("record-page-button");
   for (let i = 0; i < all.length; i++) {
     all[i].style.display = "none";

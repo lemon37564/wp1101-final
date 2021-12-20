@@ -319,7 +319,7 @@ div.record-page-button {
 }
 
 .player1PicSen {
-  font-size: 1.5vw;
+  font-size: 3vw;
 }
 
 .player2Pic {
@@ -331,7 +331,7 @@ div.record-page-button {
 }
 
 .player2PicSen {
-  font-size: 1.5vw;
+  font-size: 3vw;
 }
 .record-page-top-pic {
   display: flex;
