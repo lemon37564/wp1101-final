@@ -310,26 +310,36 @@ div.record-page-button {
   font-size: 1.8vw !important;
 }
 
-#player1Pic {
-  width: 3vw !important;
-  height: 3vw !important;
-  font-size: 3vw;
+.player1Pic {
+  width: 10vw !important;
+  height: 10vw !important;
+  font-size: 4vw;
 }
 
-#player1PicSen {
-  font-size: 3vw;
+.player1PicSen {
+  font-size: 4vw;
 }
 
-#player2Pic {
-  width: 3vw !important;
-  height: 3vw !important;
-  font-size: 3vw;
+.player2Pic {
+  width: 10vw !important;
+  height: 10vw !important;
+  font-size: 4vw;
 }
 
-#player2PicSen {
-  font-size: 3vw;
+.player2PicSen {
+  font-size: 4vw;
 }
-
+.record-page-top-pic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* width: 100%; */
+  margin-left: 10%;
+  margin-right: 10%;
+}
+#jumpFunctionLabel {
+  font-size: 1.8vw;
+}
 @media screen and (max-width: 960px) {
   .tableShow {
     font-size: 1.1em;

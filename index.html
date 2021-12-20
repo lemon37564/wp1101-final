@@ -370,16 +370,17 @@
 
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
-              <span id="gamesRecordTime" style="float: left; margin-left: 3%; margin-top: 15px;"></span>
-              <div class="mb-3" style="float: right; margin-bottom: 10px;" id="jump-function-label">
+              <span id="gamesRecordTime" style="float: left; margin-left: 0;text-align: left; margin-top: 15px;width:45vw"></span>
+              <div class="mb-3" style="float: right; margin-bottom: 10px;text-align: right;margin-right: 0vw;" id="jump-function-label">
                 <label id="jumpFunctionLabel">跳躍到第# 則記錄</label>
-                <input type="text" class="form-control" id="jump-input" style="width: 130px;"
+                <input type="text" class="form-control" id="jump-input" style="width: 20vw;" style="padding-right:0vw;margin-right: 0%;text-align: right;"
                   onchange="jumpPage(this.value);">
               </div>
-              <span id="total-count-show" style="float: right; margin-right: 3%; margin-top: 15px;"></span>
+              <!-- <span id="total-count-show" style="float: right; margin-right: 3%; margin-top: 15px;"></span> -->
 
               <br><br><br><br>
-              <div style="text-align: center;">
+              <!-- text-align: center; -->
+              <div class="record-page-top-pic" style="margin-top: 50px;">
                 <figure style="margin-left: 4%; margin-right: 4%; padding: 0px; margin-bottom: 0px;">
                   <img src="" id="player1pic" class="about-page-img-small zoom-on-hover player1Pic" loading="lazy">
                   <figcaption id="player1" class="player1PicSen"></figcaption>
@@ -394,36 +395,36 @@
               </div>
 
               <div id="record-page-top-button">
-                <button type="button" id="previous-page-button" class="btn btn-info"
+                <button type="button" id="previous-page-button" class="btn btn-info" style="font-size: 2.3vw;"
                   onclick="beforePage();">上一則</button>
 
                 <div class="record-page-button"></div>
                 <div class="record-page-button"></div>
 
                 <a onclick="firstStep()" id="first-step-button" style="text-decoration: none;">
-                  <input type="image" src="imgs/fast-forward.png" width=30em style="transform:scaleX(-1)"
+                  <input type="image" src="imgs/fast-forward.png" width="30vw" style="transform:scaleX(-1)"
                     loading="lazy">
                 </a>
 
                 <a onclick="beforeStep()" id="previous-step-button" style="text-decoration: none;">
-                  <input type="image" src="imgs/next.png" width=30em style="transform:scaleX(-1)" loading="lazy">
+                  <input type="image" src="imgs/next.png" width="30vw" style="transform:scaleX(-1)" loading="lazy">
                 </a>
 
                 <div class="record-page-button"></div>
                 <div class="record-page-button"></div>
 
                 <a onclick="nextStep()" id="next-step-button" style="text-decoration: none;">
-                  <input type="image" src="imgs/next.png" width=30em loading="lazy">
+                  <input type="image" src="imgs/next.png" width="30vw" loading="lazy">
                 </a>
 
                 <a onclick="lastStep()" id="last-step-button" style="text-decoration: none;">
-                  <input type="image" src="imgs/fast-forward.png" width=30em loading="lazy">
+                  <input type="image" src="imgs/fast-forward.png" width="30vw" loading="lazy">
                 </a>
 
                 <div class="record-page-button"></div>
                 <div class="record-page-button"></div>
 
-                <button type="button" id="next-page-button" class="btn btn-info" onclick="nextPage();">下一則</button>
+                <button type="button" id="next-page-button" class="btn btn-info" style="font-size: 2.3vw;" onclick="nextPage();">下一則</button>
               </div>
               <div id="boardRecord"></div>
 

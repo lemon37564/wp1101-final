@@ -92,7 +92,7 @@ function hideEverythingExceptImportButton() {
 
 function showEverything() {
   gamesRecordTime.style.float = "left";
-  document.getElementById("total-count-show").style.display = "block";
+  //document.getElementById("total-count-show").style.display = "block";
   let all = document.getElementsByClassName("record-page-button");
   for (let i = 0; i < all.length; i++) {
     all[i].style.display = "block";
@@ -122,7 +122,9 @@ function updateTopLabel() {
   gamesRecordTime.innerHTML =
     "記錄 #" +
     String(storageKeys.length - currentIndex) +
-    "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;時間" +
+    "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>"+
+    "共有 " + String(storageKeys.length) + " 筆記錄<br>"+
+    "時間" +
     storageData[currentIndex]["date"].year +
     "/" +
     storageData[currentIndex]["date"].month +
@@ -133,8 +135,8 @@ function updateTopLabel() {
     ":" +
     minute;
 
-  document.getElementById("total-count-show").innerHTML =
-    "共有 " + String(storageKeys.length) + " 筆記錄";
+  // document.getElementById("total-count-show").innerHTML =
+  //  "共有 " + String(storageKeys.length) + " 筆記錄";
 
   player1.innerHTML = "先手: " + judgePlayer(storageData[currentIndex]["p1"]);
   player2.innerHTML = "後手: " + judgePlayer(storageData[currentIndex]["p2"]);
