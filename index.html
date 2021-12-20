@@ -371,7 +371,8 @@
               <h2 id="gamesRecordTime" style="float: left; margin-left: 3%; margin-top: 15px;"></h2>
               <div class="mb-3" style="float: right; margin-bottom: 10px;" id="jump-function-label">
                 <label>跳躍到第# 則記錄</label>
-                <input type="text" class="form-control" id="jump-input" style="width: 130px;" onchange="jumpPage(this.value);">
+                <input type="text" class="form-control" id="jump-input" style="width: 130px;"
+                  onchange="jumpPage(this.value);">
               </div>
               <h2 id="total-count-show" style="float: right; margin-right: 3%; margin-top: 15px;"></h2>
 
@@ -389,7 +390,7 @@
                   <p id="white-count" style="font-size: x-large; font-weight: bold; margin-bottom: 0px;"></p>
                 </figure>
               </div>
-              
+
               <div id="record-page-top-button">
                 <button type="button" id="previous-page-button" class="btn btn-info"
                   onclick="beforePage();">上一則</button>
@@ -420,8 +421,7 @@
                 <div class="record-page-button"></div>
                 <div class="record-page-button"></div>
 
-                <button type="button" id="next-page-button" class="btn btn-info"
-                  onclick="nextPage();">下一則</button>
+                <button type="button" id="next-page-button" class="btn btn-info" onclick="nextPage();">下一則</button>
               </div>
               <div id="boardRecord"></div>
 
@@ -466,6 +466,25 @@
                 </div>
               </div>
 
+              <div class="modal fade" id="importWrongFile" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 class="modal-title" id="exampleModalLabel">提示</h2>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <h3>你不是傳正確的Json檔案</h3>
+                    </div>
+                    <div class="modal-footer">
+
+                      <button type="button" class="btn btn-info" data-bs-dismiss="modal">了解</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div id="record-page-bottom-button">
                 <div class="record-page-button-always-show">
                   <button class="btn btn-info" onclick="importData()">匯入記錄</button>
@@ -486,6 +505,11 @@
                 <div class="record-page-button">
                   <button type="button" class="btn btn-danger" id="delete-all-button" data-bs-toggle="modal"
                     data-bs-target="#delete-all-modal">
+                    清除所有記錄
+                  </button>
+
+                  <button type="button" class="btn btn-danger" id="wrongFile-button" style = "display:none;" data-bs-toggle="modal"
+                    data-bs-target="#importWrongFile">
                     清除所有記錄
                   </button>
                 </div>

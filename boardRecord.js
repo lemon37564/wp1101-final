@@ -394,12 +394,30 @@ function importData() {
 
     // you can use this method to get file and perform respective operations
     resultFile = input.files[0];
+
     if (resultFile) {
       var reader = new FileReader();
 
       reader.readAsText(resultFile, "UTF-8");
+
       reader.onload = function (e) {
-        let data = JSON.parse(this.result);
+      let data;
+        try{
+          data = JSON.parse(this.result);
+        }
+        catch(e){
+          console.log("阿");
+          document.getElementById("wrongFile-button").click();
+          // let but = document.createElement("button");
+          // but.setAttribute("data-bs-target","#importWrongFile");
+          // but.setAttribute("data-bs-toggle","modal");
+          // but.setAttribute("type","button");
+          // but.setAttribute("class","btn btn-danger");
+          // but.setAttribute("id","delete-this-button");
+          
+          //but.click();
+        }
+        
 
         for (let i in data) {
           localStorage.setItem(i, data[i]);
