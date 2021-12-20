@@ -185,10 +185,8 @@ function jumpPage(value) {
   if (isNaN(valueInt)) {
     return;
   }
-  if (valueInt <= 0) {
-    valueInt = 1;
-  } else if (valueInt > storageKeys.length) {
-    valueInt = storageKeys.length;
+  if (valueInt <= 0 || valueInt > storageKeys.length) {
+    return;
   }
   currentIndex = storageKeys.length - valueInt;
   currentStep = 0;
