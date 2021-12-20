@@ -181,18 +181,17 @@ function jumpPage(value) {
     value = value.substring(1, value.length);
   }
   let valueInt = parseInt(value);
-  console.log(value, valueInt)
   if (isNaN(valueInt)) {
     return;
   }
-  if (valueInt <= 0) {
-    valueInt = 1;
-  } else if (valueInt > storageKeys.length) {
-    valueInt = storageKeys.length;
+  if (valueInt <= 0 || valueInt > storageKeys.length) {
+    return;
   }
   currentIndex = storageKeys.length - valueInt;
+  currentStep = 0;
   updateTopLabel();
   boardRecordShow();
+  checkCanChangeStep();
   checkCanChangePage();
 }
 
@@ -201,6 +200,7 @@ function beforePage() {
   currentStep = 0;
   updateTopLabel();
   boardRecordShow();
+  checkCanChangeStep();
   checkCanChangePage();
 }
 
@@ -209,6 +209,7 @@ function nextPage() {
   currentStep = 0;
   updateTopLabel();
   boardRecordShow();
+  checkCanChangeStep();
   checkCanChangePage();
 }
 
