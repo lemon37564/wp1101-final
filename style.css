@@ -285,9 +285,7 @@ input[type="file"] {
   padding: 0%;
   margin-top: 10px;
 }
-#gamesRecordTime {
-  font-size: 1.8vw;
-}
+
 div.record-page-button {
   text-align: center;
 }
@@ -304,12 +302,12 @@ div.record-page-button {
   margin-top: 0px;
 }
 
-.total-count-show {
-  font-size: 1.5vw;
+#total-count-show {
+  font-size: 1.8vw !important;
 }
 
-.jumpFunctionLabel {
-  font-size: 1.5vw;
+#gamesRecordTime {
+  font-size: 1.8vw !important;
 }
 
 #player1Pic {
@@ -317,9 +315,11 @@ div.record-page-button {
   height: 3vw !important;
   font-size: 3vw;
 }
+
 #player1PicSen {
   font-size: 3vw;
 }
+
 #player2Pic {
   width: 3vw !important;
   height: 3vw !important;
