@@ -100,7 +100,7 @@ function showEverything() {
   document.getElementById("record-page-top-button").style.display = "flex";
   document.getElementById("record-page-bottom-button").style.justifyContent =
     "space-between";
-    blackCounter.style.display = "block";
+  blackCounter.style.display = "block";
   whiteCounter.style.display = "block";
   document.getElementById("jump-function-label").style.display = "block";
 }
@@ -260,13 +260,14 @@ function checkCanChangeStep() {
   if (storageKeys.length == 0) {
     return;
   }
-  
+
   if (currentStep == 0) {
     document.getElementById("first-step-button").style.visibility = "hidden";
     document.getElementById("previous-step-button").style.visibility = "hidden";
   } else {
     document.getElementById("first-step-button").style.visibility = "visible";
-    document.getElementById("previous-step-button").style.visibility = "visible";
+    document.getElementById("previous-step-button").style.visibility =
+      "visible";
   }
 
   if (currentStep == storageData[currentIndex]["boards"].length - 1) {
@@ -389,10 +390,9 @@ function destroyClickedElement(event) {
 function importData() {
   let input = document.createElement("input");
   input.type = "file";
-  input.setAttribute("accept",".json");
+  input.setAttribute("accept", ".json");
 
   input.onchange = (_) => {
-
     // you can use this method to get file and perform respective operations
     resultFile = input.files[0];
 
@@ -402,29 +402,22 @@ function importData() {
       reader.readAsText(resultFile, "UTF-8");
 
       reader.onload = function (e) {
-      let data;
-        try{
-          data = JSON.parse(this.result);
-        }
-        catch(e){
-          console.log("阿");
+        try {
+          let data = JSON.parse(this.result);
+          for (let i in data) {
+            localStorage.setItem(i, data[i]);
+          }
+        } catch (e) {
           document.getElementById("wrongFile-button").click();
-          // let but = document.createElement("button");
-          // but.setAttribute("data-bs-target","#importWrongFile");
-          // but.setAttribute("data-bs-toggle","modal");
-          // but.setAttribute("type","button");
-          // but.setAttribute("class","btn btn-danger");
-          // but.setAttribute("id","delete-this-button");
-          
-          //but.click();
         }
-        
 
-        for (let i in data) {
-          localStorage.setItem(i, data[i]);
+        try {
+          initialize();
+          boardRecordShow();
+        } catch (e) {
+          localStorage.clear();
+          document.getElementById("wrongFile-button").click();
         }
-        initialize();
-        boardRecordShow();
       };
     }
   };
