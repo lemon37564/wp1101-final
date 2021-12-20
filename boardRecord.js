@@ -191,8 +191,10 @@ function jumpPage(value) {
     valueInt = storageKeys.length;
   }
   currentIndex = storageKeys.length - valueInt;
+  currentStep = 0;
   updateTopLabel();
   boardRecordShow();
+  checkCanChangeStep();
   checkCanChangePage();
 }
 
@@ -201,6 +203,7 @@ function beforePage() {
   currentStep = 0;
   updateTopLabel();
   boardRecordShow();
+  checkCanChangeStep();
   checkCanChangePage();
 }
 
@@ -209,6 +212,7 @@ function nextPage() {
   currentStep = 0;
   updateTopLabel();
   boardRecordShow();
+  checkCanChangeStep();
   checkCanChangePage();
 }
 
