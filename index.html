@@ -371,24 +371,24 @@
             <div class="wp-block-group__inner-container">
               <h2 id="gamesRecordTime" style="float: left; margin-left: 3%; margin-top: 15px;"></h2>
               <div class="mb-3" style="float: right; margin-bottom: 10px;" id="jump-function-label">
-                <label>跳躍到第# 則記錄</label>
+                <label id="jumpFunctionLabel">跳躍到第# 則記錄</label>
                 <input type="text" class="form-control" id="jump-input" style="width: 130px;"
                   onchange="jumpPage(this.value);">
               </div>
-              <h2 id="total-count-show" style="float: right; margin-right: 3%; margin-top: 15px;"></h2>
+              <h2 id="total-count-show" style="float: right; margin-right: 3%; margin-top: 15px; font-size: 3vw;"></h2>
 
               <br><br><br><br>
               <div style="text-align: center;">
                 <figure style="margin-left: 4%; margin-right: 4%; padding: 0px; margin-bottom: 0px;">
-                  <img src="" id="player1pic" class="about-page-img-small zoom-on-hover" loading="lazy">
-                  <figcaption id="player1"></figcaption>
-                  <p id="black-count" style="font-size: x-large; font-weight: bold; margin-bottom: 0px;"></p>
+                  <img src="" id="player1pic" class="about-page-img-small zoom-on-hover player1Pic" loading="lazy">
+                  <figcaption id="player1" class="player1PicSen"></figcaption>
+                  <p id="black-count" style="font-size: x-large; font-weight: bold; margin-bottom: 0px;" class="player1PicSen" ></p>
                 </figure>
 
                 <figure style="margin-left: 4%; margin-right: 4%; padding: 0px; margin-bottom: 0px;">
-                  <img src="" id="player2pic" class="about-page-img-small zoom-on-hover" loading="lazy">
-                  <figcaption id="player2"></figcaption>
-                  <p id="white-count" style="font-size: x-large; font-weight: bold; margin-bottom: 0px;"></p>
+                  <img src="" id="player2pic" class="about-page-img-small zoom-on-hover player1Pic" loading="lazy">
+                  <figcaption id="player2" class="player1PicSen"></figcaption>
+                  <p id="white-count" style="font-size: x-large; font-weight: bold; margin-bottom: 0px;" class="player1PicSen"></p>
                 </figure>
               </div>
 
@@ -508,9 +508,15 @@
                     清除所有記錄
                   </button>
 
+<<<<<<< HEAD
+                  <button type="button" class="btn btn-danger" id="wrongFile-button" style = "display:none;" data-bs-toggle="modal"
+                    data-bs-target="#importWrongFile">
+                    <!-- show import  wrong file  -->
+=======
                   <button type="button" class="btn btn-danger" id="wrongFile-button" style="display:none;"
                     data-bs-toggle="modal" data-bs-target="#importWrongFile">
                     警告
+>>>>>>> 13bfb1735922eed38729554bfa3e1ec0c30d4bfb
                   </button>
                 </div>
               </div>
