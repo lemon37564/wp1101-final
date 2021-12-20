@@ -333,6 +333,8 @@ function judgePlayer(player) {
       return "AI 中";
     case "ai2":
       return "AI 強";
+    default:
+      return "未知";
   }
 }
 
