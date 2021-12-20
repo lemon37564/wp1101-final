@@ -270,7 +270,6 @@ input[type="file"] {
   margin-right: 24%;
   margin-top: 10px;
   margin-bottom: 10px;
-  text-size-adjust: auto;
 }
 
 #record-page-bottom-button {
@@ -298,52 +297,6 @@ div.record-page-button {
   font-size: x-large;
 }
 
-#record-page-button {
-  margin-top: 0px;
-}
-
-#total-count-show {
-  font-size: 1.8vw !important;
-}
-
-#gamesRecordTime {
-  font-size: 4vw !important;
-}
-
-.player1Pic {
-  width: 10vw;
-  height: 10vw;
-  font-size: 4vw;
-  max-width: 150px;
-  max-height: 150px;
-}
-
-.player1PicSen {
-  font-size: 3vw;
-}
-
-.player2Pic {
-  width: 10vw;
-  height: 10vw;
-  font-size: 4vw;
-  max-width: 150px;
-  max-width: 150px;
-}
-
-.player2PicSen {
-  font-size: 3vw;
-}
-.record-page-top-pic {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  /* width: 100%; */
-  margin-left: 10%;
-  margin-right: 10%;
-}
-#jumpFunctionLabel {
-  font-size: 2.5vw;
-}
 @media screen and (max-width: 960px) {
   .tableShow {
     font-size: 1.1em;
@@ -384,15 +337,13 @@ div.record-page-button {
     margin-left: 5%;
     margin-top: 6px;
   }
-  #record-page-button {
-    margin-top: 10px;
-  }
+
   #rank-div {
     padding: 1px;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   #titlebar {
     width: 100%;
   }
@@ -533,35 +484,54 @@ div.record-page-button {
     margin-left: 0%;
     margin-right: 0%;
   }
-  #record-page-bottom-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 52%;
-    margin-left: 24%;
-    margin-right: 24%;
-    margin-bottom: 5px;
-    text-align: center;
-    padding-bottom: 50px !important;
-    text-decoration: solid;
-    text-shadow: #4caf50;
-    margin-top: 10px;
-  }
-  #record-page-button {
-    margin-top: 10px;
-  }
 
-  #jumpFunctionLabel {
-    font-size: 10px;
-  }
-  #total-count-show {
-    font-size: 20px;
-  }
   img.about-page-img-avatar {
     width: 100px;
     height: 100px;
     border-radius: 8px;
     border: 1px solid grey;
+  }
+
+  #gamesRecordTime{
+    font-size: smaller;
+  }
+
+  #record-page-bottom-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
+    margin-left: 24%;
+    margin-right: 24%;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 0%;
+    margin-top: 10px;
+  }
+
+  #import-button{
+    width: 100%;
+  }
+
+  #save-file-button{
+    width: 100%;
+  }
+
+  #delete-this-button{
+    width: 100%;
+  }
+
+  #delete-all-button{
+    width: 100%;
+  }
+
+  #jump-input{
+    font-size: smaller;
+    width: 100px !important;
+  }
+
+  #jump-label{
+    font-size: smaller;
   }
 }
 
@@ -706,28 +676,7 @@ div.record-page-button {
     margin-left: 0%;
     margin-right: 0%;
   }
-  #record-page-bottom-button {
-    display: flex;
 
-    flex-direction: column;
-
-    justify-content: space-between;
-    width: 52%;
-    margin-left: 24%;
-    margin-right: 24%;
-    margin-bottom: 5px;
-    text-align: center;
-
-    text-decoration: solid;
-    text-shadow: #4caf50;
-    margin-top: 10px;
-  }
-  #jumpFunctionLabel {
-    font-size: 10px;
-  }
-  #total-count-show {
-    font-size: 8px;
-  }
   img.about-page-img-avatar {
     width: 80px;
     height: 80px;
