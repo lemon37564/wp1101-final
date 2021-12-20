@@ -307,27 +307,31 @@ div.record-page-button {
 }
 
 #gamesRecordTime {
-  font-size: 1.8vw !important;
+  font-size: 3vw !important;
 }
 
 .player1Pic {
-  width: 10vw !important;
-  height: 10vw !important;
+  width: 10vw;
+  height: 10vw;
   font-size: 4vw;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 .player1PicSen {
-  font-size: 4vw;
+  font-size: 1.5vw;
 }
 
 .player2Pic {
-  width: 10vw !important;
-  height: 10vw !important;
+  width: 10vw;
+  height: 10vw;
   font-size: 4vw;
+  max-width: 150px;
+  max-width: 150px;
 }
 
 .player2PicSen {
-  font-size: 4vw;
+  font-size: 1.5vw;
 }
 .record-page-top-pic {
   display: flex;
@@ -338,7 +342,7 @@ div.record-page-button {
   margin-right: 10%;
 }
 #jumpFunctionLabel {
-  font-size: 1.8vw;
+  font-size: 2.5vw;
 }
 @media screen and (max-width: 960px) {
   .tableShow {
