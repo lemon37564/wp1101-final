@@ -407,14 +407,14 @@ function importData() {
           for (let i in data) {
             localStorage.setItem(i, data[i]);
           }
-        } catch (e) {
+        } catch (err) {
           document.getElementById("wrongFile-button").click();
         }
 
         try {
           initialize();
           boardRecordShow();
-        } catch (e) {
+        } catch (err) {
           localStorage.clear();
           document.getElementById("wrongFile-button").click();
         }
