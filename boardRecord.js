@@ -391,9 +391,11 @@ function destroyClickedElement(event) {
 
 function importData() {
   let input = document.createElement("input");
-
   input.type = "file";
+  input.setAttribute("accept",".json");
+
   input.onchange = (_) => {
+
     // you can use this method to get file and perform respective operations
     resultFile = input.files[0];
     if (resultFile) {
