@@ -71,7 +71,6 @@ func (ai *AI8) move(input string, c chan string) {
 	// for depth := 2; depth <= ai.depth; depth += 2 {
 	best = ai.alphaBetaHelper(aibd, ai.depth)
 	// }
-	ai.printValue(best)
 
 	bestPoint := point{best.loc % SIZE8, best.loc / SIZE8}
 	if !aibd.putAndCheck(ai.color, best.loc) {

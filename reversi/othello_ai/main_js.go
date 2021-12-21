@@ -4,7 +4,6 @@
 package main
 
 import (
-	"fmt"
 	"time"
 
 	"reversi/ai"
@@ -38,7 +37,6 @@ func aiThink(input string, color string, strength string) string {
 	if spent < time.Millisecond*650 {
 		time.Sleep(time.Millisecond*650 - spent)
 	}
-	fmt.Println("time spent: ", spent)
 	return out
 }
 
