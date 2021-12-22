@@ -227,6 +227,7 @@ function bgmClick() {
     if (bgm == null) {
       bgm = new Audio("gameBackGroundMusic.mp3");
     }
+    bgm.loop = true;
     bgm.play();
     document.getElementById("music-button").src = "imgs/pause.png";
   } else {
