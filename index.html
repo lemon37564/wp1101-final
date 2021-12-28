@@ -48,7 +48,7 @@
       </li>
       <li class="nav-item" style="vertical-align: middle;padding-left: 3px;">
         <input type="image" id="language" onclick="reverseLanguage()" src="imgs/taiwan.png" width="30" height="30"
-          style="margin-top: 5px;">
+          style="margin-top: 8px;">
       </li>
     </ul>
   </nav>
@@ -335,10 +335,10 @@
           <div class="wp-block-group is-style-box container">
             <div class="wp-block-group__inner-container">
               <h1>demo</h1>
-              <div style="text-align: center;">
-                <button type="button" class="btn btn-info" onclick="downloadPPT();">PPT</button>
-                <button type="button" class="btn btn-info" onclick="downloadRecordDemo();">record-demo</button>
-                <button type="button" class="btn btn-info" onclick="downloadRecordDemoLarge();">record-large</button>
+              <div id="demo-block">
+                <button type="button" class="btn btn-secondary demo-block-button" onclick="downloadPPT();">PPT</button>
+                <button type="button" class="btn btn-secondary demo-block-button" onclick="downloadRecordDemo();">record-demo</button>
+                <button type="button" class="btn btn-secondary demo-block-button" onclick="downloadRecordDemoLarge();">record-large</button>
               </div>
               <a href="" id="download-a" download="" style="display: none;"></a>
             </div>
