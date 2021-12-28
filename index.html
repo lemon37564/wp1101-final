@@ -449,13 +449,13 @@
                       <h2 class="modal-title" id="exampleModalLabel">提示</h2>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="Chess_record_Warning0">
                       <h4>確定刪除全部記錄?<br>刪除後無法恢復!</h4>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="Chess_record_Cancel1" >取消</button>
                       <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                        onclick="deleteAllRecord()">確認</button>
+                        onclick="deleteAllRecord()" id="Chess_record_Confirm1">確認</button>
                     </div>
                   </div>
                 </div>
@@ -469,13 +469,13 @@
                       <h2 class="modal-title" id="exampleModalLabel">提示</h2>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="Chess_record_Warning1">
                       <h4>確定刪除本則記錄?<br>刪除後無法恢復!</h4>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="Chess_record_Cancel2">取消</button>
                       <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                        onclick="deleteThisRecord()">確認</button>
+                        onclick="deleteThisRecord()" id="Chess_record_Confirm2">確認</button>
                     </div>
                   </div>
                 </div>
@@ -489,11 +489,11 @@
                       <h2 class="modal-title" id="exampleModalLabel">提示</h2>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="Chess_record_Warning2">
                       <h4>檔案格式錯誤或檔案毀損</h4>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-info" data-bs-dismiss="modal">確認</button>
+                      <button type="button" class="btn btn-info" data-bs-dismiss="modal" id="Chess_record_Confirm3">確認</button>
                     </div>
                   </div>
                 </div>
@@ -521,7 +521,7 @@
                     data-bs-target="#delete-all-modal">
                     清除所有記錄
                   </button>
-
+                 
                   <button type="button" class="btn btn-danger" id="wrongFile-button" style="display:none;"
                     data-bs-toggle="modal" data-bs-target="#importWrongFile">
                     警告
