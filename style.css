@@ -116,6 +116,7 @@ p.sidebar {
 iframe.game {
   width: calc(66.66vw);
   height: calc(66.66vw * 9 / 16);
+  display: inline-block;
   border: none;
   vertical-align: middle;
   border-radius: 3px;
