@@ -123,8 +123,8 @@ function updateTopLabel() {
     total: { en: "total", "zh-TW": "共有" },
     records: { en: "records", "zh-TW": "筆紀錄" },
     date: { en: "date", "zh-TW": "時間" },
-    order1: { en: "1:", "zh-TW": "先手:" },
-    order2: { en: "2:", "zh-TW": "後手:" },
+    order1: { en: "", "zh-TW": "先手:" },
+    order2: { en: "", "zh-TW": "後手:" },
   };
   gamesRecordTime.innerHTML =
     language["record"][locale] +
@@ -343,14 +343,6 @@ function deleteThisRecord() {
 }
 
 function judgePlayer(player) {
-  const language = {
-    record: { en: "Record", "zh-TW": "紀錄" },
-    total: { en: "total", "zh-TW": "共有" },
-    records: { en: "records", "zh-TW": "筆紀錄" },
-    date: { en: "date", "zh-TW": "時間" },
-    order1: { en: "1:", "zh-TW": "先手:" },
-    ooder2: { en: "2:", "zh-TW": "後手:" },
-  };
   switch (player) {
     case "human":
       return locale == "zh-TW" ? "玩家" : "player";

@@ -208,12 +208,14 @@ const chessRecordZh = [
 ];
 
 function changeChessRecordEn() {
+  updateTopLabel();
   for (let i = 0; i < chessRecordId.length; i++) {
     document.getElementById(chessRecordId[i]).innerHTML = chessRecordEn[i];
   }
 }
 
 function changeChessRecordZh() {
+  updateTopLabel();
   for (let i = 0; i < chessRecordId.length; i++) {
     document.getElementById(chessRecordId[i]).innerHTML = chessRecordZh[i];
   }
