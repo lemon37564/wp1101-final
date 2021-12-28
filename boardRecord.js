@@ -119,10 +119,7 @@ function updateTopLabel() {
     minute = "0" + minute;
   }
   const language = {
-    record: { en: "Record", "zh-TW": "紀錄" },
-    total: { en: "total", "zh-TW": "共有" },
-    records: { en: "records", "zh-TW": "筆紀錄" },
-    date: { en: "date", "zh-TW": "時間" },
+    record: { en: "Record", "zh-TW": "記錄" },
     order1: { en: "", "zh-TW": "先手:" },
     order2: { en: "", "zh-TW": "後手:" },
   };
@@ -130,18 +127,15 @@ function updateTopLabel() {
     language["record"][locale] +
     " #" +
     String(storageKeys.length - currentIndex) +
-    "/#" +
+    " / #" +
     String(storageKeys.length) +
-    language["records"][locale] +
     "<br>" +
-    language["date"][locale] +
-    ":" +
     storageData[currentIndex]["date"].year +
     "/" +
     storageData[currentIndex]["date"].month +
     "/" +
     storageData[currentIndex]["date"].day +
-    "&nbsp;&nbsp;&nbsp;" +
+    "&nbsp;&nbsp;" +
     hour +
     ":" +
     minute;
