@@ -135,47 +135,6 @@ function showHistoryPage() {
   historyPage.style.display = "block";
 }
 
-function fadeIn(el, duration) {
-  /*
-   * @param el - The element to be faded out.
-   * @param duration - Animation duration in milliseconds.
-   */
-
-  let step = 10 / duration,
-    opacity = 0;
-  function next() {
-    if (opacity >= 1) {
-      return;
-    }
-    el.style.opacity = opacity += step;
-    setTimeout(next, 10);
-  }
-  next();
-}
-
-let timeForLoading = 0;
-let prepare = 0;
-
-function load(loadId, duration) {
-  function next2() {
-    if (prepare++ > 25) {
-      loadingFinished = true;
-      //loader = document.getElementById("loading-container");
-      //loader.setAttribute("style", "display:none");
-
-      fadeIn(iframe, 1000);
-
-      showGame();
-
-      return;
-    }
-
-    loadId.innerHTML = arr2[timeForLoading++ % 4];
-    setTimeout(next2, 200);
-  }
-  next2();
-}
-
 function surprise() {
   hideAll();
   if (document.getElementById("easter-egg") != null) {
