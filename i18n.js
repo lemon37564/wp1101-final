@@ -2,16 +2,34 @@ let locale = "zh-TW";
 
 function changeLocal(local) {
   locale = local;
+  let language = document.getElementById("language");
   switch (local) {
     case "en":
       changeEn();
+      language.setAttribute("src", "imgs/united-kingdom.png");
       return;
     case "zh-TW":
       changeZh();
+      language.setAttribute("src", "imgs/taiwan.png");
       return;
     default:
       return;
   }
+}
+
+function reverseLanguage() {
+  switch (locale) {
+    case "en":
+      locale = "zh-TW";
+      break;
+    case "zh-TW":
+      locale = "en";
+
+      break;
+    default:
+      break;
+  }
+  changeLocal(locale);
 }
 
 function changeEn() {
