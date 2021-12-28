@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      body {
+        text-align: center;
+        vertical-align: middle;
+      }
+      img {
+        height: 96vh;
+      }
+    </style>
+    <script>
+      function showImage() {
+        document.getElementById("meme-img").src = "img/" + String(Math.floor(Math.random()*224+1));
+      }
+      window.addEventListener("load", showImage);
+    </script>
+  </head>
+  <body>
+    <img src="" id="meme-img">
+  </body>
+</html>
