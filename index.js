@@ -11,6 +11,9 @@ function start() {
   aboutPage = document.getElementById("aboutPage");
   historyPage = document.getElementById("historyPage");
 
+  let lang = navigator.language || navigator.userLanguage;
+  changeLocal(lang);
+
   window.location.hash = "";
   setTimeout(function () {
     bgm = new Audio("gameBackGroundMusic.mp3");
