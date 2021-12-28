@@ -16,6 +16,7 @@ function start() {
 
   window.location.hash = "";
   setTimeout(function () {
+    if (bgm != null) return;
     bgm = new Audio("gameBackGroundMusic.mp3");
     bgm.load();
   }, 10000);
@@ -147,10 +148,7 @@ function surprise() {
   let easterEgg = document.createElement("iframe");
   easterEgg.setAttribute("class", "game");
   easterEgg.setAttribute("id", "easter-egg");
-  easterEgg.setAttribute(
-    "src",
-    "easter-egg/"
-  );
+  easterEgg.setAttribute("src", "easter-egg/");
 
   document.getElementById("pages").insertBefore(easterEgg, iframe);
 }
