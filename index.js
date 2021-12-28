@@ -120,7 +120,7 @@ function showAboutPage() {
 
 function showGame() {
   hideAll();
-  iframe.style.display = "inline-block";
+  iframe.style.display = "block";
 }
 
 function showRank() {

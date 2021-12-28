@@ -54,7 +54,7 @@ p.sidebar {
 #titlebar2-div {
   height: 55px;
   float: left;
-  width: 26em;
+  width: 29em;
   margin-left: 18px;
 }
 
@@ -109,11 +109,15 @@ p.sidebar {
   border-radius: 10px;
 }
 
+#iframe-div {
+  height: 100%;
+}
+
 iframe.game {
   width: calc(66.66vw);
   height: calc(66.66vw * 9 / 16);
-  display: inline-block;
   border: none;
+  vertical-align: middle;
   border-radius: 3px;
   overflow: hidden;
 }
@@ -492,7 +496,7 @@ div.record-page-button {
     border: 1px solid grey;
   }
 
-  #gamesRecordTime{
+  #gamesRecordTime {
     font-size: 1.2em;
   }
 
@@ -509,29 +513,33 @@ div.record-page-button {
     margin-top: 10px;
   }
 
-  #import-button{
+  #import-button {
     width: 100%;
   }
 
-  #save-file-button{
+  #save-file-button {
     width: 100%;
   }
 
-  #delete-this-button{
+  #delete-this-button {
     width: 100%;
   }
 
-  #delete-all-button{
+  #delete-all-button {
     width: 100%;
   }
 
-  #jump-input{
+  #jump-input {
     font-size: smaller;
     width: 100px !important;
   }
 
-  #jump-label{
+  #jump-label {
     font-size: 1.2em;
+  }
+
+  .nav-link {
+    font-size: 1em !important;
   }
 }
 
@@ -692,16 +700,16 @@ div.record-page-button {
     margin-right: 8px;
   }
 
-  #gamesRecordTime{
+  #gamesRecordTime {
     font-size: smaller;
   }
 
-  .btn{
+  .btn {
     font-size: small;
     white-space: nowrap;
   }
 
-  #jump-label{
+  #jump-label {
     font-size: small;
   }
 }

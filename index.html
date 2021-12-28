@@ -46,11 +46,9 @@
         <a class="nav-link" href="#about" id="nav-about" style="color:white; font-size: large;"
           onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">關於網站</a>
       </li>
-    </ul>
-    <ul>
       <li class="nav-item" style="vertical-align: middle;">
         <input type="image" id="language" onclick="reverseLanguage()" src="imgs/taiwan.png" width="30" height="30"
-          style="margin-top: 15px;">
+          style="margin-top: 5px;">
       </li>
     </ul>
   </nav>
@@ -59,7 +57,9 @@
     <div class="row">
       <div id="pages">
 
-        <iframe src="reversi/" title="Game" id="iframe" class="game" allowtransparency="true"></iframe>
+        <div id="iframe-div">
+          <iframe src="reversi/" title="Game" id="iframe" class="game" allowtransparency="true"></iframe>
+        </div>
         <input type="image" id="music-button" src="imgs/play.png" onclick="bgmClick();">
 
         <div id="rankboard" class="container" style="display: none;">
@@ -338,12 +338,9 @@
             <div class="wp-block-group__inner-container">
               <h1>demo</h1>
               <div style="text-align: center;">
-                <button type="button" class="btn btn-info"
-                  onclick="downloadPPT();">PPT</button>
-                <button type="button" class="btn btn-info"
-                  onclick="downloadRecordDemo();">record-demo</button>
-                <button type="button" class="btn btn-info"
-                  onclick="downloadRecordDemoLarge();">record-large</button>
+                <button type="button" class="btn btn-info" onclick="downloadPPT();">PPT</button>
+                <button type="button" class="btn btn-info" onclick="downloadRecordDemo();">record-demo</button>
+                <button type="button" class="btn btn-info" onclick="downloadRecordDemoLarge();">record-large</button>
               </div>
               <a href="" id="download-a" download="" style="display: none;"></a>
             </div>
@@ -468,9 +465,10 @@
                       <h4>確定刪除全部記錄?<br>刪除後無法恢復!</h4>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="Chess_record_Cancel1" >取消</button>
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                        onclick="deleteAllRecord()" id="Chess_record_Confirm1">確認</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        id="Chess_record_Cancel1">取消</button>
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="deleteAllRecord()"
+                        id="Chess_record_Confirm1">確認</button>
                     </div>
                   </div>
                 </div>
@@ -488,9 +486,10 @@
                       <h4>確定刪除本則記錄?<br>刪除後無法恢復!</h4>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="Chess_record_Cancel2">取消</button>
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                        onclick="deleteThisRecord()" id="Chess_record_Confirm2">確認</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        id="Chess_record_Cancel2">取消</button>
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="deleteThisRecord()"
+                        id="Chess_record_Confirm2">確認</button>
                     </div>
                   </div>
                 </div>
@@ -508,7 +507,8 @@
                       <h4>檔案格式錯誤或檔案毀損</h4>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-info" data-bs-dismiss="modal" id="Chess_record_Confirm3">確認</button>
+                      <button type="button" class="btn btn-info" data-bs-dismiss="modal"
+                        id="Chess_record_Confirm3">確認</button>
                     </div>
                   </div>
                 </div>
@@ -536,7 +536,7 @@
                     data-bs-target="#delete-all-modal">
                     清除所有記錄
                   </button>
-                 
+
                   <button type="button" class="btn btn-danger" id="wrongFile-button" style="display:none;"
                     data-bs-toggle="modal" data-bs-target="#importWrongFile">
                     警告
