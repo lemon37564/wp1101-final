@@ -33,6 +33,7 @@ function reverseLanguage() {
 }
 
 function changeEn() {
+  changeTitleEn();
   changeNavBarEn();
   changeRankPageEn();
   changeAboutEn();
@@ -40,6 +41,7 @@ function changeEn() {
 }
 
 function changeZh() {
+  changeTitleZh();
   changeNavBarZh();
   changeRankPageZh();
   changeAboutZh();
@@ -49,7 +51,12 @@ function changeZh() {
 const navBarId = ["nav-game", "nav-rank", "nav-record", "nav-about"];
 const navBarEn = ["Reversi", "Leaderboard", "Record", "About"];
 const navBarZh = ["決戰黑白棋", "排行榜", "我的棋譜", "關於網站"];
-
+function changeTitleEn() {
+  document.title = "Reversi";
+}
+function changeTitleZh() {
+  document.title = "黑白棋";
+}
 function changeNavBarEn() {
   for (let i = 0; i < navBarId.length; i++) {
     document.getElementById(navBarId[i]).innerHTML = navBarEn[i];
@@ -206,16 +213,34 @@ const chessRecordId = [
   "save-file-button",
   "delete-this-button",
   "delete-all-button",
+  "exampleModalLabel",
+  "Chess_record_Warning0",
+  "Chess_record_Warning1",
+  "Chess_record_Warning2",
+  "Chess_record_Confirm1",
+  "Chess_record_Confirm2",
+  "Chess_record_Confirm3",
+  "Chess_record_Cancel1",
+  "Chess_record_Cancel2",
 ];
 const chessRecordEn = [
   "This record is stored locally and not on the server, so deleting the cookie will lose all records!  &nbsp; &nbsp; In addition, games between AIs will not be recorded.",
-  "Jump to # of records",
+  "Jump to #",
   "Previous",
   "Next",
   "Import",
   "Export",
   "Delete this",
   "Delete all",
+  "Hint",
+  "<h4>Are you sure you want to delete this record?<br> It cannot be restored after deletion!</h4>",
+  "<h4>Are you sure you want to delete this record?<br> It cannot be restored after deletion!</h4>",
+  "File format does not exist or is corrupted",
+  "Confirm",
+  "Confirm",
+  "Confirm",
+  "Cancel",
+  "Cancel",
 ];
 const chessRecordZh = [
   "此記錄儲存在本地端而非伺服器，因此刪除Cookie將會遺失所有記錄! &nbsp; &nbsp; 此外，AI之間的對局不會被記錄。",
@@ -226,6 +251,15 @@ const chessRecordZh = [
   "匯出紀錄",
   "刪除本則紀錄",
   "刪除全部紀錄",
+  "提示",
+  "<h4>確定刪除本則記錄?<br>刪除後無法恢復!</h4>",
+  "<h4>確定刪除本則記錄?<br>刪除後無法恢復!</h4>",
+  "檔案格式錯誤或檔案毀損",
+  "確認",
+  "確認",
+  "確認",
+  "取消",
+  "取消",
 ];
 
 function changeChessRecordEn() {

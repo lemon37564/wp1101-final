@@ -75,7 +75,11 @@ function initShow() {
 }
 
 function hideEverythingExceptImportButton() {
-  gamesRecordTime.innerHTML = "沒有遊戲記錄，快去玩幾場吧～";
+  if (locale == "zh-TW")
+    gamesRecordTime.innerHTML = "沒有遊戲記錄，快去玩幾場吧～";
+  else if (locale == "en")
+    gamesRecordTime.innerHTML =
+      "There is no game record, go play a few games ~";
   gamesRecordTime.style.float = "none";
   //document.getElementById("total-count-show").style.display = "none";
   let all = document.getElementsByClassName("record-page-button");
