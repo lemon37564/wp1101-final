@@ -1,4 +1,7 @@
+let locale = "zh-TW";
+
 function changeLocal(local) {
+  locale = local;
   switch (local) {
     case "en":
       changeEn();
@@ -15,12 +18,14 @@ function changeEn() {
   changeNavBarEn();
   changeRankPageEn();
   changeAboutEn();
+  changeChessRecordEn();
 }
 
 function changeZh() {
   changeNavBarZh();
   changeRankPageZh();
   changeAboutZh();
+  changeChessRecordZh();
 }
 
 const navBarId = ["nav-game", "nav-rank", "nav-record", "nav-about"];
@@ -119,7 +124,7 @@ const aboutPageId = [
   "ver0.2-label",
   "ver0.3-label",
   "ver0.4-label",
-  "about-page-fifth-title"
+  "about-page-fifth-title",
 ];
 const aboutPageEn = [
   "Feature",
@@ -138,7 +143,7 @@ const aboutPageEn = [
   "website hosted on Github Pages; the database is changed from SQLite to PostgreSQL",
   "The game body is completed; new record page",
   "PWA; Move AI from backend to frontend",
-  "Authors"
+  "Authors",
 ];
 const aboutPageZh = [
   "特色",
@@ -157,7 +162,7 @@ const aboutPageZh = [
   "網站架設在Github Pages上；資料庫由SQLite改為PostgreSQL",
   "遊戲本體完成；新增棋譜頁面與功能",
   "PWA；AI由後端移至前端",
-  "作者"
+  "作者",
 ];
 
 function changeAboutEn() {
@@ -169,5 +174,47 @@ function changeAboutEn() {
 function changeAboutZh() {
   for (let i = 0; i < aboutPageId.length; i++) {
     document.getElementById(aboutPageId[i]).innerHTML = aboutPageZh[i];
+  }
+}
+const chessRecordId = [
+  "Chess_record_Reminding",
+  "jump-label",
+  "previous-page-button",
+  "next-page-button",
+  "import-button",
+  "save-file-button",
+  "delete-this-button",
+  "delete-all-button",
+];
+const chessRecordEn = [
+  "This record is stored locally and not on the server, so deleting the cookie will lose all records!  &nbsp; &nbsp; In addition, games between AIs will not be recorded.",
+  "Jump to # of records",
+  "Previous",
+  "Next",
+  "Import",
+  "Export",
+  "Delete this",
+  "Delete all",
+];
+const chessRecordZh = [
+  "此記錄儲存在本地端而非伺服器，因此刪除Cookie將會遺失所有記錄! &nbsp; &nbsp; 此外，AI之間的對局不會被記錄。",
+  "跳躍到第# 則記錄",
+  "上一則",
+  "下一則",
+  "匯入紀錄",
+  "匯出紀錄",
+  "刪除本則紀錄",
+  "刪除全部紀錄",
+];
+
+function changeChessRecordEn() {
+  for (let i = 0; i < chessRecordId.length; i++) {
+    document.getElementById(chessRecordId[i]).innerHTML = chessRecordEn[i];
+  }
+}
+
+function changeChessRecordZh() {
+  for (let i = 0; i < chessRecordId.length; i++) {
+    document.getElementById(chessRecordId[i]).innerHTML = chessRecordZh[i];
   }
 }

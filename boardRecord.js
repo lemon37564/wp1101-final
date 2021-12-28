@@ -118,13 +118,24 @@ function updateTopLabel() {
   if (minute.length == 1) {
     minute = "0" + minute;
   }
-
+  const language = {
+    record: { en: "Record", "zh-TW": "紀錄" },
+    total: { en: "total", "zh-TW": "共有" },
+    records: { en: "records", "zh-TW": "筆紀錄" },
+    date: { en: "date", "zh-TW": "時間" },
+    order1: { en: "1:", "zh-TW": "先手:" },
+    order2: { en: "2:", "zh-TW": "後手:" },
+  };
   gamesRecordTime.innerHTML =
-    "記錄 #" +
+    language["record"][locale] +
+    " #" +
     String(storageKeys.length - currentIndex) +
-    "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>"+
-    "共有 " + String(storageKeys.length) + " 筆記錄<br>"+
-    "時間" +
+    "/#" +
+    String(storageKeys.length) +
+    language["records"][locale] +
+    "<br>" +
+    language["date"][locale] +
+    ":" +
     storageData[currentIndex]["date"].year +
     "/" +
     storageData[currentIndex]["date"].month +
@@ -138,8 +149,14 @@ function updateTopLabel() {
   // document.getElementById("total-count-show").innerHTML =
   //  "共有 " + String(storageKeys.length) + " 筆記錄";
 
-  player1.innerHTML = "先手: " + judgePlayer(storageData[currentIndex]["p1"]);
-  player2.innerHTML = "後手: " + judgePlayer(storageData[currentIndex]["p2"]);
+  player1.innerHTML =
+    language["order1"][locale] +
+    " " +
+    judgePlayer(storageData[currentIndex]["p1"]);
+  player2.innerHTML =
+    language["order2"][locale] +
+    " " +
+    judgePlayer(storageData[currentIndex]["p2"]);
   judgePlayerpic();
 }
 
@@ -326,17 +343,25 @@ function deleteThisRecord() {
 }
 
 function judgePlayer(player) {
+  const language = {
+    record: { en: "Record", "zh-TW": "紀錄" },
+    total: { en: "total", "zh-TW": "共有" },
+    records: { en: "records", "zh-TW": "筆紀錄" },
+    date: { en: "date", "zh-TW": "時間" },
+    order1: { en: "1:", "zh-TW": "先手:" },
+    ooder2: { en: "2:", "zh-TW": "後手:" },
+  };
   switch (player) {
     case "human":
-      return "玩家";
+      return locale == "zh-TW" ? "玩家" : "player";
     case "ai0":
-      return "AI 弱";
+      return locale == "zh-TW" ? "AI 弱" : "AI weak";
     case "ai1":
-      return "AI 中";
+      return locale == "zh-TW" ? "AI 中" : "AI medium";
     case "ai2":
-      return "AI 強";
+      return locale == "zh-TW" ? "AI 強" : "AI strong";
     default:
-      return "未知";
+      return locale == "zh-TW" ? "未知" : "unknown";
   }
 }
 
