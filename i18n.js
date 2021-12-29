@@ -5,14 +5,16 @@ function changeLocal(local) {
   let language = document.getElementById("language");
   switch (local) {
     case "en":
-      changeEn();
       language.setAttribute("src", "imgs/united-kingdom.png");
+      changeEn();
       return;
     case "zh-TW":
-      changeZh();
       language.setAttribute("src", "imgs/taiwan.png");
+      changeZh();
       return;
     default:
+      language.setAttribute("src", "imgs/united-kingdom.png");
+      changeEn();
       return;
   }
 }
