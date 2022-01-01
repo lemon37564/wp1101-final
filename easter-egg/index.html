@@ -1,26 +1,54 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <style>
-      body {
-        text-align: center;
-        vertical-align: middle;
-        overflow: hidden;
+
+<head>
+  <meta charset="utf-8">
+  <title>meme</title>
+  <style>
+    body {
+      text-align: center;
+      vertical-align: middle;
+      overflow: hidden;
+    }
+
+    img {
+      height: 96vh;
+    }
+  </style>
+  <script>
+    const IMG_COUNT = 225;
+    let index = 0;
+    let imgArr = [];
+
+    function init() {
+      index = 0;
+      for (let i = 0; i < IMG_COUNT; i++) {
+        imgArr[i] = i;
       }
-      img {
-        height: 96vh;
+      for (let i = 0; i < IMG_COUNT; i++) {
+        let randA = Math.floor(Math.random() * IMG_COUNT);
+        let randB = Math.floor(Math.random() * IMG_COUNT);
+        let tmp = imgArr[randA];
+        imgArr[randA] = imgArr[randB];
+        imgArr[randB] = tmp;
       }
-    </style>
-    <script>
-      function showImage() {
-        document.getElementById("meme-img").src = "img/" + String(Math.floor(Math.random()*224+1));
+    }
+
+    function showImage() {
+      document.getElementById("meme-img").src = "img/" + imgArr[index];
+      index++;
+      if (index == IMG_COUNT) {
+        init();
+        showImage();
       }
-      window.addEventListener("load", showImage);
-    </script>
-  </head>
-  <body>
-    <img src="" id="meme-img">
-  </body>
+    }
+
+    window.addEventListener("load", init);
+  </script>
+</head>
+
+<body>
+  <img src="" id="meme-img">
+</body>
+
 </html>

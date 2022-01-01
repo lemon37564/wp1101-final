@@ -109,9 +109,7 @@ function hideAll() {
   aboutPage.style.display = "none";
   iframe.style.display = "none";
   historyPage.style.display = "none";
-  try {
-    document.getElementById("easter-egg").style.display = "none";
-  } catch {}
+  document.getElementById("easter-egg").style.display = "none";
 }
 
 function showAboutPage() {
@@ -138,19 +136,9 @@ function showHistoryPage() {
 
 function surprise() {
   hideAll();
-  if (document.getElementById("easter-egg") != null) {
-    document.getElementById("easter-egg").style.display = "inline-block";
-    document.getElementById("easter-egg").src = "easter-egg/";
-    window.location.hash = "surprise";
-    return;
-  }
-
-  let easterEgg = document.createElement("iframe");
-  easterEgg.setAttribute("class", "game");
-  easterEgg.setAttribute("id", "easter-egg");
-  easterEgg.setAttribute("src", "easter-egg/");
-
-  document.getElementById("pages").insertBefore(easterEgg, iframe);
+  document.getElementById("easter-egg").style.display = "inline-block";
+  document.getElementById("easter-egg").contentWindow.showImage();
+  window.location.hash = "surprise";
 }
 
 let bgmIsPlaying = false;
