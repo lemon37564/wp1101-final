@@ -137,7 +137,7 @@ function showHistoryPage() {
 function surprise() {
   hideAll();
   document.getElementById("easter-egg").style.display = "inline-block";
-  document.getElementById("easter-egg").contentWindow.showImage();
+  document.getElementById("easter-egg").contentWindow.nextImage();
   window.location.hash = "surprise";
 }
 

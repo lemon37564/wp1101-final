@@ -34,12 +34,12 @@
       }
     }
 
-    function showImage() {
+    function nextImage() {
       document.getElementById("meme-img").src = "img/" + imgArr[index];
       index++;
       if (index == IMG_COUNT) {
         init();
-        showImage();
+        nextImage();
       }
     }
 
