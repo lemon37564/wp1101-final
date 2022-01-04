@@ -239,8 +239,8 @@ function hashChange() {
 
 function downloadPPT() {
   let a = document.getElementById("download-a");
-  a.setAttribute("download", "期末報告第11組.odp");
-  a.href = "/data/期末報告第11組.odp";
+  a.setAttribute("download", "期末報告第11組.pdf");
+  a.href = "/data/期末報告第11組.pdf";
   a.click();
 }
 
