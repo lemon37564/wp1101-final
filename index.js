@@ -103,6 +103,7 @@ async function getRank(strength) {
   };
   request.send(null);
 }
+
 function getRankPic(rank) {
   if (rank == 1) {
     return "<img src='imgs/champion.png' width='40px'></img>";
@@ -112,6 +113,7 @@ function getRankPic(rank) {
     return "<img src = 'imgs/3.png' width = '40px'></img>";
   } else return String(rank);
 }
+
 function hideAll() {
   showBoard.style.display = "none";
   aboutPage.style.display = "none";
