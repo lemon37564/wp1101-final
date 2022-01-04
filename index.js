@@ -101,8 +101,9 @@ async function getRank(strength) {
 }
 
 const imgs = [
-  "2.png",
-  "3.png",
+  "1.webp",
+  "2.webp",
+  "3.webp",
   "1200px-Go_Logo_Blue.svg.png",
   "1200px-Icon-round-Question_mark.png",
   "architecture-2.png",
@@ -110,7 +111,6 @@ const imgs = [
   "black.webp",
   "blank.png",
   "bootstrap-logo.png",
-  "champion.png",
   "css_logo.png",
   "fast-forward.png",
   "html5_logo.png",
@@ -136,11 +136,11 @@ function loadResources() {
 
 function getRankPic(rank) {
   if (rank == 1) {
-    return "<img src='imgs/champion.png' class = 'rankPic'></img>";
+    return "<img src='imgs/1.webp' class = 'rankPic'></img>";
   } else if (rank == 2) {
-    return "<img src = 'imgs/2.png' class='rankPic'></img>";
+    return "<img src = 'imgs/2.webp' class='rankPic'></img>";
   } else if (rank == 3) {
-    return "<img src = 'imgs/3.png' class='rankPic' ></img>";
+    return "<img src = 'imgs/3.webp' class='rankPic' ></img>";
   } else return String(rank);
 }
 
