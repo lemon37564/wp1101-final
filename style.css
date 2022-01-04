@@ -304,10 +304,11 @@ div.record-page-button {
 }
 
 #demo-block {
-  text-align: center;
+  /* text-align: center;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  width: 100%; */
   /* width: 20%; */
   /* height: 150px; */
   /* margin-left: 40%; */
