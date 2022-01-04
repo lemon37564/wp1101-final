@@ -103,15 +103,17 @@ async function getRank(strength) {
   };
   request.send(null);
 }
+
 function getRankPic(rank) {
   if (rank == 1) {
-    return "<img src='imgs/champion.png' width='40px'></img>";
+    return "<img src='imgs/champion.png' id = 'rankPic'></img>";
   } else if (rank == 2) {
-    return "<img src = 'imgs/2.png' width='40px'></img>";
+    return "<img src = 'imgs/2.png' class='rankPic'></img>";
   } else if (rank == 3) {
-    return "<img src = 'imgs/3.png' width = '40px'></img>";
+    return "<img src = 'imgs/3.png' class='rankPic' ></img>";
   } else return String(rank);
 }
+
 function hideAll() {
   showBoard.style.display = "none";
   aboutPage.style.display = "none";
