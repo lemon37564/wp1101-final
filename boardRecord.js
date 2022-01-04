@@ -114,19 +114,40 @@ function updateTopLabel() {
     return;
   }
 
-  let hour = String(storageData[currentIndex]["date"].hour);
-  if (hour.length == 1) {
-    hour = "0" + hour;
+  let hour, minute;
+  try {
+    hour = String(storageData[currentIndex]["date"].hour);
+    if (hour.length == 1) {
+      hour = "0" + hour;
+    }
+  } catch {
+    hour = "00";
   }
-  let minute = String(storageData[currentIndex]["date"].minute);
-  if (minute.length == 1) {
-    minute = "0" + minute;
+
+  try {
+    minute = String(storageData[currentIndex]["date"].minute);
+    if (minute.length == 1) {
+      minute = "0" + minute;
+    }
+  } catch {
+    minute = "00";
   }
   const language = {
     record: { en: "Record", "zh-TW": "記錄" },
     order1: { en: "", "zh-TW": "先手:" },
     order2: { en: "", "zh-TW": "後手:" },
   };
+
+  let year, month, day;
+  try {
+    year = String(storageData[currentIndex]["date"].year);
+    month = String(storageData[currentIndex]["date"].month);
+    day = String(storageData[currentIndex]["date"].day);
+  } catch {
+    year = "1970";
+    month = "01";
+    day = "01";
+  }
   gamesRecordTime.innerHTML =
     language["record"][locale] +
     " #" +
@@ -134,18 +155,15 @@ function updateTopLabel() {
     " / #" +
     String(storageKeys.length) +
     "<br>" +
-    storageData[currentIndex]["date"].year +
+    year +
     "/" +
-    storageData[currentIndex]["date"].month +
+    month.padStart(2, "0") +
     "/" +
-    storageData[currentIndex]["date"].day +
+    day.padStart(2, "0") +
     "&nbsp;&nbsp;" +
     hour +
     ":" +
     minute;
-
-  // document.getElementById("total-count-show").innerHTML =
-  //  "共有 " + String(storageKeys.length) + " 筆記錄";
 
   player1.innerHTML =
     language["order1"][locale] +

@@ -124,10 +124,10 @@ const imgs = [
 ];
 
 function loadResources() {
-  for (let i = 0; i < imgs.length; i++) {
-    let imgBuf = new Image();
-    imgBuf.src = "imgs/" + imgs[i];
-  }
+  // for (let i = 0; i < imgs.length; i++) {
+  //   let imgBuf = new Image();
+  //   imgBuf.src = "imgs/" + imgs[i];
+  // }
 
   if (bgm != null) return;
   bgm = new Audio("gameBackGroundMusic.mp3");
