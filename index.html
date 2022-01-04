@@ -32,22 +32,22 @@
     <ul class="navbar-nav navTitle">
       <li class="nav-item">
         <a class="nav-link" href="#" id="nav-game" style="color: #BBBB00; font-size: large;"
-          onmouseover="this.style.color='yellow'" onmouseout="this.style.color='#BBBB00'"><strong>決戰黑白棋</strong></a>
+          onmouseover="this.style.color='yellow'" onmouseout="this.style.color='#BBBB00'"><strong>&nbsp;</strong></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#rank" id="nav-rank" style="color: white; font-size: large;"
-          onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">排行榜</a>
+          onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'"></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#record" id="nav-record" style="color:white; font-size: large;"
-          onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">我的棋譜</a>
+          onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'"></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#about" id="nav-about" style="color:white; font-size: large;"
-          onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'">關於網站</a>
+          onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='white'"></a>
       </li>
       <li class="nav-item" style="vertical-align: middle;padding-left: 3px;">
-        <input type="image" id="language" onclick="reverseLanguage()" src="imgs/taiwan.png" width="30" height="30"
+        <input type="image" id="language" onclick="reverseLanguage()" src="imgs/blank.png" width="30" height="30"
           style="margin-top: 8px;">
       </li>
     </ul>
@@ -72,7 +72,7 @@
             </svg>
 
             <div id="rank-hint-bar">
-              <div class="alert alert-primary d-flex align-items-center" role="alert"
+              <div class="alert alert-primary d-flex align-items-center alert-dismissible fade show" role="alert"
                 style="border-radius: 8px; margin-bottom: 2px;">
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
                   <use xlink:href="#info-fill" />
@@ -80,6 +80,7 @@
                 <div style="margin-left: 10px;" id="rank-page-info">
                   排名計算方式為: 己方分數/(己方分數+敵方分數)
                 </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
             </div>
 
@@ -383,13 +384,14 @@
             </symbol>
           </svg>
 
-          <div class="alert alert-warning d-flex align-items-center" role="alert" style="border-radius: 8px;">
+          <div class="alert alert-warning d-flex align-items-center alert-dismissible fade show" role="alert" style="border-radius: 8px;">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
               <use xlink:href="#exclamation-triangle-fill" />
             </svg>
             <div style="margin-left: 10px;" id="Chess_record_Reminding">
               此記錄儲存在本地端而非伺服器，因此刪除Cookie將會遺失所有記錄! &nbsp; &nbsp; 此外，AI之間的對局不會被記錄。
             </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
 
           <div class="wp-block-group is-style-box container">
