@@ -12,6 +12,7 @@
   <link rel="stylesheet" type="text/css" href="bootstrap-5.0.2-dist/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="blender.org-custom.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="background.css">
 
   <link rel="shortcut icon" href="imgs/icon2.png">
 
@@ -53,6 +54,27 @@
     </ul>
   </nav>
 
+  <div class="area">
+    <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
   <div class="container-fluid" style="margin-top:30px;">
     <div class="row">
       <div id="pages">
@@ -80,7 +102,8 @@
                 <div style="margin-left: 10px;" id="rank-page-info">
                   排名計算方式為: 己方分數/(己方分數+敵方分數)
                 </div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding: 18px;"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+                  style="padding: 18px;"></button>
               </div>
             </div>
 
@@ -340,8 +363,10 @@
               <h1>demo</h1>
               <div id="demo-block">
                 <button type="button" class="btn btn-secondary demo-block-button" onclick="downloadPPT();">PPT</button>
-                <button type="button" class="btn btn-secondary demo-block-button" onclick="downloadRecordDemo();">record-demo</button>
-                <button type="button" class="btn btn-secondary demo-block-button" onclick="downloadRecordDemoLarge();">record-large</button>
+                <button type="button" class="btn btn-secondary demo-block-button"
+                  onclick="downloadRecordDemo();">record-demo</button>
+                <button type="button" class="btn btn-secondary demo-block-button"
+                  onclick="downloadRecordDemoLarge();">record-large</button>
               </div>
               <a href="" id="download-a" download="" style="display: none;"></a>
             </div>
@@ -384,14 +409,16 @@
             </symbol>
           </svg>
 
-          <div class="alert alert-warning d-flex align-items-center alert-dismissible fade show" role="alert" style="border-radius: 8px;">
+          <div class="alert alert-warning d-flex align-items-center alert-dismissible fade show" role="alert"
+            style="border-radius: 8px;">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
               <use xlink:href="#exclamation-triangle-fill" />
             </svg>
             <div id="Chess_record_Reminding">
               此記錄儲存在本地端而非伺服器，因此刪除Cookie將會遺失所有記錄! &nbsp; &nbsp; 此外，AI之間的對局不會被記錄。
             </div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding: 17px;"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+              style="padding: 17px;"></button>
           </div>
 
           <div class="wp-block-group is-style-box container">
