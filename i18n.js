@@ -61,13 +61,19 @@ function changeTitleZh() {
 }
 function changeNavBarEn() {
   for (let i = 0; i < navBarId.length; i++) {
-    document.getElementById(navBarId[i]).innerHTML = navBarEn[i];
+    let dom = document.getElementById(navBarId[i]);
+    if (dom) {
+      dom.innerHTML = navBarEn[i];
+    }
   }
 }
 
 function changeNavBarZh() {
   for (let i = 0; i < navBarId.length; i++) {
-    document.getElementById(navBarId[i]).innerHTML = navBarZh[i];
+    let dom = document.getElementById(navBarId[i]);
+    if (dom) {
+      dom.innerHTML = navBarZh[i];
+    }
   }
 }
 
@@ -92,7 +98,10 @@ const rankPageZh = [
 
 function changeRankPageEn() {
   for (let i = 0; i < rankPageId.length; i++) {
-    document.getElementById(rankPageId[i]).innerHTML = rankPageEn[i];
+    let dom = document.getElementById(rankPageId[i]);
+    if (dom) {
+      dom.innerHTML = rankPageEn[i];
+    }
   }
   let all = document.getElementsByClassName("table-rank-col");
   for (let i = 0; i < all.length; i++) {
@@ -114,7 +123,10 @@ function changeRankPageEn() {
 
 function changeRankPageZh() {
   for (let i = 0; i < rankPageId.length; i++) {
-    document.getElementById(rankPageId[i]).innerHTML = rankPageZh[i];
+    let dom = document.getElementById(rankPageId[i]);
+    if (dom) {
+      dom.innerHTML = rankPageZh[i];
+    }
   }
   let all = document.getElementsByClassName("table-rank-col");
   for (let i = 0; i < all.length; i++) {
