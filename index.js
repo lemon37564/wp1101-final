@@ -106,7 +106,7 @@ async function getRank(strength) {
 
 function getRankPic(rank) {
   if (rank == 1) {
-    return "<img src='imgs/champion.png' id = 'rankPic'></img>";
+    return "<img src='imgs/champion.png' class = 'rankPic'></img>";
   } else if (rank == 2) {
     return "<img src = 'imgs/2.png' class='rankPic'></img>";
   } else if (rank == 3) {

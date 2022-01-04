@@ -332,8 +332,8 @@ div#Chess_record_Reminding {
 }
 
 .rankPic {
-  width: 5px;
-  height: 5px;
+  width: 40px;
+  height: 40px;
 }
 @media screen and (max-width: 960px) {
   .tableShow {
@@ -747,8 +747,8 @@ div#Chess_record_Reminding {
     font-size: small;
   }
 
-  #rankPic {
-    width: 25px;
-    height: 25px;
+  .rankPic {
+    width: 15px;
+    height: 15px;
   }
 }
