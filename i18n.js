@@ -197,13 +197,19 @@ const aboutPageZh = [
 
 function changeAboutEn() {
   for (let i = 0; i < aboutPageId.length; i++) {
-    document.getElementById(aboutPageId[i]).innerHTML = aboutPageEn[i];
+    let dom = document.getElementById(aboutPageId[i]);
+    if (dom) {
+      dom.innerHTML = aboutPageEn[i];
+    }
   }
 }
 
 function changeAboutZh() {
   for (let i = 0; i < aboutPageId.length; i++) {
-    document.getElementById(aboutPageId[i]).innerHTML = aboutPageZh[i];
+    let dom = document.getElementById(aboutPageId[i]);
+    if (dom) {
+      dom.innerHTML = aboutPageZh[i];
+    }
   }
 }
 const chessRecordId = [
@@ -273,13 +279,19 @@ const chessRecordZh = [
 function changeChessRecordEn() {
   updateTopLabel();
   for (let i = 0; i < chessRecordId.length; i++) {
-    document.getElementById(chessRecordId[i]).innerHTML = chessRecordEn[i];
+    let dom = document.getElementById(chessRecordId[i]);
+    if (dom) {
+      dom.innerHTML = chessRecordEn[i];
+    }
   }
 }
 
 function changeChessRecordZh() {
   updateTopLabel();
   for (let i = 0; i < chessRecordId.length; i++) {
-    document.getElementById(chessRecordId[i]).innerHTML = chessRecordZh[i];
+    let dom = document.getElementById(chessRecordId[i]);
+    if (dom) {
+      dom.innerHTML = chessRecordZh[i];
+    }
   }
 }
