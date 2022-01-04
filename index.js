@@ -15,7 +15,7 @@ function start() {
   changeLocal(lang);
 
   window.location.hash = "";
-  setTimeout(loadResources, 5000);
+  setTimeout(loadResources, 10000);
 }
 
 let currentShow, currentMenu;
