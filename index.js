@@ -135,13 +135,11 @@ function loadResources() {
 }
 
 function getRankPic(rank) {
-  if (rank == 1) {
-    return "<img src='imgs/1.webp' class = 'rankPic'></img>";
-  } else if (rank == 2) {
-    return "<img src = 'imgs/2.webp' class='rankPic'></img>";
-  } else if (rank == 3) {
-    return "<img src = 'imgs/3.webp' class='rankPic' ></img>";
-  } else return String(rank);
+  if (rank <= 3) {
+    return "<img src='imgs/" + String(rank) + ".webp' class='rankPic'</img>";
+  } else {
+    return String(rank);
+  }
 }
 
 function hideAll() {
