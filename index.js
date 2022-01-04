@@ -76,7 +76,7 @@ async function getRank(strength) {
 
       for (let i = 0; i < data.length; i++) {
         tmp += "<tr>";
-        tmp += "<th>" + String(rank) + "</th>";
+        tmp += "<th>" + getRankPic(rank) + "</th>";
         tmp += "<th>" + escapeHTML(data[i].player_name) + "</th>";
         tmp +=
           "<th>" + data[i].self_point + ":" + data[i].enemy_point + "</th>";
@@ -103,7 +103,15 @@ async function getRank(strength) {
   };
   request.send(null);
 }
-
+function getRankPic(rank) {
+  if (rank == 1) {
+    return "<img src='imgs/champion.png' width='40px'></img>";
+  } else if (rank == 2) {
+    return "<img src = 'imgs/2.png' width='40px'></img>";
+  } else if (rank == 3) {
+    return "<img src = 'imgs/3.png' width = '40px'></img>";
+  } else return String(rank);
+}
 function hideAll() {
   showBoard.style.display = "none";
   aboutPage.style.display = "none";

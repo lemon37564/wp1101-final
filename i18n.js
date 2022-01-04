@@ -78,7 +78,7 @@ const rankPageId = [
   "ai-hard-label",
 ];
 const rankPageEn = [
-  "The ranking is calculated as: your score/(your score + enemy's score)",
+  "The ranking is evaluated as: your score/(your score + enemy's score)",
   "AI weak",
   "AI medium",
   "AI strong",
