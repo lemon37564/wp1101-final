@@ -119,7 +119,7 @@ iframe.game {
   position: absolute;
   border: none;
   top: calc((100vh - 65vw * 9 / 16) / 2);
-  left: calc((100vw - 66.66vw)/2);
+  left: calc((100vw - 66.66vw) / 2);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -577,6 +577,10 @@ div#Chess_record_Reminding {
   .nav-link {
     font-size: 1em !important;
   }
+  .rankPic {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -748,10 +752,5 @@ div#Chess_record_Reminding {
 
   #jump-label {
     font-size: small;
-  }
-
-  .rankPic {
-    width: 15px;
-    height: 15px;
   }
 }
