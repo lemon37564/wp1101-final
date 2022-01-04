@@ -120,7 +120,7 @@ iframe.game {
   border: none;
   top: calc((100vh - 65vw * 9 / 16) / 2);
   left: calc((100vw - 66.66vw) / 2);
-  border-radius: 30px;
+  border-radius: 1vw;
   overflow: hidden;
 }
 
