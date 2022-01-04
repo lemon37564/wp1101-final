@@ -120,7 +120,7 @@ iframe.game {
   border: none;
   top: calc((100vh - 65vw * 9 / 16) / 2);
   left: calc((100vw - 66.66vw) / 2);
-  border-radius: 3px;
+  border-radius: 1vw;
   overflow: hidden;
 }
 
@@ -343,7 +343,7 @@ div#Chess_record_Reminding {
   }
 
   col.rank-table-col1 {
-    width: 60px;
+    width: 70px;
   }
 
   col.rank-table-col2 {
@@ -422,7 +422,6 @@ div#Chess_record_Reminding {
     display: block;
     border: none;
     left: 1vw;
-    border-radius: 3px;
     overflow: hidden;
   }
 
@@ -623,7 +622,6 @@ div#Chess_record_Reminding {
     left: 1vw;
     display: inline-block;
     border: none;
-    border-radius: 3px;
     overflow: hidden;
   }
 
