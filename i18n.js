@@ -61,13 +61,19 @@ function changeTitleZh() {
 }
 function changeNavBarEn() {
   for (let i = 0; i < navBarId.length; i++) {
-    document.getElementById(navBarId[i]).innerHTML = navBarEn[i];
+    let dom = document.getElementById(navBarId[i]);
+    if (dom) {
+      dom.innerHTML = navBarEn[i];
+    }
   }
 }
 
 function changeNavBarZh() {
   for (let i = 0; i < navBarId.length; i++) {
-    document.getElementById(navBarId[i]).innerHTML = navBarZh[i];
+    let dom = document.getElementById(navBarId[i]);
+    if (dom) {
+      dom.innerHTML = navBarZh[i];
+    }
   }
 }
 
@@ -92,7 +98,10 @@ const rankPageZh = [
 
 function changeRankPageEn() {
   for (let i = 0; i < rankPageId.length; i++) {
-    document.getElementById(rankPageId[i]).innerHTML = rankPageEn[i];
+    let dom = document.getElementById(rankPageId[i]);
+    if (dom) {
+      dom.innerHTML = rankPageEn[i];
+    }
   }
   let all = document.getElementsByClassName("table-rank-col");
   for (let i = 0; i < all.length; i++) {
@@ -114,7 +123,10 @@ function changeRankPageEn() {
 
 function changeRankPageZh() {
   for (let i = 0; i < rankPageId.length; i++) {
-    document.getElementById(rankPageId[i]).innerHTML = rankPageZh[i];
+    let dom = document.getElementById(rankPageId[i]);
+    if (dom) {
+      dom.innerHTML = rankPageZh[i];
+    }
   }
   let all = document.getElementsByClassName("table-rank-col");
   for (let i = 0; i < all.length; i++) {
@@ -197,13 +209,19 @@ const aboutPageZh = [
 
 function changeAboutEn() {
   for (let i = 0; i < aboutPageId.length; i++) {
-    document.getElementById(aboutPageId[i]).innerHTML = aboutPageEn[i];
+    let dom = document.getElementById(aboutPageId[i]);
+    if (dom) {
+      dom.innerHTML = aboutPageEn[i];
+    }
   }
 }
 
 function changeAboutZh() {
   for (let i = 0; i < aboutPageId.length; i++) {
-    document.getElementById(aboutPageId[i]).innerHTML = aboutPageZh[i];
+    let dom = document.getElementById(aboutPageId[i]);
+    if (dom) {
+      dom.innerHTML = aboutPageZh[i];
+    }
   }
 }
 const chessRecordId = [
@@ -273,13 +291,19 @@ const chessRecordZh = [
 function changeChessRecordEn() {
   updateTopLabel();
   for (let i = 0; i < chessRecordId.length; i++) {
-    document.getElementById(chessRecordId[i]).innerHTML = chessRecordEn[i];
+    let dom = document.getElementById(chessRecordId[i]);
+    if (dom) {
+      dom.innerHTML = chessRecordEn[i];
+    }
   }
 }
 
 function changeChessRecordZh() {
   updateTopLabel();
   for (let i = 0; i < chessRecordId.length; i++) {
-    document.getElementById(chessRecordId[i]).innerHTML = chessRecordZh[i];
+    let dom = document.getElementById(chessRecordId[i]);
+    if (dom) {
+      dom.innerHTML = chessRecordZh[i];
+    }
   }
 }

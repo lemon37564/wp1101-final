@@ -326,6 +326,11 @@ div.record-page-button {
   height: 40vw;
 }
 
+div#Chess_record_Reminding {
+  margin-left: 10px;
+  text-align: left;
+}
+
 @media screen and (max-width: 960px) {
   .tableShow {
     font-size: 1.1em;
