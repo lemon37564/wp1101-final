@@ -116,9 +116,10 @@ p.sidebar {
 iframe.game {
   width: calc(66.66vw);
   height: calc(66.66vw * 9 / 16);
-  display: inline-block;
+  position: absolute;
   border: none;
-  vertical-align: middle;
+  top: calc((100vh - 65vw * 9 / 16) / 2);
+  left: calc((100vw - 66.66vw)/2);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -415,6 +416,7 @@ div#Chess_record_Reminding {
     margin-right: 0%;
     display: block;
     border: none;
+    left: 1vw;
     border-radius: 3px;
     overflow: hidden;
   }
@@ -609,7 +611,8 @@ div#Chess_record_Reminding {
     height: calc(98vw * 9 / 16);
     margin-left: 0%;
     margin-right: 0%;
-    display: block;
+    left: 1vw;
+    display: inline-block;
     border: none;
     border-radius: 3px;
     overflow: hidden;
