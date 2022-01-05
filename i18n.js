@@ -6,15 +6,15 @@ function changeLocal(local) {
   switch (local) {
     case "en":
       changeEn();
-      language.setAttribute("src", "imgs/united-kingdom.png");
+      language.setAttribute("src", "imgs/united-kingdom.webp");
       return;
     case "zh-TW":
       changeZh();
-      language.setAttribute("src", "imgs/taiwan.png");
+      language.setAttribute("src", "imgs/taiwan.webp");
       return;
     default:
       changeEn();
-      language.setAttribute("src", "imgs/united-kingdom.png");
+      language.setAttribute("src", "imgs/united-kingdom.webp");
       return;
   }
 }

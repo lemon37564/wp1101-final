@@ -159,7 +159,7 @@ function bgmClick() {
   clickTimes++;
   if (clickTimes == 10) {
     document.getElementById("music-button").src =
-      "imgs/1200px-Icon-round-Question_mark.png";
+      "imgs/1200px-Icon-round-Question_mark.webp";
     bgm.pause();
     bgmClick = surprise;
     return;
@@ -171,10 +171,10 @@ function bgmClick() {
     }
     bgm.loop = true;
     bgm.play();
-    document.getElementById("music-button").src = "imgs/pause.png";
+    document.getElementById("music-button").src = "imgs/pause.webp";
   } else {
     bgm.pause();
-    document.getElementById("music-button").src = "imgs/play.png";
+    document.getElementById("music-button").src = "imgs/play.webp";
   }
   bgmIsPlaying = !bgmIsPlaying;
 }
