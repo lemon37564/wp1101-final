@@ -303,17 +303,17 @@ div.record-page-button {
   font-size: x-large;
 }
 
-#demo-block {
-  /* text-align: center;
+/* #demo-block {
+  text-align: center;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  width: 100%; */
-  /* width: 20%; */
-  /* height: 150px; */
-  /* margin-left: 40%; */
-  /* margin-right: 40%; */
-}
+  width: 100%;
+  width: 20%;
+  height: 150px;
+  margin-left: 40%;
+  margin-right: 40%;
+} */
 
 #demo-block-button {
   margin-top: 2px;
