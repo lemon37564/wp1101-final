@@ -5,16 +5,16 @@ function changeLocal(local) {
   let language = document.getElementById("language");
   switch (local) {
     case "en":
-      language.setAttribute("src", "imgs/united-kingdom.png");
       changeEn();
+      language.setAttribute("src", "imgs/united-kingdom.png");
       return;
     case "zh-TW":
-      language.setAttribute("src", "imgs/taiwan.png");
       changeZh();
+      language.setAttribute("src", "imgs/taiwan.png");
       return;
     default:
-      language.setAttribute("src", "imgs/united-kingdom.png");
       changeEn();
+      language.setAttribute("src", "imgs/united-kingdom.png");
       return;
   }
 }
@@ -26,9 +26,9 @@ function reverseLanguage() {
       break;
     case "zh-TW":
       locale = "en";
-
       break;
     default:
+      locale = "en";
       break;
   }
   changeLocal(locale);
