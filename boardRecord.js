@@ -111,6 +111,12 @@ function showEverything() {
 
 function updateTopLabel() {
   if (storageKeys.length == 0) {
+    if (locale == "zh-TW")
+      gamesRecordTime.innerHTML = "沒有遊戲記錄，快去玩幾場吧～";
+    else if (locale == "en")
+      gamesRecordTime.innerHTML =
+        "There is no game record, go play a few games ~";
+    gamesRecordTime.style.float = "none";
     return;
   }
 
