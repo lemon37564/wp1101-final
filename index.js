@@ -210,21 +210,21 @@ function hashChange() {
 function downloadPPT() {
   let a = document.getElementById("download-a");
   a.setAttribute("download", "期末報告第11組.pdf");
-  a.href = "/data/期末報告第11組.pdf";
+  a.href = "data/期末報告第11組.pdf";
   a.click();
 }
 
 function downloadRecordDemo() {
   let a = document.getElementById("download-a");
   a.setAttribute("download", "record-demo.json");
-  a.href = "/data/record-demo.json";
+  a.href = "data/record-demo.json";
   a.click();
 }
 
 function downloadRecordDemoLarge() {
   let a = document.getElementById("download-a");
   a.setAttribute("download", "record-large.json");
-  a.href = "/data/record-brute.json";
+  a.href = "data/record-brute.json";
   a.click();
 }
 
