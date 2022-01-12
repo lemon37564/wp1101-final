@@ -184,7 +184,7 @@ const aboutPageEn = [
   "website hosted on Github Pages; the database is changed from SQLite to PostgreSQL",
   "The game body is completed; new record page",
   "PWA; Move AI from backend to frontend",
-  "RWD；internationalization",
+  "RWD; internationalization",
   "Fix several bugs",
   "Authors",
 ];
