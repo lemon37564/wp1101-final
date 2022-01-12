@@ -164,6 +164,7 @@ const aboutPageId = [
   "ver0.3-label",
   "ver0.4-label",
   "ver1.0-label",
+  "ver1.1-label",
   "about-page-fifth-title",
 ];
 const aboutPageEn = [
@@ -184,6 +185,7 @@ const aboutPageEn = [
   "The game body is completed; new record page",
   "PWA; Move AI from backend to frontend",
   "RWD；internationalization",
+  "Fix several bugs",
   "Authors",
 ];
 const aboutPageZh = [
@@ -204,6 +206,7 @@ const aboutPageZh = [
   "遊戲本體完成；新增棋譜頁面與功能",
   "PWA；AI由後端移至前端",
   "RWD；國際化",
+  "修正數個bug",
   "作者",
 ];
 
