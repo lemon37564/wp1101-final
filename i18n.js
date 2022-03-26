@@ -187,7 +187,7 @@ const aboutPageEn = [
   "PWA; Move AI from backend to frontend",
   "RWD; internationalization",
   "Fix several bugs",
-  "Rewrite AI with rust and optimizations，increasing speed by 110%",
+  "Rewrite AI with rust and optimizations, increasing speed by 110%",
   "Authors",
 ];
 const aboutPageZh = [
