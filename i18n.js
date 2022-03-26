@@ -165,6 +165,7 @@ const aboutPageId = [
   "ver0.4-label",
   "ver1.0-label",
   "ver1.1-label",
+  "ver1.2-label",
   "about-page-fifth-title",
 ];
 const aboutPageEn = [
@@ -186,6 +187,7 @@ const aboutPageEn = [
   "PWA; Move AI from backend to frontend",
   "RWD; internationalization",
   "Fix several bugs",
+  "Rewrite AI with rust and optimizations，increasing speed by 110%",
   "Authors",
 ];
 const aboutPageZh = [
@@ -207,6 +209,7 @@ const aboutPageZh = [
   "PWA；AI由後端移至前端",
   "RWD；國際化",
   "修正數個bug",
+  "AI用rust改寫並最佳化，提昇速度110%",
   "作者",
 ];
 

@@ -72,529 +72,533 @@
   </div>
 
   <div class="container-fluid" style="margin-top:30px;">
-      <div id="pages">
+    <div id="pages">
 
-        <iframe src="reversi/" title="Game" id="iframe" class="game" allowtransparency="true"></iframe>
-        <iframe src="easter-egg/" id="easter-egg" allowtransparency="true" style="display: none;"></iframe>
+      <iframe src="reversi/" title="Game" id="iframe" class="game" allowtransparency="true"></iframe>
+      <iframe src="easter-egg/" id="easter-egg" allowtransparency="true" style="display: none;"></iframe>
 
-        <input type="image" id="music-button" src="imgs/play.webp" alt="imgs/play.webp" onclick="bgmClick();">
+      <input type="image" id="music-button" src="imgs/play.webp" alt="imgs/play.webp" onclick="bgmClick();">
 
-        <div id="rankboard" class="container" style="display: none;">
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-              <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-                <path
-                  d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
-              </symbol>
-            </svg>
-
-            <div id="rank-hint-bar">
-              <div class="alert alert-primary d-flex align-items-center alert-dismissible fade show" role="alert"
-                style="border-radius: 8px; margin-bottom: 2px;">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
-                  <use xlink:href="#info-fill" />
-                </svg>
-                <div style="margin-left: 10px;" id="rank-page-info">
-                  排名計算方式為: 己方分數/(己方分數+敵方分數)
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
-                  style="padding: 18px;"></button>
-              </div>
-            </div>
-
-            <div id="titlebar2-div">
-              <nav class="navbar navbar-expand-sm" id="titlebar2" style="background-color: transparent;">
-                <ul class="navbar-nav nav rankBar">
-                  <li class="nav-item rank-nav-bar" style="float:left; width: 32%;"><a data-toggle="tab"
-                      id="ai-weak-label" class="nav-link" href="#menu1" onclick="getRank(0)"
-                      onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='#343A40'"
-                      style="font-size: 1.5em; text-decoration: none; width: 100%; text-align: center; background-color: #b2bfcf;color: #343A40; height: 55px; padding-top: 13px; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border: 2px solid #dddddd; white-space: nowrap;">AI
-                      弱</a>
-                  </li>
-                  <li class="nav-item rank-nav-bar" style="float:left; width: 32%;"><a data-toggle="tab"
-                      id="ai-medium-label" class="nav-link" href="#menu2" onclick="getRank(1)"
-                      onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='#343A40'"
-                      style="font-size: 1.5em; text-decoration: none; width: 100%; text-align: center;  background-color: #aac8e1; color: #343A40; height: 55px; padding-top: 13px; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border: 2px solid #dddddd; white-space: nowrap;">AI
-                      中
-                    </a></li>
-                  <li class="nav-item rank-nav-bar" style="float:left; width: 32%;"><a data-toggle="tab"
-                      id="ai-hard-label" class="nav-link" href="#menu3" onclick="getRank(2)"
-                      onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='#343A40'"
-                      style="font-size: 1.5em; text-decoration: none; width: 100%; text-align: center;background-color: #A2D2F2; color: #343A40; height: 55px; padding-top: 13px; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border: 2px solid #dddddd; white-space: nowrap;">AI
-                      強
-                    </a></li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-
-          <div class="wp-block-group is-style-box container" id="rank-div">
-            <div class="wp-block-group__inner-container">
-              <div class="d-flex justify-content-center" id="spinner"
-                style="visibility: visible; position: absolute; top: 300px; left: 48.5%;">
-                <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-                  <span class="visually-hidden"></span>
-                </div>
-              </div>
-
-              <div class="tab-content">
-                <div id="menu1" class="tab-pane fade in active show">
-                  <div class='card-body' style="width: 100%; padding: 8px;">
-                    <table class='tableShow'
-                      style="color: #4C4D52; table-layout: fixed; text-align: center;background-color: #b2bfcf; width: 100%;">
-                      <col class="rank-table-col1" />
-                      <col class="rank-table-col2" />
-                      <col class="rank-table-col3" />
-                      <col class="rank-table-col4" />
-                      <thead>
-                        <tr>
-                          <th class="table-rank-col">排行</th>
-                          <th class="table-name-col">名稱</th>
-                          <th class="table-score-col">分數</th>
-                          <th class="table-date-col">遊玩日期</th>
-                        </tr>
-                      </thead>
-                      <tbody id="rankEasyContent">
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div id="menu2" class="tab-pane fade">
-                  <div class='card-body' style="width: 100%; padding: 8px;">
-                    <table class='tableShow'
-                      style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #aac8e1; width: 100%;">
-                      <col class="rank-table-col1" />
-                      <col class="rank-table-col2" />
-                      <col class="rank-table-col3" />
-                      <col class="rank-table-col4" />
-                      <thead>
-                        <tr>
-                          <th class="table-rank-col">排行</th>
-                          <th class="table-name-col">名稱</th>
-                          <th class="table-score-col">分數</th>
-                          <th class="table-date-col">遊玩日期</th>
-                        </tr>
-                      </thead>
-                      <tbody id="rankMiddleContent">
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div id="menu3" class="tab-pane fade">
-                  <div class='card-body' style="width: 100%; padding: 8px;">
-                    <table class='tableShow'
-                      style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #A2D2F2; width: 100%;">
-                      <col class="rank-table-col1" />
-                      <col class="rank-table-col2" />
-                      <col class="rank-table-col3" />
-                      <col class="rank-table-col4" />
-                      <thead>
-                        <tr>
-                          <th class="table-rank-col">排行</th>
-                          <th class="table-name-col">名稱</th>
-                          <th class="table-score-col">分數</th>
-                          <th class="table-date-col">遊玩日期</th>
-                        </tr>
-                      </thead>
-                      <tbody id="rankHardContent">
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="aboutPage" class="container" style="display: none; padding: 0%;">
-          <div class="wp-block-group is-style-box container">
-            <div class="wp-block-group__inner-container">
-              <h1 id="about-page-first-title">特色</h1>
-              <br>
-              <div class="about-content">
-                <p id="about-page-1st-block1">本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
-                <div style="text-align: center;">
-                  <figure>
-                    <img src="imgs/screenshot_fabric.webp" class="about-page-img zoom-on-hover">
-                    <figcaption id="figcaption-1"> 纖維材質的棋子 </figcaption>
-                  </figure>
-                  <figure>
-                    <img src="imgs/screenshot_metal.webp" class="about-page-img zoom-on-hover">
-                    <figcaption id="figcaption-2"> 陶瓷材質的棋子 </figcaption>
-                  </figure>
-                </div>
-                <p id="about-page-1st-block2">
-                  提供儲存棋譜功能，資訊儲存在瀏覽器本身的local storage，在該頁面可。<br>
-                  可刪除特定一則遊玩紀錄或清空全部紀錄。<br>
-                  能夠在下完棋後慢慢思考與檢討。支援記錄匯出、匯入，避免清除瀏覽器快取時失去所有資料，也可以將資料帶著走。<br>
-                  在排行榜上顯示之前玩家對戰不同等級AI的分數紀錄，分數由高到低顯示該玩家的姓名及遊玩日期<br>
-                  有針對Edge cases做不少測試，盡量減少bug<br>
-                  RWD: 響應在各種設備上，能在電腦，平板，手機上顯示<br>
-                  語言國際化: 能切換中英版本</p>
-              </div>
-            </div>
-          </div>
-
-          <br><br>
-
-          <div class="wp-block-group is-style-box container">
-            <div class="wp-block-group__inner-container">
-              <h1 id="about-page-second-title">技術</h1>
-              <br>
-              <div class="about-content">
-                <p id="about-page-2nd-block1">前端使用HTML, JavaScript, CSS，並使用bootstrap。此外，也引入了 <a target="_blank"
-                    href="https://www.blender.org/">blender.org</a> 之CSS(開源)。<br>
-                  後端使用Go語言編寫，部屬在heroku上，資料庫使用postgreSQL(heroku postgres)。<br>
-                  AI使用Go語言編寫，編譯成WebAssembly提供遊戲呼叫。由於AI思考時間較長，使用Web Worker避免畫面凍結。<br>
-                  遊戲本體使用WebAssembly、WebGL製作，根據使用者環境不同，在大多數情況下能夠提供比JavaScript更好的效能來執行。<br>
-                  PWA: 本網站為progressive web application，在chrome的右上角可以看見安裝鍵，安裝後便可以離線使用(排行榜無法使用)<br>
-                  歷史棋譜存在localStorage中並提供下載，以便備份等用途。<br>
-                  <br>
-                  若網站出現問題歡迎回報 &nbsp;
-                  <a target="_blank"
-                    href="https://github.com/lemon37564/wp1101-final/issues">https://github.com/lemon37564/wp1101-final/issues</a>
-                </p>
-                <br>
-                <div style="text-align: center;">
-                  <figure>
-                    <img src="imgs/html5_logo.webp" class="about-page-img-small zoom-on-hover" loading="auto"
-                      alt="HTML5" title="HTML5">
-                  </figure>
-                  <figure>
-                    <img src="imgs/javascript_logo.webp" class="about-page-img-small zoom-on-hover" loading="auto"
-                      alt="JavaScript" title="JavaScript">
-                  </figure>
-                  <figure>
-                    <img src="imgs/css_logo.webp" class="about-page-img-small zoom-on-hover" loading="auto" alt="CSS3"
-                      title="CSS3">
-                  </figure>
-                  <figure>
-                    <img src="imgs/1200px-Go_Logo_Blue.svg.webp" class="about-page-img-small zoom-on-hover"
-                      loading="auto" alt="Go" title="Go">
-                  </figure>
-                  <figure>
-                    <img src="imgs/bootstrap-logo.webp" class="about-page-img-small zoom-on-hover" loading="auto"
-                      alt="Bootstrap" title="Bootstrap">
-                  </figure>
-                  <figure>
-                    <img src="imgs/webassembly_logo.webp" class="about-page-img-small zoom-on-hover" loading="auto"
-                      alt="WebAssembly" title="WebAssembly">
-                  </figure>
-                  <figure>
-                    <img src="imgs/webgl_logo.webp" class="about-page-img-small zoom-on-hover" loading="auto"
-                      alt="WebGL" title="WebGL">
-                  </figure>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <br><br>
-
-          <div class="wp-block-group is-style-box container">
-            <div class="wp-block-group__inner-container">
-              <h1 id="about-page-third-title">架構/流程圖</h1>
-              <br>
-              <div style="text-align: center;">
-                <img src="imgs/architecture.webp" class="about-page-img-arch zoom-on-hover" loading="auto">
-                <br><br><br><br>
-                <img src="imgs/architecture-2.webp" class="about-page-img-arch-2 zoom-on-hover" loading="auto">
-                <br><br>
-              </div>
-            </div>
-          </div>
-
-          <br><br>
-
-          <div class="wp-block-group is-style-box container">
-            <div class="wp-block-group__inner-container">
-              <h1 id="about-page-fourth-title">開發記錄</h1>
-              <table class='dev-table tableShow'
-                style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #b2bfcf; width: 100%;">
-                <col id="about-page-table-col1" />
-                <col id="about-page-table-col2" />
-                <thead>
-                  <tr style="font-size: larger">
-                    <th id="version-table-col1">版本</th>
-                    <th id="version-table-col2">日期</th>
-                    <th id="version-table-col3">描述</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th>v0.1</th>
-                    <th>2021/11/27</th>
-                    <th id="ver0.1-label">完成後端；撰寫基本HTML，JavaScript與CSS</th>
-                  </tr>
-                  <tr>
-                    <th>v0.2</th>
-                    <th>2021/12/04</th>
-                    <th id="ver0.2-label">網站架設在Github Pages上；資料庫由SQLite改為PostgreSQL</th>
-                  </tr>
-                  <tr>
-                    <th>v0.3</th>
-                    <th>2021/12/12</th>
-                    <th id="ver0.3-label">遊戲本體完成；新增棋譜頁面與功能</th>
-                  </tr>
-                  <tr>
-                    <th>v0.4</th>
-                    <th>2021/12/19</th>
-                    <th id="ver0.4-label">PWA；AI由後端移至前端</th>
-                  </tr>
-                  <tr>
-                    <th>v1.0</th>
-                    <th>2021/12/28</th>
-                    <th id="ver1.0-label">RWD；國際化</th>
-                  </tr>
-                  <tr>
-                    <th>v1.1</th>
-                    <th>2022/01/12</th>
-                    <th id="ver1.1-label">修正數個bug</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <br><br>
-
-          <div class="wp-block-group is-style-box container">
-            <div class="wp-block-group__inner-container">
-              <h1>Demo</h1>
-              <div id="demo-block" class="container-fluid ">
-                <div class="row h-grid gap-2" style="display: flex;justify-content: center;  align-items: center; ">
-                  <div class="col-md-3 d-grid gap-3">
-                    <button type="button" class="btn btn-secondary demo-block-button" onclick="downloadPPT();">PDF
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-file-earmark-ppt-fill" viewBox="0 0 16 16">
-                        <path d="M8.188 10H7V6.5h1.188a1.75 1.75 0 1 1 0 3.5z" />
-                        <path
-                          d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3zM7 5.5a1 1 0 0 0-1 1V13a.5.5 0 0 0 1 0v-2h1.188a2.75 2.75 0 0 0 0-5.5H7z" />
-                      </svg></button>
-                  </div>
-
-                  <div class="col-md-3 d-grid gap-3">
-                    <button type="button" class="btn btn-secondary demo-block-button w-20"
-                      onclick="downloadRecordDemo();">record-demo</button>
-                  </div>
-                  <div class="col-md-3 d-grid gap-3">
-                    <button type="button" class="btn btn-secondary demo-block-button w-20"
-                      onclick="downloadRecordDemoLarge();">record-large</button>
-                  </div>
-                </div>
-              </div>
-              <a href="" id="download-a" download="" style="display: none;"></a>
-
-            </div>
-
-          </div>
-
-          <br><br>
-
-          <div class="wp-block-group is-style-box container">
-            <div class="wp-block-group__inner-container">
-              <h1 id="about-page-fifth-title">作者</h1>
-
-              <div style="text-align: center;">
-                <figure style="margin-left: 2.5%; margin-right: 2.5%;">
-                  <a target="_blank" href="https://github.com/lemon37564" style="text-decoration: none;">
-                    <img src="https://avatars.githubusercontent.com/u/65079334?v=4"
-                      class="about-page-img-avatar zoom-on-hover" loading="auto">
-                    <figcaption> lemon37564 </figcaption>
-                  </a>
-                </figure>
-                <figure style="margin-left: 2.5%; margin-right: 2.5%;">
-                  <a target="_blank" href="https://github.com/Dino-0625" style="text-decoration: none;">
-                    <img src="https://avatars.githubusercontent.com/u/65156720?v=4"
-                      class="about-page-img-avatar zoom-on-hover" loading="auto">
-                    <figcaption> Dino-0625 </figcaption>
-                  </a>
-                </figure>
-              </div>
-            </div>
-          </div>
-
-          <div style="visibility: hidden;">placeholder</div>
-          <p class="version" style="position: absolute; right: 15px; color: black">wp1101-final v1.1</p>
-        </div>
-
-        <div id="historyPage" style="display: none;" class="container">
+      <div id="rankboard" class="container" style="display: none;">
+        <div>
           <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-            <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
               <path
-                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
             </symbol>
           </svg>
 
-          <div class="alert alert-warning d-flex align-items-center alert-dismissible fade show" role="alert"
-            style="border-radius: 8px;">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
-              <use xlink:href="#exclamation-triangle-fill" />
-            </svg>
-            <div id="Chess_record_Reminding">
-              此記錄儲存在本地端而非伺服器，因此刪除Cookie將會遺失所有記錄! &nbsp; &nbsp; 此外，AI之間的對局不會被記錄。
+          <div id="rank-hint-bar">
+            <div class="alert alert-primary d-flex align-items-center alert-dismissible fade show" role="alert"
+              style="border-radius: 8px; margin-bottom: 2px;">
+              <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                <use xlink:href="#info-fill" />
+              </svg>
+              <div style="margin-left: 10px;" id="rank-page-info">
+                排名計算方式為: 己方分數/(己方分數+敵方分數)
+              </div>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+                style="padding: 18px;"></button>
             </div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
-              style="padding: 17px;"></button>
           </div>
 
-          <div class="wp-block-group is-style-box container">
-            <div class="wp-block-group__inner-container">
+          <div id="titlebar2-div">
+            <nav class="navbar navbar-expand-sm" id="titlebar2" style="background-color: transparent;">
+              <ul class="navbar-nav nav rankBar">
+                <li class="nav-item rank-nav-bar" style="float:left; width: 32%;"><a data-toggle="tab"
+                    id="ai-weak-label" class="nav-link" href="#menu1" onclick="getRank(0)"
+                    onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='#343A40'"
+                    style="font-size: 1.5em; text-decoration: none; width: 100%; text-align: center; background-color: #b2bfcf;color: #343A40; height: 55px; padding-top: 13px; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border: 2px solid #dddddd; white-space: nowrap;">AI
+                    弱</a>
+                </li>
+                <li class="nav-item rank-nav-bar" style="float:left; width: 32%;"><a data-toggle="tab"
+                    id="ai-medium-label" class="nav-link" href="#menu2" onclick="getRank(1)"
+                    onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='#343A40'"
+                    style="font-size: 1.5em; text-decoration: none; width: 100%; text-align: center;  background-color: #aac8e1; color: #343A40; height: 55px; padding-top: 13px; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border: 2px solid #dddddd; white-space: nowrap;">AI
+                    中
+                  </a></li>
+                <li class="nav-item rank-nav-bar" style="float:left; width: 32%;"><a data-toggle="tab"
+                    id="ai-hard-label" class="nav-link" href="#menu3" onclick="getRank(2)"
+                    onmouseover="this.style.color='#00A4EB'" onmouseout="this.style.color='#343A40'"
+                    style="font-size: 1.5em; text-decoration: none; width: 100%; text-align: center;background-color: #A2D2F2; color: #343A40; height: 55px; padding-top: 13px; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border: 2px solid #dddddd; white-space: nowrap;">AI
+                    強
+                  </a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
 
-              <div style="display: flex; justify-content: space-between;">
-                <h2 id="gamesRecordTime" style="float: left; margin-left: 3%; margin-top: 15px;"></h2>
-                <div class="mb-3" style="float: right; margin-bottom: 10px;" id="jump-function-label">
-                  <h2 id="jump-label">跳躍到第# 則記錄</h2>
-                  <input type="text" class="form-control" id="jump-input" style="width: 250px;"
-                    onchange="jumpPage(this.value);">
+        <div class="wp-block-group is-style-box container" id="rank-div">
+          <div class="wp-block-group__inner-container">
+            <div class="d-flex justify-content-center" id="spinner"
+              style="visibility: visible; position: absolute; top: 300px; left: 48.5%;">
+              <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                <span class="visually-hidden"></span>
+              </div>
+            </div>
+
+            <div class="tab-content">
+              <div id="menu1" class="tab-pane fade in active show">
+                <div class='card-body' style="width: 100%; padding: 8px;">
+                  <table class='tableShow'
+                    style="color: #4C4D52; table-layout: fixed; text-align: center;background-color: #b2bfcf; width: 100%;">
+                    <col class="rank-table-col1" />
+                    <col class="rank-table-col2" />
+                    <col class="rank-table-col3" />
+                    <col class="rank-table-col4" />
+                    <thead>
+                      <tr>
+                        <th class="table-rank-col">排行</th>
+                        <th class="table-name-col">名稱</th>
+                        <th class="table-score-col">分數</th>
+                        <th class="table-date-col">遊玩日期</th>
+                      </tr>
+                    </thead>
+                    <tbody id="rankEasyContent">
+                    </tbody>
+                  </table>
                 </div>
               </div>
-
-              <div style="text-align: center;">
-                <figure style="margin-left: 4%; margin-right: 4%; padding: 0px; margin-bottom: 0px;">
-                  <img src="" id="player1pic" class="about-page-img-small zoom-on-hover" loading="auto">
-                  <figcaption id="player1"></figcaption>
-                  <p id="black-count" style="font-size: x-large; font-weight: bold; margin-bottom: 0px;"></p>
-                </figure>
-
-                <figure style="margin-left: 4%; margin-right: 4%; padding: 0px; margin-bottom: 0px;">
-                  <img src="" id="player2pic" class="about-page-img-small zoom-on-hover" loading="auto">
-                  <figcaption id="player2"></figcaption>
-                  <p id="white-count" style="font-size: x-large; font-weight: bold; margin-bottom: 0px;"></p>
-                </figure>
-              </div>
-
-              <div id="record-page-top-button">
-                <button type="button" id="previous-page-button" class="btn btn-info"
-                  onclick="beforePage();">上一則</button>
-
-                <div class="record-page-button"></div>
-                <div class="record-page-button"></div>
-
-                <a onclick="firstStep()" id="first-step-button" style="text-decoration: none;">
-                  <input type="image" src="imgs/fast-forward.png" width=32em
-                    style="transform:scaleX(-1); margin-top: 5px;" loading="auto">
-                </a>
-
-                <a onclick="beforeStep()" id="previous-step-button" style="text-decoration: none;">
-                  <input type="image" src="imgs/next.png" width=32em style="transform:scaleX(-1); margin-top: 5px;"
-                    loading="auto">
-                </a>
-
-                <div class="record-page-button"></div>
-                <div class="record-page-button"></div>
-
-                <a onclick="nextStep()" id="next-step-button" style="text-decoration: none;">
-                  <input type="image" src="imgs/next.png" width=32em style="margin-top: 5px;" loading="auto">
-                </a>
-
-                <a onclick="lastStep()" id="last-step-button" style="text-decoration: none;">
-                  <input type="image" src="imgs/fast-forward.png" width=32em style="margin-top: 5px;" loading="auto">
-                </a>
-
-                <div class="record-page-button"></div>
-                <div class="record-page-button"></div>
-
-                <button type="button" id="next-page-button" class="btn btn-info" onclick="nextPage();">下一則</button>
-              </div>
-              <div id="boardRecord"></div>
-
-              <!-- Modal -->
-              <div class="modal fade" id="delete-all-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h2 class="modal-title" id="exampleModalLabel1">提示</h2>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="Chess_record_Warning0">
-                      <h4>確定刪除全部記錄?<br>刪除後無法恢復!</h4>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                        id="Chess_record_Cancel1">取消</button>
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="deleteAllRecord()"
-                        id="Chess_record_Confirm1">確認</button>
-                    </div>
-                  </div>
+              <div id="menu2" class="tab-pane fade">
+                <div class='card-body' style="width: 100%; padding: 8px;">
+                  <table class='tableShow'
+                    style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #aac8e1; width: 100%;">
+                    <col class="rank-table-col1" />
+                    <col class="rank-table-col2" />
+                    <col class="rank-table-col3" />
+                    <col class="rank-table-col4" />
+                    <thead>
+                      <tr>
+                        <th class="table-rank-col">排行</th>
+                        <th class="table-name-col">名稱</th>
+                        <th class="table-score-col">分數</th>
+                        <th class="table-date-col">遊玩日期</th>
+                      </tr>
+                    </thead>
+                    <tbody id="rankMiddleContent">
+                    </tbody>
+                  </table>
                 </div>
               </div>
-
-              <div class="modal fade" id="delete-this-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h2 class="modal-title" id="exampleModalLabel2">提示</h2>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="Chess_record_Warning1">
-                      <h4>確定刪除本則記錄?<br>刪除後無法恢復!</h4>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                        id="Chess_record_Cancel2">取消</button>
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="deleteThisRecord()"
-                        id="Chess_record_Confirm2">確認</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="modal fade" id="importWrongFile" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h2 class="modal-title" id="exampleModalLabel3">提示</h2>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="Chess_record_Warning2">
-                      <h4>檔案格式錯誤或檔案毀損</h4>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-info" data-bs-dismiss="modal"
-                        id="Chess_record_Confirm3">確認</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div id="record-page-bottom-button">
-                <div class="record-page-button-always-show">
-                  <button class="btn btn-info" onclick="importData()" id="import-button">匯入記錄</button>
-                </div>
-                <div class="record-page-button">
-                  <button type="button" id="save-file-button" class="btn btn-info"
-                    onclick="saveTextAsFile();">匯出記錄</button>
-                </div>
-                <div class="record-page-button"></div>
-                <div class="record-page-button"></div>
-                <div class="record-page-button"></div>
-                <div class="record-page-button">
-                  <button type="button" class="btn btn-danger" id="delete-this-button" data-bs-toggle="modal"
-                    data-bs-target="#delete-this-modal">
-                    刪除本則記錄
-                  </button>
-                </div>
-                <div class="record-page-button">
-                  <button type="button" class="btn btn-danger" id="delete-all-button" data-bs-toggle="modal"
-                    data-bs-target="#delete-all-modal">
-                    清除所有記錄
-                  </button>
-
-                  <button type="button" class="btn btn-danger" id="wrongFile-button" style="display:none;"
-                    data-bs-toggle="modal" data-bs-target="#importWrongFile">
-                    警告
-                  </button>
+              <div id="menu3" class="tab-pane fade">
+                <div class='card-body' style="width: 100%; padding: 8px;">
+                  <table class='tableShow'
+                    style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #A2D2F2; width: 100%;">
+                    <col class="rank-table-col1" />
+                    <col class="rank-table-col2" />
+                    <col class="rank-table-col3" />
+                    <col class="rank-table-col4" />
+                    <thead>
+                      <tr>
+                        <th class="table-rank-col">排行</th>
+                        <th class="table-name-col">名稱</th>
+                        <th class="table-score-col">分數</th>
+                        <th class="table-date-col">遊玩日期</th>
+                      </tr>
+                    </thead>
+                    <tbody id="rankHardContent">
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div id="aboutPage" class="container" style="display: none; padding: 0%;">
+        <div class="wp-block-group is-style-box container">
+          <div class="wp-block-group__inner-container">
+            <h1 id="about-page-first-title">特色</h1>
+            <br>
+            <div class="about-content">
+              <p id="about-page-1st-block1">本網站主打3D黑白棋，其中包含豐富可設定項目如: 語言、材質、動畫、陰影、抗鋸齒等設定。使用者可依電腦效能去組合出自己喜歡的設定。</p>
+              <div style="text-align: center;">
+                <figure>
+                  <img src="imgs/screenshot_fabric.webp" class="about-page-img zoom-on-hover">
+                  <figcaption id="figcaption-1"> 纖維材質的棋子 </figcaption>
+                </figure>
+                <figure>
+                  <img src="imgs/screenshot_metal.webp" class="about-page-img zoom-on-hover">
+                  <figcaption id="figcaption-2"> 陶瓷材質的棋子 </figcaption>
+                </figure>
+              </div>
+              <p id="about-page-1st-block2">
+                提供儲存棋譜功能，資訊儲存在瀏覽器本身的local storage，在該頁面可。<br>
+                可刪除特定一則遊玩紀錄或清空全部紀錄。<br>
+                能夠在下完棋後慢慢思考與檢討。支援記錄匯出、匯入，避免清除瀏覽器快取時失去所有資料，也可以將資料帶著走。<br>
+                在排行榜上顯示之前玩家對戰不同等級AI的分數紀錄，分數由高到低顯示該玩家的姓名及遊玩日期<br>
+                有針對Edge cases做不少測試，盡量減少bug<br>
+                RWD: 響應在各種設備上，能在電腦，平板，手機上顯示<br>
+                語言國際化: 能切換中英版本</p>
+            </div>
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="wp-block-group is-style-box container">
+          <div class="wp-block-group__inner-container">
+            <h1 id="about-page-second-title">技術</h1>
+            <br>
+            <div class="about-content">
+              <p id="about-page-2nd-block1">前端使用HTML, JavaScript, CSS，並使用bootstrap。此外，也引入了 <a target="_blank"
+                  href="https://www.blender.org/">blender.org</a> 之CSS(開源)。<br>
+                後端使用Go語言編寫，部屬在heroku上，資料庫使用postgreSQL(heroku postgres)。<br>
+                AI使用Go語言編寫，編譯成WebAssembly提供遊戲呼叫。由於AI思考時間較長，使用Web Worker避免畫面凍結。<br>
+                遊戲本體使用WebAssembly、WebGL製作，根據使用者環境不同，在大多數情況下能夠提供比JavaScript更好的效能來執行。<br>
+                PWA: 本網站為progressive web application，在chrome的右上角可以看見安裝鍵，安裝後便可以離線使用(排行榜無法使用)<br>
+                歷史棋譜存在localStorage中並提供下載，以便備份等用途。<br>
+                <br>
+                若網站出現問題歡迎回報 &nbsp;
+                <a target="_blank"
+                  href="https://github.com/lemon37564/wp1101-final/issues">https://github.com/lemon37564/wp1101-final/issues</a>
+              </p>
+              <br>
+              <div style="text-align: center;">
+                <figure>
+                  <img src="imgs/html5_logo.webp" class="about-page-img-small zoom-on-hover" loading="auto" alt="HTML5"
+                    title="HTML5">
+                </figure>
+                <figure>
+                  <img src="imgs/javascript_logo.webp" class="about-page-img-small zoom-on-hover" loading="auto"
+                    alt="JavaScript" title="JavaScript">
+                </figure>
+                <figure>
+                  <img src="imgs/css_logo.webp" class="about-page-img-small zoom-on-hover" loading="auto" alt="CSS3"
+                    title="CSS3">
+                </figure>
+                <figure>
+                  <img src="imgs/1200px-Go_Logo_Blue.svg.webp" class="about-page-img-small zoom-on-hover" loading="auto"
+                    alt="Go" title="Go">
+                </figure>
+                <figure>
+                  <img src="imgs/bootstrap-logo.webp" class="about-page-img-small zoom-on-hover" loading="auto"
+                    alt="Bootstrap" title="Bootstrap">
+                </figure>
+                <figure>
+                  <img src="imgs/webassembly_logo.webp" class="about-page-img-small zoom-on-hover" loading="auto"
+                    alt="WebAssembly" title="WebAssembly">
+                </figure>
+                <figure>
+                  <img src="imgs/webgl_logo.webp" class="about-page-img-small zoom-on-hover" loading="auto" alt="WebGL"
+                    title="WebGL">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="wp-block-group is-style-box container">
+          <div class="wp-block-group__inner-container">
+            <h1 id="about-page-third-title">架構/流程圖</h1>
+            <br>
+            <div style="text-align: center;">
+              <img src="imgs/architecture.webp" class="about-page-img-arch zoom-on-hover" loading="auto">
+              <br><br><br><br>
+              <img src="imgs/architecture-2.webp" class="about-page-img-arch-2 zoom-on-hover" loading="auto">
+              <br><br>
+            </div>
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="wp-block-group is-style-box container">
+          <div class="wp-block-group__inner-container">
+            <h1 id="about-page-fourth-title">開發記錄</h1>
+            <table class='dev-table tableShow'
+              style="color: #4C4D52; table-layout: fixed; text-align: center; background-color: #b2bfcf; width: 100%;">
+              <col id="about-page-table-col1" />
+              <col id="about-page-table-col2" />
+              <thead>
+                <tr style="font-size: larger">
+                  <th id="version-table-col1">版本</th>
+                  <th id="version-table-col2">日期</th>
+                  <th id="version-table-col3">描述</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>v0.1</th>
+                  <th>2021/11/27</th>
+                  <th id="ver0.1-label">完成後端；撰寫基本HTML，JavaScript與CSS</th>
+                </tr>
+                <tr>
+                  <th>v0.2</th>
+                  <th>2021/12/04</th>
+                  <th id="ver0.2-label">網站架設在Github Pages上；資料庫由SQLite改為PostgreSQL</th>
+                </tr>
+                <tr>
+                  <th>v0.3</th>
+                  <th>2021/12/12</th>
+                  <th id="ver0.3-label">遊戲本體完成；新增棋譜頁面與功能</th>
+                </tr>
+                <tr>
+                  <th>v0.4</th>
+                  <th>2021/12/19</th>
+                  <th id="ver0.4-label">PWA；AI由後端移至前端</th>
+                </tr>
+                <tr>
+                  <th>v1.0</th>
+                  <th>2021/12/28</th>
+                  <th id="ver1.0-label">RWD；國際化</th>
+                </tr>
+                <tr>
+                  <th>v1.1</th>
+                  <th>2022/01/12</th>
+                  <th id="ver1.1-label">修正數個bug</th>
+                </tr>
+                <tr>
+                  <th>v1.2</th>
+                  <th>2022/03/26</th>
+                  <th id="ver1.2-label">AI用rust改寫並最佳化，提昇速度110%</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="wp-block-group is-style-box container">
+          <div class="wp-block-group__inner-container">
+            <h1>Demo</h1>
+            <div id="demo-block" class="container-fluid ">
+              <div class="row h-grid gap-2" style="display: flex;justify-content: center;  align-items: center; ">
+                <div class="col-md-3 d-grid gap-3">
+                  <button type="button" class="btn btn-secondary demo-block-button" onclick="downloadPPT();">PDF
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-file-earmark-ppt-fill" viewBox="0 0 16 16">
+                      <path d="M8.188 10H7V6.5h1.188a1.75 1.75 0 1 1 0 3.5z" />
+                      <path
+                        d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3zM7 5.5a1 1 0 0 0-1 1V13a.5.5 0 0 0 1 0v-2h1.188a2.75 2.75 0 0 0 0-5.5H7z" />
+                    </svg></button>
+                </div>
+
+                <div class="col-md-3 d-grid gap-3">
+                  <button type="button" class="btn btn-secondary demo-block-button w-20"
+                    onclick="downloadRecordDemo();">record-demo</button>
+                </div>
+                <div class="col-md-3 d-grid gap-3">
+                  <button type="button" class="btn btn-secondary demo-block-button w-20"
+                    onclick="downloadRecordDemoLarge();">record-large</button>
+                </div>
+              </div>
+            </div>
+            <a href="" id="download-a" download="" style="display: none;"></a>
+
+          </div>
+
+        </div>
+
+        <br><br>
+
+        <div class="wp-block-group is-style-box container">
+          <div class="wp-block-group__inner-container">
+            <h1 id="about-page-fifth-title">作者</h1>
+
+            <div style="text-align: center;">
+              <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                <a target="_blank" href="https://github.com/lemon37564" style="text-decoration: none;">
+                  <img src="https://avatars.githubusercontent.com/u/65079334?v=4"
+                    class="about-page-img-avatar zoom-on-hover" loading="auto">
+                  <figcaption> lemon37564 </figcaption>
+                </a>
+              </figure>
+              <figure style="margin-left: 2.5%; margin-right: 2.5%;">
+                <a target="_blank" href="https://github.com/Dino-0625" style="text-decoration: none;">
+                  <img src="https://avatars.githubusercontent.com/u/65156720?v=4"
+                    class="about-page-img-avatar zoom-on-hover" loading="auto">
+                  <figcaption> Dino-0625 </figcaption>
+                </a>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div style="visibility: hidden;">placeholder</div>
+        <p class="version" style="position: absolute; right: 15px; color: black">wp1101-final v1.1</p>
+      </div>
+
+      <div id="historyPage" style="display: none;" class="container">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+          <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+          </symbol>
+        </svg>
+
+        <div class="alert alert-warning d-flex align-items-center alert-dismissible fade show" role="alert"
+          style="border-radius: 8px;">
+          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+            <use xlink:href="#exclamation-triangle-fill" />
+          </svg>
+          <div id="Chess_record_Reminding">
+            此記錄儲存在本地端而非伺服器，因此刪除Cookie將會遺失所有記錄! &nbsp; &nbsp; 此外，AI之間的對局不會被記錄。
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+            style="padding: 17px;"></button>
+        </div>
+
+        <div class="wp-block-group is-style-box container">
+          <div class="wp-block-group__inner-container">
+
+            <div style="display: flex; justify-content: space-between;">
+              <h2 id="gamesRecordTime" style="float: left; margin-left: 3%; margin-top: 15px;"></h2>
+              <div class="mb-3" style="float: right; margin-bottom: 10px;" id="jump-function-label">
+                <h2 id="jump-label">跳躍到第# 則記錄</h2>
+                <input type="text" class="form-control" id="jump-input" style="width: 250px;"
+                  onchange="jumpPage(this.value);">
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <figure style="margin-left: 4%; margin-right: 4%; padding: 0px; margin-bottom: 0px;">
+                <img src="" id="player1pic" class="about-page-img-small zoom-on-hover" loading="auto">
+                <figcaption id="player1"></figcaption>
+                <p id="black-count" style="font-size: x-large; font-weight: bold; margin-bottom: 0px;"></p>
+              </figure>
+
+              <figure style="margin-left: 4%; margin-right: 4%; padding: 0px; margin-bottom: 0px;">
+                <img src="" id="player2pic" class="about-page-img-small zoom-on-hover" loading="auto">
+                <figcaption id="player2"></figcaption>
+                <p id="white-count" style="font-size: x-large; font-weight: bold; margin-bottom: 0px;"></p>
+              </figure>
+            </div>
+
+            <div id="record-page-top-button">
+              <button type="button" id="previous-page-button" class="btn btn-info" onclick="beforePage();">上一則</button>
+
+              <div class="record-page-button"></div>
+              <div class="record-page-button"></div>
+
+              <a onclick="firstStep()" id="first-step-button" style="text-decoration: none;">
+                <input type="image" src="imgs/fast-forward.png" width=32em
+                  style="transform:scaleX(-1); margin-top: 5px;" loading="auto">
+              </a>
+
+              <a onclick="beforeStep()" id="previous-step-button" style="text-decoration: none;">
+                <input type="image" src="imgs/next.png" width=32em style="transform:scaleX(-1); margin-top: 5px;"
+                  loading="auto">
+              </a>
+
+              <div class="record-page-button"></div>
+              <div class="record-page-button"></div>
+
+              <a onclick="nextStep()" id="next-step-button" style="text-decoration: none;">
+                <input type="image" src="imgs/next.png" width=32em style="margin-top: 5px;" loading="auto">
+              </a>
+
+              <a onclick="lastStep()" id="last-step-button" style="text-decoration: none;">
+                <input type="image" src="imgs/fast-forward.png" width=32em style="margin-top: 5px;" loading="auto">
+              </a>
+
+              <div class="record-page-button"></div>
+              <div class="record-page-button"></div>
+
+              <button type="button" id="next-page-button" class="btn btn-info" onclick="nextPage();">下一則</button>
+            </div>
+            <div id="boardRecord"></div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="delete-all-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel1">提示</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" id="Chess_record_Warning0">
+                    <h4>確定刪除全部記錄?<br>刪除後無法恢復!</h4>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                      id="Chess_record_Cancel1">取消</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="deleteAllRecord()"
+                      id="Chess_record_Confirm1">確認</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="delete-this-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel2">提示</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" id="Chess_record_Warning1">
+                    <h4>確定刪除本則記錄?<br>刪除後無法恢復!</h4>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                      id="Chess_record_Cancel2">取消</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="deleteThisRecord()"
+                      id="Chess_record_Confirm2">確認</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="importWrongFile" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel3">提示</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" id="Chess_record_Warning2">
+                    <h4>檔案格式錯誤或檔案毀損</h4>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal"
+                      id="Chess_record_Confirm3">確認</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="record-page-bottom-button">
+              <div class="record-page-button-always-show">
+                <button class="btn btn-info" onclick="importData()" id="import-button">匯入記錄</button>
+              </div>
+              <div class="record-page-button">
+                <button type="button" id="save-file-button" class="btn btn-info"
+                  onclick="saveTextAsFile();">匯出記錄</button>
+              </div>
+              <div class="record-page-button"></div>
+              <div class="record-page-button"></div>
+              <div class="record-page-button"></div>
+              <div class="record-page-button">
+                <button type="button" class="btn btn-danger" id="delete-this-button" data-bs-toggle="modal"
+                  data-bs-target="#delete-this-modal">
+                  刪除本則記錄
+                </button>
+              </div>
+              <div class="record-page-button">
+                <button type="button" class="btn btn-danger" id="delete-all-button" data-bs-toggle="modal"
+                  data-bs-target="#delete-all-modal">
+                  清除所有記錄
+                </button>
+
+                <button type="button" class="btn btn-danger" id="wrongFile-button" style="display:none;"
+                  data-bs-toggle="modal" data-bs-target="#importWrongFile">
+                  警告
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
 </body>
 
