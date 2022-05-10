@@ -1,6 +1,0 @@
-#!/bin/bash
-cargo build --release --target=wasm32-unknown-unknown
-cp target/wasm32-unknown-unknown/release/othello_wasm.wasm result/othello_wasm.wasm
-cd result
-wasm-bindgen --target no-modules othello_wasm.wasm --out-dir res
-rm othello_wasm.wasm
