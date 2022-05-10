@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>reversi3D</title>
+    <meta charset="UTF-8">
+
+    <style type="text/css">
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40rem;
+        }
+
+        .wavy {
+            position: relative;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .wavy span {
+            position: relative;
+            display: inline-block;
+            color: black;
+            font-size: 6rem;
+            animation: animate 2.2s ease-in-out infinite;
+            animation-delay: calc(0.2s * var(--i));
+            /* animation-duration: 3s; */
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0px)
+            }
+
+            20% {
+                transform: translateY(-2.7rem)
+            }
+
+            40%,
+            100% {
+                transform: translateY(0px)
+            }
+        }
+
+        #percentage {
+            margin: 0;
+            font-size: 8rem;
+            text-align: center;
+        }
+
+        .itemwait {
+            position: absolute;
+            width: 50rem;
+            height: 50rem;
+            top: calc((100% - 50rem) / 2);
+            left: calc((100% - 50rem) / 2);
+        }
+
+        #progress {
+            stroke-dasharray: 2010;
+            stroke-dashoffset: 2010;
+        }
+    </style>
+    <script type="text/javascript" src="ai.js"></script>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script src="index.js"></script>
+    <script>
+        const TOTAL = 2010;
+        let percentage = null, progress = null;
+        var engine;
+
+        function printProgress(current, total) {
+            let prog = current * 100 / total;
+            percentage.innerHTML = String(prog).substr(0, 4) + "%";
+            setCirclePercent(prog)
+        }
+
+        function setCirclePercent(percent) {
+            progress.style.strokeDashoffset = TOTAL - (percent * TOTAL / 100);
+        }
+
+        function start() {
+            percentage = document.getElementById("percentage");
+            progress = document.getElementById("progress");
+            progress.style.strokeDashoffset = TOTAL;
+            Promise.all(
+                [
+                    engine = new Engine({"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":4119568,"index.wasm":12287309},"focusCanvas":true,"gdnativeLibs":[]}),
+                ]
+            ).then(() => {
+                return engine.startGame({ onProgress: printProgress });
+            }
+            ).then(() => {
+                document.getElementById("loading").remove();
+            });
+        }
+
+        window.addEventListener("load", start, false);
+    </script>
+
+<label style="display: none;" id="request"></label>
+<label style="display: none;" id="result"></label>
+
+    <div class="container">
+        <div id="loading">
+            <br><br><br><br>
+            <div class="wavy">
+                <span style="--i:1">L</span>
+                <span style="--i:2">o</span>
+                <span style="--i:3">a</span>
+                <span style="--i:4">d</span>
+                <span style="--i:5">i</span>
+                <span style="--i:6">n</span>
+                <span style="--i:7">g</span>
+                <span style="--i:8">.</span>
+                <span style="--i:9">.</span>
+                <span style="--i:10">.</span>
+            </div>
+            <br><br><br>
+            <div style>
+                <p id="percentage">0%</p>
+            </div>
+            <svg version="1.1" class='itemwait'>
+                <circle id="progress" cx="26rem" cy="26rem" r="20rem" stroke="green" stroke-width="15"
+                    fill="transparent" />
+            </svg>
+        </div>
+    </div>
+
+</body>
+
+</html>
