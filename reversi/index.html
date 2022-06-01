@@ -98,9 +98,10 @@
             percentage = document.getElementById("percentage");
             progress = document.getElementById("progress");
             progress.style.strokeDashoffset = TOTAL;
+            
             Promise.all(
                 [
-                    engine = new Engine({"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":4119568,"index.wasm":12287309},"focusCanvas":true,"gdnativeLibs":[]}),
+                    engine = new Engine({ "args": [], "canvasResizePolicy": 2, "executable": "index", "experimentalVK": false, "fileSizes": { "index.pck": 4119568, "index.wasm": 12287309 }, "focusCanvas": true, "gdnativeLibs": [] }),
                 ]
             ).then(() => {
                 return engine.startGame({ onProgress: printProgress });
@@ -113,8 +114,8 @@
         window.addEventListener("load", start, false);
     </script>
 
-<label style="display: none;" id="request"></label>
-<label style="display: none;" id="result"></label>
+    <label style="display: none;" id="request"></label>
+    <label style="display: none;" id="result"></label>
 
     <div class="container">
         <div id="loading">
@@ -134,10 +135,12 @@
             <div style>
                 <p id="percentage">0%</p>
             </div>
-            <svg version="1.1" class='itemwait'>
-                <circle id="progress" cx="26rem" cy="26rem" r="20rem" stroke="green" stroke-width="15"
-                    fill="transparent" />
-            </svg>
+            <span style="transform: rotate(-90deg);">
+                <svg version="1.1" class='itemwait'>
+                    <circle id="progress" cx="26rem" cy="26rem" r="20rem" stroke="green" stroke-width="30"
+                        fill="transparent" />
+                </svg>
+            </span>
         </div>
     </div>
 
