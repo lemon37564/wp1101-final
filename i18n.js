@@ -196,7 +196,7 @@ const aboutPageZh = [
   "纖維材質的棋子",
   "陶瓷材質的棋子",
   "提供儲存棋譜功能，資訊儲存在瀏覽器本身的local storage，可在棋譜頁面檢視。<br>可刪除特定一則遊玩紀錄或清空全部紀錄。<br>能夠在下完棋後慢慢思考與檢討。支援記錄匯出、匯入，避免清除瀏覽器快取時失去所有資料，也可以將資料帶著走。<br>在排行榜上顯示之前玩家對戰不同等級AI的分數紀錄，分數由高到低顯示該玩家的姓名及遊玩日期。<br>網站測試完善，以求將bug數量減到最低。<br>RWD: 響應在各種設備上，能在電腦，平板，手機上顯示。<br>語言國際化: 有中英文版本可以選擇。",
-  "前端使用HTML, JavaScript, CSS，並使用bootstrap。此外，也引入了 <a target='_blank' href='https://www.blender.org/'>blender.org</a> 之CSS(開源)。<br>後端使用Go語言編寫，部屬在heroku上，資料庫使用postgreSQL(heroku postgres)。<br>AI使用Go語言編寫，編譯成WebAssembly提供遊戲呼叫。由於AI思考時間較長，使用Web Worker避免畫面凍結。<br>遊戲本體使用WebAssembly、WebGL製作，根據使用者環境不同，在大多數情況下能夠提供比JavaScript更好的效能來執行。<br>PWA: 本網站為progressive web application，在chrome的右上角可以看見安裝鍵，安裝後便可以離線使用(排行榜無法使用)<br>歷史棋譜存在localStorage中並提供下載，以便備份等用途。<br><br>若網站出現問題歡迎回報 &nbsp;<a target='_blank' href='https://github.com/lemon37564/wp1101-final/issues'>https://github.com/lemon37564/wp1101-final/issues</a>",
+  "前端使用HTML, JavaScript, CSS，並使用bootstrap。此外，也引入了 <a target='_blank' href='https://www.blender.org/'>blender.org</a> 之CSS(GPL)。<br>後端使用Go語言編寫，部屬在heroku上，資料庫使用postgreSQL(heroku postgres)。<br>AI使用Go語言編寫，編譯成WebAssembly提供遊戲呼叫。由於AI思考時間較長，使用Web Worker避免畫面凍結。<br>遊戲本體使用WebAssembly、WebGL製作，根據使用者環境不同，在大多數情況下能夠提供比JavaScript更好的效能來執行。<br>PWA: 本網站為progressive web application，在chrome的右上角可以看見安裝鍵，安裝後便可以離線使用(排行榜無法使用)<br>歷史棋譜存在localStorage中並提供下載，以便備份等用途。<br><br>若網站出現問題歡迎回報 &nbsp;<a target='_blank' href='https://github.com/lemon37564/wp1101-final/issues'>https://github.com/lemon37564/wp1101-final/issues</a>",
   "技術",
   "架構/流程圖",
   "開發記錄",
